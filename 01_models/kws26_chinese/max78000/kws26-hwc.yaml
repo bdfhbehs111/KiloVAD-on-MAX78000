@@ -1,0 +1,59 @@
+---
+# HWC 配置：30K 口令识别学生模型（26 类）
+# 规则：processors 对应"输入通道"，output_processors 对应"输出通道"
+# 结构：Conv1d(128→32,k3) → MaxPool2+Conv(32→48,k3) → MaxPool9+Conv(48→32,k3) → MaxPool7+Conv(32→64,k3) → MLP(64→26)
+arch: ai85kws26
+dataset: KWS_26
+
+layers:
+  # conv1: 输入 128 → 64 位；输出 32 → 32 位
+  - pad: 0
+    activate: ReLU
+    out_offset: 0x2000
+    processors: 0xffffffffffffffff
+    output_processors: 0x00000000ffffffff
+    data_format: HWC
+    operation: Conv1d
+    kernel_size: 3
+
+  # conv2: 输入 32 → 32 位；输出 48 → 48 位
+  - max_pool: 2
+    pool_stride: 2
+    pad: 1
+    activate: ReLU
+    out_offset: 0x0000
+    processors: 0x00000000ffffffff
+    output_processors: 0x0000ffffffffffff
+    operation: Conv1d
+    kernel_size: 3
+
+  # conv3: 输入 48 → 48 位；输出 32 → 32 位
+  - max_pool: 9
+    pool_stride: 9
+    pad: 1
+    activate: ReLU
+    out_offset: 0x2000
+    processors: 0x0000ffffffffffff
+    output_processors: 0x00000000ffffffff
+    operation: Conv1d
+    kernel_size: 3
+
+  # conv4: 输入 32 → 32 位；输出 64 → 64 位
+  - max_pool: 7
+    pool_stride: 7
+    pad: 1
+    activate: ReLU
+    out_offset: 0x0000
+    processors: 0x00000000ffffffff
+    output_processors: 0xffffffffffffffff
+    operation: Conv1d
+    kernel_size: 3
+
+  # fc: 输入 64 → 64 位；输出 26 → 32 位
+  - flatten: true
+    out_offset: 0x2000
+    processors: 0xffffffffffffffff
+    output_processors: 0x0000000003ffffff    # 26 位 = 26 类
+    operation: MLP
+    output_width: 32
+    activate: None

@@ -1,0 +1,58 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": { "major": 3, "minor": 20, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "默认（Ninja + D:/MaximSDK）",
+      "description": "用 Ninja 生成器；MAXIM_PATH 默认 D:/MaximSDK，可用 -DMAXIM_PATH=... 覆盖",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "MAXIM_PATH": "D:/MaximSDK"
+      }
+    },
+    {
+      "name": "vs",
+      "displayName": "Visual Studio 生成器（给 IDE 用）",
+      "description": "在 VS / VSCode 的 CMake 集成里能看到全部目标",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build-vs",
+      "cacheVariables": {
+        "MAXIM_PATH": "D:/MaximSDK"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "app",
+      "displayName": "编译 RTOS 应用（主力工程）",
+      "configurePreset": "default",
+      "targets": ["app"]
+    },
+    {
+      "name": "firmware",
+      "displayName": "串行编译全部四个工程",
+      "configurePreset": "default",
+      "targets": ["firmware"]
+    },
+    {
+      "name": "size",
+      "displayName": "查看 app 的 Flash/SRAM 占用",
+      "configurePreset": "default",
+      "targets": ["app-size"]
+    },
+    {
+      "name": "clean",
+      "displayName": "清理全部",
+      "configurePreset": "default",
+      "targets": ["clean-all"]
+    },
+    {
+      "name": "targets",
+      "displayName": "列出所有可用目标",
+      "configurePreset": "default",
+      "targets": ["list-targets"]
+    }
+  ]
+}

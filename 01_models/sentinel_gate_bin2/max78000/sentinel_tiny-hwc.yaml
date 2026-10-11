@@ -1,0 +1,58 @@
+---
+# HWC 配置：极简哨兵（2,003 参数）
+# 结构：Conv1d(128→8,k1) → MaxPool2+Conv(8→12,k3) → MaxPool4+Conv(12→16,k3) → AvgPool16 → MLP(16→2)
+# 规则：processors 对应输入通道，output_processors 对应输出通道
+arch: ai85sentinel
+dataset: SENTINEL
+
+layers:
+  # conv1: 输入 128 → 64 位；输出 8 → 8 位
+  - pad: 0
+    activate: ReLU
+    out_offset: 0x2000
+    processors: 0xffffffffffffffff
+    output_processors: 0x00000000000000ff
+    data_format: HWC
+    operation: Conv1d
+    kernel_size: 1
+
+  # conv2: 输入 8 → 8 位；输出 12 → 12 位
+  - max_pool: 2
+    pool_stride: 2
+    pad: 1
+    activate: ReLU
+    out_offset: 0x0000
+    processors: 0x00000000000000ff
+    output_processors: 0x0000000000000fff
+    operation: Conv1d
+    kernel_size: 3
+
+  # conv3: 输入 12 → 12 位；输出 16 → 16 位
+  - max_pool: 4
+    pool_stride: 4
+    pad: 1
+    activate: ReLU
+    out_offset: 0x2000
+    processors: 0x0000000000000fff
+    output_processors: 0x000000000000ffff
+    operation: Conv1d
+    kernel_size: 3
+
+  # GAP: 16 时间步 → 1
+  - avg_pool: 16
+    pool_stride: 16
+    pad: 0
+    activate: None
+    out_offset: 0x0000
+    processors: 0x000000000000ffff
+    output_processors: 0x000000000000ffff
+    operation: None
+
+  # fc: 输入 16 → 16 位；输出 2 → 2 位
+  - flatten: true
+    out_offset: 0x2000
+    processors: 0x000000000000ffff
+    output_processors: 0x0000000000000003
+    operation: MLP
+    output_width: 8
+    activate: None

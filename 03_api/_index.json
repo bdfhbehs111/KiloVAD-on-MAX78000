@@ -1,0 +1,5452 @@
+[
+ {
+  "name": "MXC_I2C_Init",
+  "proto": "int MXC_I2C_Init(mxc_i2c_regs_t *i2c, int masterMode, unsigned int slaveAddr)",
+  "brief": "Initialize and enable I2C peripheral.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_SetSlaveAddr",
+  "proto": "int MXC_I2C_SetSlaveAddr(mxc_i2c_regs_t *i2c, unsigned int slaveAddr, int idx)",
+  "brief": "Set slave address for I2C instances acting as slaves on the bus.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_Shutdown",
+  "proto": "int MXC_I2C_Shutdown(mxc_i2c_regs_t *i2c)",
+  "brief": "Disable and shutdown I2C peripheral.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_Reset",
+  "proto": "int MXC_I2C_Reset(mxc_i2c_regs_t *i2c)",
+  "brief": "Reset the I2C peripheral.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_SetFrequency",
+  "proto": "int MXC_I2C_SetFrequency(mxc_i2c_regs_t *i2c, unsigned int hz)",
+  "brief": "Set the frequency of the I2C interface.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_GetFrequency",
+  "proto": "int MXC_I2C_GetFrequency(mxc_i2c_regs_t *i2c)",
+  "brief": "Get the frequency of the I2C interface.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_ReadyForSleep",
+  "proto": "int MXC_I2C_ReadyForSleep(mxc_i2c_regs_t *i2c)",
+  "brief": "Checks if the given I2C bus can be placed in sleep more. This functions checks to see if there are any on-going I2C transactions in progress. If there are transactions in progress, the application should wait until the I2C bus is free before entering a low-power state.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_SetClockStretching",
+  "proto": "int MXC_I2C_SetClockStretching(mxc_i2c_regs_t *i2c, int enable)",
+  "brief": "Enables or disables clock stretching by the slave. Enables or disables clock stretching by the slave. This function has no affect when operating as the master.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_GetClockStretching",
+  "proto": "int MXC_I2C_GetClockStretching(mxc_i2c_regs_t *i2c)",
+  "brief": "Determines if clock stretching has been enabled.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_DMA_Init",
+  "proto": "int MXC_I2C_DMA_Init(mxc_i2c_regs_t *i2c, mxc_dma_regs_t *dma, bool use_dma_tx, bool use_dma_rx)",
+  "brief": "Initializes the DMA for I2C DMA transactions. This function will release any acquired DMA channels before reacquiring and reconfiguring selected I2C DMA TX or RX channels.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_DMA_GetTXChannel",
+  "proto": "int MXC_I2C_DMA_GetTXChannel(mxc_i2c_regs_t *i2c)",
+  "brief": "Retreive the DMA TX Channel associated with I2C instance.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_DMA_GetRXChannel",
+  "proto": "int MXC_I2C_DMA_GetRXChannel(mxc_i2c_regs_t *i2c)",
+  "brief": "Retreive the DMA RX Channel associated with I2C instance.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_DMA_SetRequestSelect",
+  "proto": "int MXC_I2C_DMA_SetRequestSelect(mxc_i2c_regs_t *i2c, uint8_t *txData, uint8_t *rxData)",
+  "brief": "Sets the I2C instance's DMA TX/RX request select.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_Start",
+  "proto": "int MXC_I2C_Start(mxc_i2c_regs_t *i2c)",
+  "brief": "Generate a start (or repeated start) condition on the I2C bus. Generate a start (or repeated start) condition on the I2C bus. This function may opt to delay the actual generation of the start condition until data is actually transferred.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_Stop",
+  "proto": "int MXC_I2C_Stop(mxc_i2c_regs_t *i2c)",
+  "brief": "Generate a stop condition on the I2C bus.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_WriteByte",
+  "proto": "int MXC_I2C_WriteByte(mxc_i2c_regs_t *i2c, unsigned char byte)",
+  "brief": "Write a single byte to the I2C bus. Write a single byte to the I2C bus. This function assumes the I2C bus is already in the proper state (i.e. a start condition has already been generated and the bus is in the write phase of an I2C transaction). If any bytes are pending in the FIFO (i.e. in the case of clock stretching), this function will return E_OVERFLOW.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_ReadByte",
+  "proto": "int MXC_I2C_ReadByte(mxc_i2c_regs_t *i2c, unsigned char *byte, int ack)",
+  "brief": "Read a single byte from the I2C bus. Read a single byte from the I2C bus. This function assumes the I2C bus is already in the proper state (i.e. a start condition has already been generated and the bus is in the read phase of an I2C transaction). If the FIFO is empty, this function will return E_UNDERFLOW.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_ReadByteInteractive",
+  "proto": "int MXC_I2C_ReadByteInteractive(mxc_i2c_regs_t *i2c, unsigned char *byte, mxc_i2c_getAck_t getAck)",
+  "brief": "Read a single byte from the I2C bus. Read a single byte from the I2C bus. After the byte is received, the provided callback will be used to determine if the byte should be acknowledged or not before continuing with the rest of the transaction. This function assumes the I2C bus is already in the proper state (i.e. a start condition has already been generated and the bus is in the read phase of an I2C transaction). This function must be called with clock stretching enabled.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_Write",
+  "proto": "int MXC_I2C_Write(mxc_i2c_regs_t *i2c, unsigned char *bytes, unsigned int *len)",
+  "brief": "Write multiple bytes to the I2C bus. Write multiple bytes to the I2C bus. This function assumes the I2C bus is already in the proper state (i.e. a start condition has already been generated and the bus is in the write phase of an I2C transaction).",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_Read",
+  "proto": "int MXC_I2C_Read(mxc_i2c_regs_t *i2c, unsigned char *bytes, unsigned int *len, int ack)",
+  "brief": "Read multiple bytes from the I2C bus. Read multiple byte from the I2C bus. This function assumes the I2C bus is already in the proper state (i.e. a start condition has already been generated and the bus is in the read phase of an I2C transaction).",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_ReadRXFIFO",
+  "proto": "int MXC_I2C_ReadRXFIFO(mxc_i2c_regs_t *i2c, volatile unsigned char *bytes, unsigned int len)",
+  "brief": "Unloads bytes from the receive FIFO.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_ReadRXFIFODMA",
+  "proto": "int MXC_I2C_ReadRXFIFODMA(mxc_i2c_regs_t *i2c, unsigned char *bytes, unsigned int len, mxc_i2c_dma_complete_cb_t callback)",
+  "brief": "Unloads bytes from the receive FIFO using DMA for longer reads.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_GetRXFIFOAvailable",
+  "proto": "int MXC_I2C_GetRXFIFOAvailable(mxc_i2c_regs_t *i2c)",
+  "brief": "Get the number of bytes currently available in the receive FIFO.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_WriteTXFIFO",
+  "proto": "int MXC_I2C_WriteTXFIFO(mxc_i2c_regs_t *i2c, volatile unsigned char *bytes, unsigned int len)",
+  "brief": "Loads bytes into the transmit FIFO.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_WriteTXFIFODMA",
+  "proto": "int MXC_I2C_WriteTXFIFODMA(mxc_i2c_regs_t *i2c, unsigned char *bytes, unsigned int len, mxc_i2c_dma_complete_cb_t callback)",
+  "brief": "Loads bytes into the transmit FIFO using DMA for longer writes.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_GetTXFIFOAvailable",
+  "proto": "int MXC_I2C_GetTXFIFOAvailable(mxc_i2c_regs_t *i2c)",
+  "brief": "Get the amount of free space available in the transmit FIFO.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_ClearRXFIFO",
+  "proto": "void MXC_I2C_ClearRXFIFO(mxc_i2c_regs_t *i2c)",
+  "brief": "Removes and discards all bytes currently in the receive FIFO.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_ClearTXFIFO",
+  "proto": "void MXC_I2C_ClearTXFIFO(mxc_i2c_regs_t *i2c)",
+  "brief": "Removes and discards all bytes currently in the transmit FIFO.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_GetFlags",
+  "proto": "int MXC_I2C_GetFlags(mxc_i2c_regs_t *i2c, unsigned int *flags0, unsigned int *flags1)",
+  "brief": "Get the presently set interrupt flags.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_ClearFlags",
+  "proto": "void MXC_I2C_ClearFlags(mxc_i2c_regs_t *i2c, unsigned int flags0, unsigned int flags1)",
+  "brief": "Clears the Interrupt Flags.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_EnableInt",
+  "proto": "void MXC_I2C_EnableInt(mxc_i2c_regs_t *i2c, unsigned int flags0, unsigned int flags1)",
+  "brief": "Enable Interrupts.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_DisableInt",
+  "proto": "void MXC_I2C_DisableInt(mxc_i2c_regs_t *i2c, unsigned int flags0, unsigned int flags1)",
+  "brief": "Disable Interrupts.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_EnablePreload",
+  "proto": "void MXC_I2C_EnablePreload(mxc_i2c_regs_t *i2c)",
+  "brief": "Enables the slave preload mode Use this mode to preload the slave TX FIFO with data that can be sent when the slave is addressed for a read operation without software intervention.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_DisablePreload",
+  "proto": "void MXC_I2C_DisablePreload(mxc_i2c_regs_t *i2c)",
+  "brief": "Disable the slave preload mode",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_EnableGeneralCall",
+  "proto": "void MXC_I2C_EnableGeneralCall(mxc_i2c_regs_t *i2c)",
+  "brief": "Enables the slave to respond to the general call address",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_DisableGeneralCall",
+  "proto": "void MXC_I2C_DisableGeneralCall(mxc_i2c_regs_t *i2c)",
+  "brief": "Prevents the slave from responding to the general call address",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_SetTimeout",
+  "proto": "void MXC_I2C_SetTimeout(mxc_i2c_regs_t *i2c, unsigned int timeout)",
+  "brief": "Set the I2C Timeout The I2C timeout determines the amount of time the master will wait while the slave is stretching the clock, and the amount of time the slave will stretch the clock while waiting for software to unload the fifo.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_GetTimeout",
+  "proto": "unsigned int MXC_I2C_GetTimeout(mxc_i2c_regs_t *i2c)",
+  "brief": "Get the current I2C timeout",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_Recover",
+  "proto": "int MXC_I2C_Recover(mxc_i2c_regs_t *i2c, unsigned int retries)",
+  "brief": "Attempts to recover the I2C bus, ensuring the I2C lines are idle. Attempts to recover and reset an I2C bus by sending I2C clocks. During each clock cycle, the SDA line is cycled to determine if the master has control of the line. The following steps are performed to create one SCL clock cycle: 1. Drive SCL low 2. Verify SCL is low 3. Drive SDA low 4. Verify SDA is low 5. Release SDA allowing it to return high 6. Verify SDA is high 7. Release SCL allowing it to return high. 8. Verify SCL is high If any of the steps fail, the bus is considered to still be busy and the sequence is repeated up to the requested number of times. If all steps succeed, a final stop condition is generated on the I2C bus.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_MasterTransaction",
+  "proto": "int MXC_I2C_MasterTransaction(mxc_i2c_req_t *req)",
+  "brief": "Performs a blocking I2C master transaction. Performs a blocking I2C master transaction. These actions will be performed: 1. If necessary, generate a start condition on the bus. 2. Send the slave address with the low bit set to 0 (indicating a write). 3. Transmit req->tx_len bytes of req->tx_buff. 4. Generate a repeated start condition on the bus. 5. Send the slave address with the low bit set to 1 (indicating a read). 6. Receive req->rx_len bytes into req->rx_buf, acknowledging each byte. 7. Generate a stop (or repeated start) condition on the bus. Steps 3-6 will be skipped if req->tx_len and req->rx_len are both 0. Steps 2-4 will be skipped if req->tx_len equals 0. Steps 4-6 will be skipped if req->rx_len equals 0.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_MasterTransactionAsync",
+  "proto": "int MXC_I2C_MasterTransactionAsync(mxc_i2c_req_t *req)",
+  "brief": "Performs a non-blocking I2C master transaction. Performs a non-blocking I2C master transaction. These actions will be performed: 1. If necessary, generate a start condition on the bus. 2. Send the slave address with the low bit set to 0 (indicating a write). 3. Transmit req->tx_len bytes of req->tx_buff. 4. Generate a repeated start condition on the bus. 5. Send the slave address with the low bit set to 1 (indicating a read). 6. Receive req->rx_len bytes into req->rx_buf, acknowledging each byte. 7. Generate a stop (or repeated start) condition on the bus. 8. Execute req->callback to indicate the transaction is complete. Steps 3-6 will be skipped if tx_len and rx_len are both 0. Steps 2-4 will be skipped if tx_len equals 0. Steps 4-6 will be skipped if rx_len equals 0.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_MasterTransactionDMA",
+  "proto": "int MXC_I2C_MasterTransactionDMA(mxc_i2c_req_t *req)",
+  "brief": "Performs a non-blocking I2C Master transaction using DMA for reduced time in the ISR. This function initializes the DMA and acquires DMA channels if MXC_I2C_DMA_Init(...) was not called earlier. It is recommended to initialize the DMA by calling MXC_I2C_DMA_Init(...) function before calling MXC_I2C_MasterTransactionDMA(...). This provides flexibility in setting up generic DMA channel vectors during run-time without knowing what DMA channels will be acquired beforehand. Performs a non-blocking I2C transaction. These actions will be performed: 1. If necessary, generate a start condition on the bus. 2. Send the slave address with the low bit set to 0 (indicating a write). 3. Transmit req->tx_len bytes of req->tx_buff. 4. Generate a repeated start condition on the bus. 5. Send the slave address with the low bit set to 1 (indicating a read). 6. Receive req->rx_len bytes into req->rx_buf, acknowledging each byte. 7. Generate a stop (or repeated start) condition on the bus. 8. Execute req->callback to indicate the transaction is complete. Steps 3-6 will be skipped if tx_len and rx_len are both 0. Steps 2-4 will be skipped if tx_len equals 0. Steps 4-6 will be skipped if rx_len equals 0.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_SlaveTransaction",
+  "proto": "int MXC_I2C_SlaveTransaction(mxc_i2c_regs_t *i2c, mxc_i2c_slave_handler_t callback)",
+  "brief": "Performs a blocking I2C slave transaction. Performs a blocking I2C slave transaction. This function will block until a complete transaction with this slave has been performed. A transaction begins with the master addressing the slave and ends with a repeated start condition, a stop condition, or a bus error. The provided callback function will be called for these events: - A slave address match occurs with the master requesting a write to the slave. - A slave address match occurs with the master requesting a read from the slave. - The receive FIFO crosses the set threshold (see MXC_I2C_SetRXThreshold()). The callback code should unload the receive FIFO (see MXC_I2C_ReadFIFO()) to allow the master to send more data. The return value of the callback function will determine if the last byte received should be acknowledged or not. Return 0 to acknowledge, non-zero to not acknowledge. - The transmit FIFO crosses the set threshold (see MXC_I2C_SetTXThreshold()). If the master is expected to read more data from this slave, the callback code should add data to the transmit FIFO (see MXC_I2C_WriteFIFO()). - The transaction ends. If the master was writing to the slave, the receive FIFO may still contain valid data that needs to be retreived (see MXC_I2C_ReadFIFO()). - The transmit FIFO underflows because the master requests data when the transmit FIFO is empty. - The receive FIFO overflows because the master writes data while the receive FIFO was full. If clock stretching is disabled, careful attention must be paid to the timing of the callback to avoid losing data on write or unintentionally nacking a read.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_SlaveTransactionAsync",
+  "proto": "int MXC_I2C_SlaveTransactionAsync(mxc_i2c_regs_t *i2c, mxc_i2c_slave_handler_t callback)",
+  "brief": "Performs a non-blocking I2C slave transaction. Performs a non-blocking I2C slave transaction. This request will remain active until a complete transaction with this slave has been performed. A transaction begins with the master begins with the master addressing the slave and ends with a repeated start condition, a stop condition, or a bus error. The provided callback function will be called for these events: - A slave address match occurs with the master requesting a write to the slave. - A slave address match occurs with the master requesting a read from the slave. - The receive FIFO crosses the set threshold (see MXC_I2C_SetRXThreshold()). The callback code should unload the receive FIFO (see MXC_I2C_ReadFIFO()) to allow the master to send more data. The return value of the callback function will determine if the last byte received should be acknowledged or not. Return 0 to acknowledge, non-zero to not acknowledge. - The transmit FIFO crosses the set threshold (see MXC_I2C_SetTXThreshold()). If the master is expected to read more data from this slave, the callback code should add data to the transmit FIFO (see MXC_I2C_WriteFIFO()). - The transaction ends. If the master was writing to the slave, the receive FIFO may still contain valid data that needs to be retreived (see MXC_I2C_ReadFIFO()). - The transmit FIFO underflows because the master requests data when the transmit FIFO is empty. - The receive FIFO overflows because the master writes data while the receive FIFO was full. If clock stretching is disabled, careful attention must be paid to the timing of the callback to avoid losing data on write or unintentionally nacking a read.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_SetRXThreshold",
+  "proto": "int MXC_I2C_SetRXThreshold(mxc_i2c_regs_t *i2c, unsigned int numBytes)",
+  "brief": "Set the receive threshold level. When operating as a master, the function sets the receive threshold level for when the master should unload the receive FIFO. Smaller values may consume more CPU cycles, but decrease the chances of the master delaying the generation of I2C bus clocks because it has no room in the FIFO to receive data. Larger values may consume fewer CPU cycles, but risk delays of the I2C clock. When operating as a slave, this function sets the number of bytes the slave transaction functions should receive before issuing a call to their callback function. Smaller values may consume more CPU cycles, but reduce the risk of missing data from the master due to the recieve FIFO being full. Larger values may reduce the number of CPU cycles, but may cause bytes sent from the master to be missed.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_GetRXThreshold",
+  "proto": "int MXC_I2C_GetRXThreshold(mxc_i2c_regs_t *i2c)",
+  "brief": "Get the current receive threshold level.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_SetTXThreshold",
+  "proto": "int MXC_I2C_SetTXThreshold(mxc_i2c_regs_t *i2c, unsigned int numBytes)",
+  "brief": "Set the transmit threshold level. When operating as a master, the function sets the transmit threshold level for when the master should add additional bytes to the transmit FIFO. Larger values may consume more CPU cycles, but decrease the chances of the master delaying the generation of I2C bus clocks because it has no data in the FIFO to transmit. Smaller values may consume fewer CPU cycles, but risk delays of the I2C clock. When operating as a slave, this function sets the number of bytes the slave transaction functions should transmit before issuing a call to their callback function. Larger values may consume more CPU cycles, but reduce the risk of not having data ready when the master requests it. Smaller values may reduce the number of CPU cycles, but may cause the master to read from an empty FIFO. (The master will read 0xFF in this case.)",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_GetTXThreshold",
+  "proto": "int MXC_I2C_GetTXThreshold(mxc_i2c_regs_t *i2c)",
+  "brief": "Get the current transmit threshold level.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_AsyncStop",
+  "proto": "void MXC_I2C_AsyncStop(mxc_i2c_regs_t *i2c)",
+  "brief": "Stop any asynchronous requests in progress. Stop any asynchronous requests in progress. Any callbacks associated with the active transaction will be NOT executed.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_AbortAsync",
+  "proto": "void MXC_I2C_AbortAsync(mxc_i2c_regs_t *i2c)",
+  "brief": "Abort any asynchronous requests in progress. Abort any asynchronous requests in progress. Any callbacks associated with the active transaction will be executed to indicate when the transaction has been terminated.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_AsyncHandler",
+  "proto": "void MXC_I2C_AsyncHandler(mxc_i2c_regs_t *i2c)",
+  "brief": "The processing function for asynchronous transactions. When using the asynchronous functions, the application must call this function periodically. This can be done from within the I2C interrupt handler or periodically by the application if I2C interrupts are disabled.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_I2C_DMACallback",
+  "proto": "void MXC_I2C_DMACallback(int ch, int error)",
+  "brief": "The processing function for DMA transactions. When using the DMA functions, the application must call this function periodically. This can be done from within the DMA Interrupt Handler.",
+  "section": "Definitions",
+  "header": "i2c.h",
+  "periph": "i2c",
+  "deprecated": "",
+  "doc": "03_api/periph/i2c.md"
+ },
+ {
+  "name": "MXC_UART_Init",
+  "proto": "int MXC_UART_Init(mxc_uart_regs_t *uart, unsigned int baud, mxc_uart_clock_t clock)",
+  "brief": "Initialize and enable UART peripheral. This function initializes everything necessary to call a UART transaction function. Some parameters are set to defaults as follows: UART Data Size - 8 bits UART Stop Bits - 1 bit UART Parity - None UART Flow Control - None These parameters can be modified after initialization using low level functions",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_Shutdown",
+  "proto": "int MXC_UART_Shutdown(mxc_uart_regs_t *uart)",
+  "brief": "Disable and shutdown UART peripheral.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_ReadyForSleep",
+  "proto": "int MXC_UART_ReadyForSleep(mxc_uart_regs_t *uart)",
+  "brief": "Checks if the given UART bus can be placed in sleep more.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_SetFrequency",
+  "proto": "int MXC_UART_SetFrequency(mxc_uart_regs_t *uart, unsigned int baud, mxc_uart_clock_t clock)",
+  "brief": "Set the frequency of the UART interface.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_GetFrequency",
+  "proto": "int MXC_UART_GetFrequency(mxc_uart_regs_t *uart)",
+  "brief": "Get the frequency of the UART interface.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_SetDataSize",
+  "proto": "int MXC_UART_SetDataSize(mxc_uart_regs_t *uart, int dataSize)",
+  "brief": "Sets the number of bits per character",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_SetStopBits",
+  "proto": "int MXC_UART_SetStopBits(mxc_uart_regs_t *uart, mxc_uart_stop_t stopBits)",
+  "brief": "Sets the number of stop bits sent at the end of a character",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_SetParity",
+  "proto": "int MXC_UART_SetParity(mxc_uart_regs_t *uart, mxc_uart_parity_t parity)",
+  "brief": "Sets the type of parity generation used",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_SetFlowCtrl",
+  "proto": "int MXC_UART_SetFlowCtrl(mxc_uart_regs_t *uart, mxc_uart_flow_t flowCtrl, int rtsThreshold)",
+  "brief": "Sets the flow control used",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_SetClockSource",
+  "proto": "int MXC_UART_SetClockSource(mxc_uart_regs_t *uart, mxc_uart_clock_t clock)",
+  "brief": "Sets the clock source for the baud rate generator",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_GetClockSource",
+  "proto": "mxc_uart_clock_t MXC_UART_GetClockSource(mxc_uart_regs_t *uart)",
+  "brief": "Gets the clock source used for the UART instance",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_GetActive",
+  "proto": "int MXC_UART_GetActive(mxc_uart_regs_t *uart)",
+  "brief": "Checks the UART Peripheral for an ongoing transmission",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_AbortTransmission",
+  "proto": "int MXC_UART_AbortTransmission(mxc_uart_regs_t *uart)",
+  "brief": "Aborts an ongoing UART Transmission",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_ReadCharacterRaw",
+  "proto": "int MXC_UART_ReadCharacterRaw(mxc_uart_regs_t *uart)",
+  "brief": "Reads the next available character. If no character is available, this function will return an error.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_WriteCharacterRaw",
+  "proto": "int MXC_UART_WriteCharacterRaw(mxc_uart_regs_t *uart, uint8_t character)",
+  "brief": "Writes a character on the UART. If the character cannot be written because the transmit FIFO is currently full, this function returns an error.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_ReadCharacter",
+  "proto": "int MXC_UART_ReadCharacter(mxc_uart_regs_t *uart)",
+  "brief": "Reads the next available character",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_WriteCharacter",
+  "proto": "int MXC_UART_WriteCharacter(mxc_uart_regs_t *uart, uint8_t character)",
+  "brief": "Writes a character on the UART",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_Read",
+  "proto": "int MXC_UART_Read(mxc_uart_regs_t *uart, uint8_t *buffer, int *len)",
+  "brief": "Reads the next available character",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_Write",
+  "proto": "int MXC_UART_Write(mxc_uart_regs_t *uart, const uint8_t *byte, int *len)",
+  "brief": "Writes a byte on the UART",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_ReadRXFIFO",
+  "proto": "unsigned int MXC_UART_ReadRXFIFO(mxc_uart_regs_t *uart, unsigned char *bytes, unsigned int len)",
+  "brief": "Unloads bytes from the receive FIFO.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_ReadRXFIFODMA",
+  "proto": "int MXC_UART_ReadRXFIFODMA(mxc_uart_regs_t *uart, unsigned char *bytes, unsigned int len, mxc_uart_dma_complete_cb_t callback)",
+  "brief": "Unloads bytes from the receive FIFO user DMA for longer reads.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_GetRXFIFOAvailable",
+  "proto": "unsigned int MXC_UART_GetRXFIFOAvailable(mxc_uart_regs_t *uart)",
+  "brief": "Get the number of bytes currently available in the receive FIFO.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_WriteTXFIFO",
+  "proto": "unsigned int MXC_UART_WriteTXFIFO(mxc_uart_regs_t *uart, const unsigned char *bytes, unsigned int len)",
+  "brief": "Loads bytes into the transmit FIFO.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_WriteTXFIFODMA",
+  "proto": "int MXC_UART_WriteTXFIFODMA(mxc_uart_regs_t *uart, const unsigned char *bytes, unsigned int len, mxc_uart_dma_complete_cb_t callback)",
+  "brief": "Loads bytes into the transmit FIFO using DMA for longer writes",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_GetTXFIFOAvailable",
+  "proto": "unsigned int MXC_UART_GetTXFIFOAvailable(mxc_uart_regs_t *uart)",
+  "brief": "Get the amount of free space available in the transmit FIFO.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_ClearRXFIFO",
+  "proto": "int MXC_UART_ClearRXFIFO(mxc_uart_regs_t *uart)",
+  "brief": "Removes and discards all bytes currently in the receive FIFO.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_ClearTXFIFO",
+  "proto": "int MXC_UART_ClearTXFIFO(mxc_uart_regs_t *uart)",
+  "brief": "Removes and discards all bytes currently in the transmit FIFO.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_SetRXThreshold",
+  "proto": "int MXC_UART_SetRXThreshold(mxc_uart_regs_t *uart, unsigned int numBytes)",
+  "brief": "Set the receive threshold level.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_GetRXThreshold",
+  "proto": "unsigned int MXC_UART_GetRXThreshold(mxc_uart_regs_t *uart)",
+  "brief": "Get the current receive threshold level.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_SetTXThreshold",
+  "proto": "int MXC_UART_SetTXThreshold(mxc_uart_regs_t *uart, unsigned int numBytes)",
+  "brief": "Set the transmit threshold level.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_GetTXThreshold",
+  "proto": "unsigned int MXC_UART_GetTXThreshold(mxc_uart_regs_t *uart)",
+  "brief": "Get the current transmit threshold level.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_GetFlags",
+  "proto": "unsigned int MXC_UART_GetFlags(mxc_uart_regs_t *uart)",
+  "brief": "Gets the interrupt flags that are currently set",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_ClearFlags",
+  "proto": "int MXC_UART_ClearFlags(mxc_uart_regs_t *uart, unsigned int flags)",
+  "brief": "Clears the interrupt flags that are currently set",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_EnableInt",
+  "proto": "int MXC_UART_EnableInt(mxc_uart_regs_t *uart, unsigned int mask)",
+  "brief": "Enables specific interrupts",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_DisableInt",
+  "proto": "int MXC_UART_DisableInt(mxc_uart_regs_t *uart, unsigned int mask)",
+  "brief": "Disables specific interrupts",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_GetStatus",
+  "proto": "unsigned int MXC_UART_GetStatus(mxc_uart_regs_t *uart)",
+  "brief": "Gets the status flags that are currently set",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_Transaction",
+  "proto": "int MXC_UART_Transaction(mxc_uart_req_t *req)",
+  "brief": "Performs a blocking UART transaction.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_TransactionAsync",
+  "proto": "int MXC_UART_TransactionAsync(mxc_uart_req_t *req)",
+  "brief": "Setup an interrupt-driven UART transaction",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_TransactionDMA",
+  "proto": "int MXC_UART_TransactionDMA(mxc_uart_req_t *req)",
+  "brief": "Setup a DMA driven UART transaction",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_DMACallback",
+  "proto": "void MXC_UART_DMACallback(int ch, int error)",
+  "brief": "The processing function for DMA transactions. When using the DMA functions, the application must call this function periodically. This can be done from within the DMA Interrupt Handler.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_AsyncCallback",
+  "proto": "int MXC_UART_AsyncCallback(mxc_uart_regs_t *uart, int retVal)",
+  "brief": "Async callback",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_AsyncStop",
+  "proto": "int MXC_UART_AsyncStop(mxc_uart_regs_t *uart)",
+  "brief": "stop any async callbacks",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_AbortAsync",
+  "proto": "int MXC_UART_AbortAsync(mxc_uart_regs_t *uart)",
+  "brief": "Abort any asynchronous requests in progress.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_AsyncHandler",
+  "proto": "int MXC_UART_AsyncHandler(mxc_uart_regs_t *uart)",
+  "brief": "The processing function for asynchronous transactions.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_GetAsyncTXCount",
+  "proto": "uint32_t MXC_UART_GetAsyncTXCount(mxc_uart_req_t *req)",
+  "brief": "Provide TXCount for asynchronous transactions..",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_GetAsyncRXCount",
+  "proto": "uint32_t MXC_UART_GetAsyncRXCount(mxc_uart_req_t *req)",
+  "brief": "Provide RXCount for asynchronous transactions..",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_SetAutoDMAHandlers",
+  "proto": "int MXC_UART_SetAutoDMAHandlers(mxc_uart_regs_t *uart, bool enable)",
+  "brief": "Enable or disable automatic DMA interrupt handlers for the UART module. The @ref MXC_UART_TransactionDMA functions require special interrupt handlers to work. When \"Auto\" DMA handlers are enabled, the UART drivers will acquire DMA channels and assign the appropriate handlers automatically. The acquired channels are released after each transaction. If \"Auto\" DMA handlers are disabled, the user must acquire DMA channels manually and assign them to the drivers with the @ref MXC_UART_SetTXDMAChannel and",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_SetTXDMAChannel",
+  "proto": "int MXC_UART_SetTXDMAChannel(mxc_uart_regs_t *uart, unsigned int channel)",
+  "brief": "Set the TX (Transmit) DMA channel for a UART module. This function assigns the DMA channel for transmitting data when @ref is MXC_UART_SetAutoDMAHandlers disabled.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_GetTXDMAChannel",
+  "proto": "int MXC_UART_GetTXDMAChannel(mxc_uart_regs_t *uart)",
+  "brief": "Get the TX (Transmit) DMA channel for a UART module. This function retrieves the currently assigned DMA channel for transmitting data when @ref is MXC_UART_SetAutoDMAHandlers disabled.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_SetRXDMAChannel",
+  "proto": "int MXC_UART_SetRXDMAChannel(mxc_uart_regs_t *uart, unsigned int channel)",
+  "brief": "Set the RX (Receive) DMA channel for a UART module. This function assigns the DMA channel for receiving data when @ref is MXC_UART_SetAutoDMAHandlers disabled.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_UART_GetRXDMAChannel",
+  "proto": "int MXC_UART_GetRXDMAChannel(mxc_uart_regs_t *uart)",
+  "brief": "Get the RX (Receive) DMA channel for a UART module. This function retrieves the currently configured DMA channel for receiving data when @ref is MXC_UART_SetAutoDMAHandlers disabled.",
+  "section": "Definitions",
+  "header": "uart.h",
+  "periph": "uart",
+  "deprecated": "",
+  "doc": "03_api/periph/uart.md"
+ },
+ {
+  "name": "MXC_SPI_Init",
+  "proto": "int MXC_SPI_Init(mxc_spi_regs_t *spi, int masterMode, int quadModeUsed, int numSlaves, unsigned ssPolarity, unsigned int hz, mxc_spi_pins_t pins)",
+  "brief": "Initialize and enable SPI peripheral. This function initializes everything necessary to call a SPI transaction function. Some parameters are set to defaults as follows: SPI Mode - 0 SPI Width - SPI_WIDTH_STANDARD (even if quadModeUsed is set) These parameters can be modified after initialization using low level functions",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_InitState",
+  "proto": "int MXC_SPI_InitState(mxc_spi_regs_t *spi)",
+  "brief": "Initialize in-memory SPI peripheral state.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_Shutdown",
+  "proto": "int MXC_SPI_Shutdown(mxc_spi_regs_t *spi)",
+  "brief": "Disable and shutdown SPI peripheral.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_ReadyForSleep",
+  "proto": "int MXC_SPI_ReadyForSleep(mxc_spi_regs_t *spi)",
+  "brief": "Checks if the given SPI bus can be placed in sleep mode. This functions checks to see if there are any on-going SPI transactions in progress. If there are transactions in progress, the application should wait until the SPI bus is free before entering a low-power state.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_GetPeripheralClock",
+  "proto": "int MXC_SPI_GetPeripheralClock(mxc_spi_regs_t *spi)",
+  "brief": "Returns the frequency of the clock used as the bit rate generator for a given SPI instance.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_SetFrequency",
+  "proto": "int MXC_SPI_SetFrequency(mxc_spi_regs_t *spi, unsigned int hz)",
+  "brief": "Set the frequency of the SPI interface. This function is applicable in Master mode only",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_GetFrequency",
+  "proto": "unsigned int MXC_SPI_GetFrequency(mxc_spi_regs_t *spi)",
+  "brief": "Get the frequency of the SPI interface. This function is applicable in Master mode only",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_SetDataSize",
+  "proto": "int MXC_SPI_SetDataSize(mxc_spi_regs_t *spi, int dataSize)",
+  "brief": "Sets the number of bits per character",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_GetDataSize",
+  "proto": "int MXC_SPI_GetDataSize(mxc_spi_regs_t *spi)",
+  "brief": "Gets the number of bits per character",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_SetSlave",
+  "proto": "int MXC_SPI_SetSlave(mxc_spi_regs_t *spi, int ssIdx)",
+  "brief": "Sets the slave select (SS) line used for transmissions This function is applicable in Master mode only",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_GetSlave",
+  "proto": "int MXC_SPI_GetSlave(mxc_spi_regs_t *spi)",
+  "brief": "Gets the slave select (SS) line used for transmissions This function is applicable in Master mode only",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_SetWidth",
+  "proto": "int MXC_SPI_SetWidth(mxc_spi_regs_t *spi, mxc_spi_width_t spiWidth)",
+  "brief": "Sets the SPI width used for transmissions",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_GetWidth",
+  "proto": "mxc_spi_width_t MXC_SPI_GetWidth(mxc_spi_regs_t *spi)",
+  "brief": "Gets the SPI width used for transmissions",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_SetMode",
+  "proto": "int MXC_SPI_SetMode(mxc_spi_regs_t *spi, mxc_spi_mode_t spiMode)",
+  "brief": "Sets the spi mode using clock polarity and clock phase",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_GetMode",
+  "proto": "mxc_spi_mode_t MXC_SPI_GetMode(mxc_spi_regs_t *spi)",
+  "brief": "Gets the spi mode",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_StartTransmission",
+  "proto": "int MXC_SPI_StartTransmission(mxc_spi_regs_t *spi)",
+  "brief": "Starts a SPI Transmission This function is applicable in Master mode only The user must ensure that there are no ongoing transmissions before calling this function",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_GetActive",
+  "proto": "int MXC_SPI_GetActive(mxc_spi_regs_t *spi)",
+  "brief": "Checks the SPI Peripheral for an ongoing transmission This function is applicable in Master mode only",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_AbortTransmission",
+  "proto": "int MXC_SPI_AbortTransmission(mxc_spi_regs_t *spi)",
+  "brief": "Aborts an ongoing SPI Transmission This function is applicable in Master mode only",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_ReadRXFIFO",
+  "proto": "unsigned int MXC_SPI_ReadRXFIFO(mxc_spi_regs_t *spi, unsigned char *bytes, unsigned int len)",
+  "brief": "Unloads bytes from the receive FIFO.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_GetRXFIFOAvailable",
+  "proto": "unsigned int MXC_SPI_GetRXFIFOAvailable(mxc_spi_regs_t *spi)",
+  "brief": "Get the number of bytes currently available in the receive FIFO.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_WriteTXFIFO",
+  "proto": "unsigned int MXC_SPI_WriteTXFIFO(mxc_spi_regs_t *spi, unsigned char *bytes, unsigned int len)",
+  "brief": "Loads bytes into the transmit FIFO.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_GetTXFIFOAvailable",
+  "proto": "unsigned int MXC_SPI_GetTXFIFOAvailable(mxc_spi_regs_t *spi)",
+  "brief": "Get the amount of free space available in the transmit FIFO.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_ClearRXFIFO",
+  "proto": "void MXC_SPI_ClearRXFIFO(mxc_spi_regs_t *spi)",
+  "brief": "Removes and discards all bytes currently in the receive FIFO.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_ClearTXFIFO",
+  "proto": "void MXC_SPI_ClearTXFIFO(mxc_spi_regs_t *spi)",
+  "brief": "Removes and discards all bytes currently in the transmit FIFO.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_SetRXThreshold",
+  "proto": "int MXC_SPI_SetRXThreshold(mxc_spi_regs_t *spi, unsigned int numBytes)",
+  "brief": "Set the receive threshold level. RX FIFO Receive threshold. Smaller values will cause interrupts to occur more often, but reduce the possibility of losing data because of a FIFO overflow. Larger values will reduce the time required by the ISR, but increase the possibility of data loss. Passing an invalid value will cause the driver to use the value already set in the appropriate register.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_GetRXThreshold",
+  "proto": "unsigned int MXC_SPI_GetRXThreshold(mxc_spi_regs_t *spi)",
+  "brief": "Get the current receive threshold level.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_SetTXThreshold",
+  "proto": "int MXC_SPI_SetTXThreshold(mxc_spi_regs_t *spi, unsigned int numBytes)",
+  "brief": "Set the transmit threshold level. TX FIFO threshold. Smaller values will cause interrupts to occur more often, but reduce the possibility of terminating a transaction early in master mode, or transmitting invalid data in slave mode. Larger values will reduce the time required by the ISR, but increase the possibility errors occurring. Passing an invalid value will cause the driver to use the value already set in the appropriate register.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_GetTXThreshold",
+  "proto": "unsigned int MXC_SPI_GetTXThreshold(mxc_spi_regs_t *spi)",
+  "brief": "Get the current transmit threshold level.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_GetFlags",
+  "proto": "unsigned int MXC_SPI_GetFlags(mxc_spi_regs_t *spi)",
+  "brief": "Gets the interrupt flags that are currently set These functions should not be used while using non-blocking Transaction Level functions (Async or DMA)",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_ClearFlags",
+  "proto": "void MXC_SPI_ClearFlags(mxc_spi_regs_t *spi)",
+  "brief": "Clears the interrupt flags that are currently set These functions should not be used while using non-blocking Transaction Level functions (Async or DMA)",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_GetAndClearFlags",
+  "proto": "unsigned int MXC_SPI_GetAndClearFlags(mxc_spi_regs_t *spi)",
+  "brief": "Gets and clears the interrupt flags that are currently set These functions should not be used while using non-blocking Transaction Level functions (Async or DMA)",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_EnableInt",
+  "proto": "void MXC_SPI_EnableInt(mxc_spi_regs_t *spi, unsigned int intEn)",
+  "brief": "Enables specific interrupts These functions should not be used while using non-blocking Transaction Level functions (Async or DMA)",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_DisableInt",
+  "proto": "void MXC_SPI_DisableInt(mxc_spi_regs_t *spi, unsigned int intDis)",
+  "brief": "Disables specific interrupts These functions should not be used while using non-blocking Transaction Level functions (Async or DMA)",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_MasterTransaction",
+  "proto": "int MXC_SPI_MasterTransaction(mxc_spi_req_t *req)",
+  "brief": "Performs a blocking SPI transaction. Performs a blocking SPI transaction. These actions will be performed in Master Mode: 1. Assert the specified SS 2. In Full Duplex Modes, send TX data while receiving RX Data if rxLen > txLen, pad txData with DefaultTXData if txLen > rxLen, discard rxData where rxCnt > rxLen 3. In Half Duplex Modes, send TX Data, then receive RX Data 4. Deassert the specified SS These actions will be performed in Slave Mode: 1. Fill FIFO with txData 2. Wait for SS Assert 3. If needed, pad txData with DefaultTXData 4. Unload RX FIFO as needed 5. On SS Deassert, return",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_MasterTransactionAsync",
+  "proto": "int MXC_SPI_MasterTransactionAsync(mxc_spi_req_t *req)",
+  "brief": "Setup an interrupt-driven SPI transaction The TX FIFO will be filled with txData, padded with DefaultTXData if necessary Relevant interrupts will be enabled, and relevant registers set (SS, Width, etc)",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_MasterTransactionDMA",
+  "proto": "int MXC_SPI_MasterTransactionDMA(mxc_spi_req_t *req)",
+  "brief": "Setup a DMA driven SPI transaction The TX FIFO will be filled with txData, padded with DefaultTXData if necessary Relevant interrupts will be enabled, and relevant registers set (SS, Width, etc) The lowest-indexed unused DMA channel will be acquired (using the DMA API) and set up to load/unload the FIFOs with as few interrupt-based events as possible. The channel will be reset and returned to the system at the end of the transaction.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_SlaveTransaction",
+  "proto": "int MXC_SPI_SlaveTransaction(mxc_spi_req_t *req)",
+  "brief": "Performs a blocking SPI transaction. Performs a blocking SPI transaction. These actions will be performed in Slave Mode: 1. Fill FIFO with txData 2. Wait for SS Assert 3. If needed, pad txData with DefaultTXData 4. Unload RX FIFO as needed 5. On SS Deassert, return",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_SlaveTransactionAsync",
+  "proto": "int MXC_SPI_SlaveTransactionAsync(mxc_spi_req_t *req)",
+  "brief": "Setup an interrupt-driven SPI transaction The TX FIFO will be filled with txData, padded with DefaultTXData if necessary Relevant interrupts will be enabled, and relevant registers set (SS, Width, etc)",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_SlaveTransactionDMA",
+  "proto": "int MXC_SPI_SlaveTransactionDMA(mxc_spi_req_t *req)",
+  "brief": "Setup a DMA driven SPI transaction The TX FIFO will be filled with txData, padded with DefaultTXData if necessary Relevant interrupts will be enabled, and relevant registers set (SS, Width, etc) The lowest-indexed unused DMA channel will be acquired (using the DMA API) and set up to load/unload the FIFOs with as few interrupt-based events as possible. The channel will be reset and returned to the system at the end of the transaction.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_SetDefaultTXData",
+  "proto": "int MXC_SPI_SetDefaultTXData(mxc_spi_regs_t *spi, unsigned int defaultTXData)",
+  "brief": "Sets the TX data to transmit as a 'dummy' byte In single wire master mode, this data is transmitted on MOSI when performing an RX (MISO) only transaction. This defaults to 0.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_AbortAsync",
+  "proto": "void MXC_SPI_AbortAsync(mxc_spi_regs_t *spi)",
+  "brief": "Abort any asynchronous requests in progress. Abort any asynchronous requests in progress. Any callbacks associated with the active transaction will be executed to indicate when the transaction has been terminated.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_AsyncHandler",
+  "proto": "void MXC_SPI_AsyncHandler(mxc_spi_regs_t *spi)",
+  "brief": "The processing function for asynchronous transactions. When using the asynchronous functions, the application must call this function periodically. This can be done from within the SPI interrupt handler or periodically by the application if SPI interrupts are disabled.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_SPI_HWSSControl",
+  "proto": "void MXC_SPI_HWSSControl(mxc_spi_regs_t *spi, int state)",
+  "brief": "Enable/Disable HW CS control feature. Depending on the application, the user might need to manually drive the slave select pin. The SPI driver automatically drives the SS pin and this function enables/disables this feature.",
+  "section": "Definitions",
+  "header": "spi.h",
+  "periph": "spi",
+  "deprecated": "",
+  "doc": "03_api/periph/spi.md"
+ },
+ {
+  "name": "MXC_LP_EnterSleepMode",
+  "proto": "void MXC_LP_EnterSleepMode(void)",
+  "brief": "Places the device into SLEEP mode. This function returns once an RTC or external interrupt occur.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_EnterLowPowerMode",
+  "proto": "void MXC_LP_EnterLowPowerMode(void)",
+  "brief": "Places the device into Low Power mode. This function returns once an RTC or external interrupt occur.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_EnterMicroPowerMode",
+  "proto": "void MXC_LP_EnterMicroPowerMode(void)",
+  "brief": "Places the device into Micro Power mode. This function returns once an RTC or external interrupt occur.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_EnterStandbyMode",
+  "proto": "void MXC_LP_EnterStandbyMode(void)",
+  "brief": "Places the device into Standby mode. This function returns once an RTC or external interrupt occur.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_EnterBackupMode",
+  "proto": "void MXC_LP_EnterBackupMode(void)",
+  "brief": "Places the device into BACKUP mode. CPU state is not maintained in this mode, so this function never returns. Instead, the device will restart once an RTC or external interrupt occur.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_EnterPowerDownMode",
+  "proto": "void MXC_LP_EnterPowerDownMode(void)",
+  "brief": "Places the device into Shutdown mode. CPU state is not maintained in this mode, so this function never returns. Instead, the device will restart once an RTC, USB wakeup, or external interrupt occur.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_SetOVR",
+  "proto": "void MXC_LP_SetOVR(mxc_lp_ovr_t ovr)",
+  "brief": "Set ovr bits to set the voltage the micro will run at.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_BandgapOn",
+  "proto": "void MXC_LP_BandgapOn(void)",
+  "brief": "Turn bandgap on",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_BandgapOff",
+  "proto": "void MXC_LP_BandgapOff(void)",
+  "brief": "Turn bandgap off",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_BandgapIsOn",
+  "proto": "int MXC_LP_BandgapIsOn(void)",
+  "brief": "Is the bandgap on or off",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_IsBackupWake",
+  "proto": "int MXC_LP_IsBackupWake(void)",
+  "brief": "Returns 1 if device wakes up from BACKUP mode.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_ClearWakeStatus",
+  "proto": "void MXC_LP_ClearWakeStatus(void)",
+  "brief": "clear all wake up status",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_EnableGPIOWakeup",
+  "proto": "void MXC_LP_EnableGPIOWakeup(mxc_gpio_cfg_t *wu_pins)",
+  "brief": "Enables the selected GPIO port and its selected pins to wake up the device from any low power mode. Call this function multiple times to enable pins on multiple ports. This function does not configure the GPIO pins nor does it setup their interrupt functionality.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_DisableGPIOWakeup",
+  "proto": "void MXC_LP_DisableGPIOWakeup(mxc_gpio_cfg_t *wu_pins)",
+  "brief": "Disables the selected GPIO port and its selected pins as a wake up source. Call this function multiple times to disable pins on multiple ports.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_GetGPIOWakeupEnable",
+  "proto": "uint32_t MXC_LP_GetGPIOWakeupEnable(uint8_t port)",
+  "brief": "Get the enabled wakeup pins for a specific GPIO port. Returns 0 if the port is not present on the device.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_GetGPIOWakeupStatus",
+  "proto": "uint32_t MXC_LP_GetGPIOWakeupStatus(uint8_t port)",
+  "brief": "Get the wakeup status of a specific GPIO port. Returns 0 if the port is not present on the device.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_ClearGPIOWakeupStatus",
+  "proto": "void MXC_LP_ClearGPIOWakeupStatus(uint8_t port, uint32_t mask)",
+  "brief": "Clear the wakeup status of a specific GPIO port. Does nothing if the port is not present on the device.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_EnableRTCAlarmWakeup",
+  "proto": "void MXC_LP_EnableRTCAlarmWakeup(void)",
+  "brief": "Enables the RTC alarm to wake up the device from any low power mode.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_DisableRTCAlarmWakeup",
+  "proto": "void MXC_LP_DisableRTCAlarmWakeup(void)",
+  "brief": "Disables the RTC alarm from waking up the device.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_EnableTimerWakeup",
+  "proto": "void MXC_LP_EnableTimerWakeup(mxc_tmr_regs_t *tmr)",
+  "brief": "Enables Timer to wakeup from any low power mode.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_DisableTimerWakeup",
+  "proto": "void MXC_LP_DisableTimerWakeup(mxc_tmr_regs_t *tmr)",
+  "brief": "Disables Timer from waking up device.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_EnableWUTAlarmWakeup",
+  "proto": "void MXC_LP_EnableWUTAlarmWakeup(void)",
+  "brief": "Enables the WUT alarm to wake up the device from any low power mode.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_DisableWUTAlarmWakeup",
+  "proto": "void MXC_LP_DisableWUTAlarmWakeup(void)",
+  "brief": "Disables the WUT alarm from waking up the device.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_EnableLPCMPWakeup",
+  "proto": "void MXC_LP_EnableLPCMPWakeup(mxc_lpcmp_cmpsel_t cmp)",
+  "brief": "Enables the LPCMP to wake up the device from any low power mode.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_DisableLPCMPWakeup",
+  "proto": "void MXC_LP_DisableLPCMPWakeup(mxc_lpcmp_cmpsel_t cmp)",
+  "brief": "Disables the LPCMP from waking up the device.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_ConfigDeepSleepClocks",
+  "proto": "int MXC_LP_ConfigDeepSleepClocks(uint32_t mask)",
+  "brief": "Configure which clocks are powered down at deep sleep and which are not affected.",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_SysRam0Shutdown",
+  "proto": "void MXC_LP_SysRam0Shutdown(void)",
+  "brief": "Shutdown System Ram 0",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_SysRam0PowerUp",
+  "proto": "void MXC_LP_SysRam0PowerUp(void)",
+  "brief": "Wakeup System Ram 0",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_SysRam1Shutdown",
+  "proto": "void MXC_LP_SysRam1Shutdown(void)",
+  "brief": "Shutdown System Ram 1",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_SysRam1PowerUp",
+  "proto": "void MXC_LP_SysRam1PowerUp(void)",
+  "brief": "PowerUp System Ram 1",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_SysRam2Shutdown",
+  "proto": "void MXC_LP_SysRam2Shutdown(void)",
+  "brief": "Shutdown System Ram 2",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_SysRam2PowerUp",
+  "proto": "void MXC_LP_SysRam2PowerUp(void)",
+  "brief": "PowerUp System Ram 2",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_SysRam3Shutdown",
+  "proto": "void MXC_LP_SysRam3Shutdown(void)",
+  "brief": "Shutdown System Ram 3",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_LP_SysRam3PowerUp",
+  "proto": "void MXC_LP_SysRam3PowerUp(void)",
+  "brief": "PowerUp System Ram 3",
+  "section": "",
+  "header": "lp.h",
+  "periph": "lp",
+  "deprecated": "",
+  "doc": "03_api/periph/lp.md"
+ },
+ {
+  "name": "MXC_OWM_Init",
+  "proto": "int MXC_OWM_Init(const mxc_owm_cfg_t *cfg)",
+  "brief": "Initialize and enable OWM module.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_Shutdown",
+  "proto": "void MXC_OWM_Shutdown(void)",
+  "brief": "Shutdown OWM module.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_Reset",
+  "proto": "int MXC_OWM_Reset(void)",
+  "brief": "Send 1-Wire reset pulse. Will block until transaction is complete.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_GetPresenceDetect",
+  "proto": "int MXC_OWM_GetPresenceDetect(void)",
+  "brief": "Get the presence pulse detect status.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_TouchByte",
+  "proto": "int MXC_OWM_TouchByte(uint8_t data)",
+  "brief": "Send and receive one byte of data. Will block until transaction is complete.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_WriteByte",
+  "proto": "int MXC_OWM_WriteByte(uint8_t data)",
+  "brief": "Write one byte of data. Will block until transaction is complete.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_ReadByte",
+  "proto": "int MXC_OWM_ReadByte(void)",
+  "brief": "Read one byte of data. Will block until transaction is complete.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_TouchBit",
+  "proto": "int MXC_OWM_TouchBit(uint8_t bit)",
+  "brief": "Send and receive one bit of data. Will block until transaction is complete.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_WriteBit",
+  "proto": "int MXC_OWM_WriteBit(uint8_t bit)",
+  "brief": "Write one bit of data. Will block until transaction is complete.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_ReadBit",
+  "proto": "int MXC_OWM_ReadBit(void)",
+  "brief": "Read one bit of data. Will block until transaction is complete.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_Write",
+  "proto": "int MXC_OWM_Write(uint8_t *data, int len)",
+  "brief": "Write multiple bytes of data. Will block until transaction is complete.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_Read",
+  "proto": "int MXC_OWM_Read(uint8_t *data, int len)",
+  "brief": "Read multiple bytes of data. Will block until transaction is complete.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_ReadROM",
+  "proto": "int MXC_OWM_ReadROM(uint8_t *ROMCode)",
+  "brief": "Starts 1-Wire communication with Read ROM command",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_MatchROM",
+  "proto": "int MXC_OWM_MatchROM(uint8_t *ROMCode)",
+  "brief": "Starts 1-Wire communication with Match ROM command",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_ODMatchROM",
+  "proto": "int MXC_OWM_ODMatchROM(uint8_t *ROMCode)",
+  "brief": "Starts 1-Wire communication with Overdrive Match ROM command",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_SkipROM",
+  "proto": "int MXC_OWM_SkipROM(void)",
+  "brief": "Starts 1-Wire communication with Skip ROM command",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_ODSkipROM",
+  "proto": "int MXC_OWM_ODSkipROM(void)",
+  "brief": "Starts 1-Wire communication with Overdrive Skip ROM command",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_Resume",
+  "proto": "int MXC_OWM_Resume(void)",
+  "brief": "Starts 1-Wire communication with Resume command",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_SearchROM",
+  "proto": "int MXC_OWM_SearchROM(int newSearch, uint8_t *ROMCode)",
+  "brief": "Starts 1-Wire communication with Search ROM command",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_ClearFlags",
+  "proto": "void MXC_OWM_ClearFlags(uint32_t mask)",
+  "brief": "Clear interrupt flags.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_GetFlags",
+  "proto": "unsigned MXC_OWM_GetFlags(void)",
+  "brief": "Get interrupt flags.",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_SetExtPullup",
+  "proto": "void MXC_OWM_SetExtPullup(int enable)",
+  "brief": "Enables/Disables the External pullup",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_SetOverdrive",
+  "proto": "void MXC_OWM_SetOverdrive(int enable)",
+  "brief": "Enables/Disables Overdrive speed",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_EnableInt",
+  "proto": "void MXC_OWM_EnableInt(int flags)",
+  "brief": "Enables interrupts",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_DisableInt",
+  "proto": "void MXC_OWM_DisableInt(int flags)",
+  "brief": "Disables interrupts",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_SetForcePresenceDetect",
+  "proto": "int MXC_OWM_SetForcePresenceDetect(int enable)",
+  "brief": "Enables/Disables driving of OWM_IO low during presence detection",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_SetInternalPullup",
+  "proto": "int MXC_OWM_SetInternalPullup(int enable)",
+  "brief": "Enables/Disables the Internal pullup",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_SetExternalPullup",
+  "proto": "int MXC_OWM_SetExternalPullup(mxc_owm_ext_pu_t ext_pu_mode)",
+  "brief": "Enables/Disables the External pullup",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_SystemClockUpdated",
+  "proto": "int MXC_OWM_SystemClockUpdated(void)",
+  "brief": "Call to correct divider if system clock has changed",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_SetSearchROMAccelerator",
+  "proto": "int MXC_OWM_SetSearchROMAccelerator(int enable)",
+  "brief": "Enable/Disable Search ROM Accelerator mode",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_BitBang_Init",
+  "proto": "int MXC_OWM_BitBang_Init(int initialState)",
+  "brief": "Prepare OWM for bit bang mode",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_BitBang_Read",
+  "proto": "int MXC_OWM_BitBang_Read(void)",
+  "brief": "Read current value of wire",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_BitBang_Write",
+  "proto": "int MXC_OWM_BitBang_Write(int state)",
+  "brief": "Set value of wire",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_OWM_BitBang_Disable",
+  "proto": "int MXC_OWM_BitBang_Disable(void)",
+  "brief": "Disable Bit Bang mode",
+  "section": "",
+  "header": "owm.h",
+  "periph": "owm",
+  "deprecated": "",
+  "doc": "03_api/periph/owm.md"
+ },
+ {
+  "name": "MXC_ADC_Init",
+  "proto": "int MXC_ADC_Init(void)",
+  "brief": "Performs the ADC startup procedure",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_Shutdown",
+  "proto": "int MXC_ADC_Shutdown(void)",
+  "brief": "Shuts down the ADC",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_Busy",
+  "proto": "int MXC_ADC_Busy(void)",
+  "brief": "Checks if the ADC is busy (performing a conversion)",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_EnableInt",
+  "proto": "void MXC_ADC_EnableInt(uint32_t flags)",
+  "brief": "Enable specific ADC interrupts",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_DisableInt",
+  "proto": "void MXC_ADC_DisableInt(uint32_t flags)",
+  "brief": "Disable specific ADC interrupts",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_GetFlags",
+  "proto": "int MXC_ADC_GetFlags(void)",
+  "brief": "Performs the ADC startup procedure",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_ClearFlags",
+  "proto": "void MXC_ADC_ClearFlags(uint32_t flags)",
+  "brief": "Performs the ADC startup procedure",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_SetConversionSpeed",
+  "proto": "int MXC_ADC_SetConversionSpeed(uint32_t hz)",
+  "brief": "Sets the ADC conversion speed",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_GetConversionSpeed",
+  "proto": "int MXC_ADC_GetConversionSpeed(void)",
+  "brief": "Gets the current ADC conversion speed",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_SetDataAlignment",
+  "proto": "void MXC_ADC_SetDataAlignment(int msbJustify)",
+  "brief": "Gets the current ADC conversion speed",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_SetExtScale",
+  "proto": "void MXC_ADC_SetExtScale(mxc_adc_scale_t scale)",
+  "brief": "Sets the scaling used for conversions on external channels",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_RefSelect",
+  "proto": "void MXC_ADC_RefSelect(mxc_adc_ref_t ref)",
+  "brief": "Select the ADC reference source",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_EnableMonitor",
+  "proto": "void MXC_ADC_EnableMonitor(mxc_adc_monitor_t monitors)",
+  "brief": "Enable channel high/low monitor",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_DisableMonitor",
+  "proto": "void MXC_ADC_DisableMonitor(mxc_adc_monitor_t monitors)",
+  "brief": "Disable channel high/low monitor",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_SetMonitorHighThreshold",
+  "proto": "void MXC_ADC_SetMonitorHighThreshold(mxc_adc_monitor_t monitor, uint32_t threshold)",
+  "brief": "Set the high limit for a specific monitor",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_GetMonitorHighThreshold",
+  "proto": "int MXC_ADC_GetMonitorHighThreshold(mxc_adc_monitor_t monitor)",
+  "brief": "Set the high limit for a specific monitor",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_SetMonitorLowThreshold",
+  "proto": "void MXC_ADC_SetMonitorLowThreshold(mxc_adc_monitor_t monitor, uint32_t threshold)",
+  "brief": "Set the low limit for a specific monitor",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_GetMonitorLowThreshold",
+  "proto": "int MXC_ADC_GetMonitorLowThreshold(mxc_adc_monitor_t monitor)",
+  "brief": "Set the low limit for a specific monitor",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_SetMonitorChannel",
+  "proto": "void MXC_ADC_SetMonitorChannel(mxc_adc_monitor_t monitor, mxc_adc_chsel_t channel)",
+  "brief": "Set a monitor to use a specific channel",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_GetMonitorChannel",
+  "proto": "int MXC_ADC_GetMonitorChannel(mxc_adc_monitor_t monitor)",
+  "brief": "Get the channel used by a monitor",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_EnableMonitorAsync",
+  "proto": "void MXC_ADC_EnableMonitorAsync(mxc_adc_monitor_t monitor, mxc_adc_monitor_cb_t callback)",
+  "brief": "Set a callback to be called when a monitor goes out of range",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_DisableMonitorAsync",
+  "proto": "void MXC_ADC_DisableMonitorAsync(mxc_adc_monitor_t monitor)",
+  "brief": "Disable a callback for a monitor",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_StartConversion",
+  "proto": "int MXC_ADC_StartConversion(mxc_adc_chsel_t channel)",
+  "brief": "Perform a conversion on a specific channel",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_StartConversionAsync",
+  "proto": "int MXC_ADC_StartConversionAsync(mxc_adc_chsel_t channel, mxc_adc_complete_cb_t callback)",
+  "brief": "Perform a conversion on a specific channel",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_Handler",
+  "proto": "int MXC_ADC_Handler(void)",
+  "brief": "Call this function from the ADC ISR when using Async API functions",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_Convert",
+  "proto": "int MXC_ADC_Convert(mxc_adc_conversion_req_t *req)",
+  "brief": "Perform a conversion on a specific channel",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_ConvertAsync",
+  "proto": "int MXC_ADC_ConvertAsync(mxc_adc_conversion_req_t *req)",
+  "brief": "Perform a conversion on a specific channel",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_Monitor",
+  "proto": "void MXC_ADC_Monitor(mxc_adc_monitor_req_t req)",
+  "brief": "Monitor a specific channel for an out of range event",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_MonitorAsync",
+  "proto": "void MXC_ADC_MonitorAsync(mxc_adc_monitor_req_t req)",
+  "brief": "Monitor a specific channel for an out of range event",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_EnableComparators",
+  "proto": "void MXC_ADC_EnableComparators(uint32_t mask)",
+  "brief": "Enable the Comparators",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_DisableComparators",
+  "proto": "void MXC_ADC_DisableComparators(uint32_t mask)",
+  "brief": "Disable the Comparators",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_ADC_GetData",
+  "proto": "int MXC_ADC_GetData(uint16_t *outdata)",
+  "brief": "Gets the result from the previous ADC conversion",
+  "section": "",
+  "header": "adc.h",
+  "periph": "adc",
+  "deprecated": "",
+  "doc": "03_api/periph/adc.md"
+ },
+ {
+  "name": "MXC_TMR_Init",
+  "proto": "int MXC_TMR_Init(mxc_tmr_regs_t *tmr, mxc_tmr_cfg_t *cfg, bool init_pins)",
+  "brief": "Initialize timer module clock.",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_SetClockSourceFreq",
+  "proto": "void MXC_TMR_SetClockSourceFreq(mxc_tmr_regs_t *tmr, int clksrc_freq)",
+  "brief": "Set the timer input clock frequency.",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_Shutdown",
+  "proto": "void MXC_TMR_Shutdown(mxc_tmr_regs_t *tmr)",
+  "brief": "Shutdown timer module clock.",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_Start",
+  "proto": "void MXC_TMR_Start(mxc_tmr_regs_t *tmr)",
+  "brief": "Start the timer counting.",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_Stop",
+  "proto": "void MXC_TMR_Stop(mxc_tmr_regs_t *tmr)",
+  "brief": "Stop the timer.",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_SetPWM",
+  "proto": "int MXC_TMR_SetPWM(mxc_tmr_regs_t *tmr, uint32_t pwm)",
+  "brief": "Set the value of the first transition in PWM mode",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_GetCompare",
+  "proto": "uint32_t MXC_TMR_GetCompare(mxc_tmr_regs_t *tmr)",
+  "brief": "Get the timer compare count.",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_GetCapture",
+  "proto": "uint32_t MXC_TMR_GetCapture(mxc_tmr_regs_t *tmr)",
+  "brief": "Get the timer capture count.",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_GetCount",
+  "proto": "uint32_t MXC_TMR_GetCount(mxc_tmr_regs_t *tmr)",
+  "brief": "Get the timer count.",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_GetPeriod",
+  "proto": "uint32_t MXC_TMR_GetPeriod(mxc_tmr_regs_t *tmr, mxc_tmr_clock_t clock, uint32_t prescalar, uint32_t frequency)",
+  "brief": "Calculate count for required frequency.",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_ClearFlags",
+  "proto": "void MXC_TMR_ClearFlags(mxc_tmr_regs_t *tmr)",
+  "brief": "Clear the timer interrupt.",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_GetFlags",
+  "proto": "uint32_t MXC_TMR_GetFlags(mxc_tmr_regs_t *tmr)",
+  "brief": "Get the timer interrupt status.",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_EnableInt",
+  "proto": "void MXC_TMR_EnableInt(mxc_tmr_regs_t *tmr)",
+  "brief": "enable interupt",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_DisableInt",
+  "proto": "void MXC_TMR_DisableInt(mxc_tmr_regs_t *tmr)",
+  "brief": "disable interupt",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_EnableWakeup",
+  "proto": "void MXC_TMR_EnableWakeup(mxc_tmr_regs_t *tmr, mxc_tmr_cfg_t *cfg)",
+  "brief": "Enable wakeup from sleep",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_DisableWakeup",
+  "proto": "void MXC_TMR_DisableWakeup(mxc_tmr_regs_t *tmr, mxc_tmr_cfg_t *cfg)",
+  "brief": "Disable wakeup from sleep",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_SetCompare",
+  "proto": "void MXC_TMR_SetCompare(mxc_tmr_regs_t *tmr, uint32_t cmp_cnt)",
+  "brief": "Set the timer compare count.",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_SetCount",
+  "proto": "void MXC_TMR_SetCount(mxc_tmr_regs_t *tmr, uint32_t cnt)",
+  "brief": "Set the timer count.",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_Delay",
+  "proto": "void MXC_TMR_Delay(mxc_tmr_regs_t *tmr, uint32_t us)",
+  "brief": "Dealay for a set periord of time measured in microseconds",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_TO_Start",
+  "proto": "void MXC_TMR_TO_Start(mxc_tmr_regs_t *tmr, uint32_t us)",
+  "brief": "Start a timer that will time out after a certain number of microseconds",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_TO_Check",
+  "proto": "int MXC_TMR_TO_Check(mxc_tmr_regs_t *tmr)",
+  "brief": "Check on time out timer",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_TO_Stop",
+  "proto": "void MXC_TMR_TO_Stop(mxc_tmr_regs_t *tmr)",
+  "brief": "Stop the Timeout timer",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_TO_Clear",
+  "proto": "void MXC_TMR_TO_Clear(mxc_tmr_regs_t *tmr)",
+  "brief": "Clear timeout timer back to zero",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_TO_Elapsed",
+  "proto": "unsigned int MXC_TMR_TO_Elapsed(mxc_tmr_regs_t *tmr)",
+  "brief": "Get elapsed time of timeout timer",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_TO_Remaining",
+  "proto": "unsigned int MXC_TMR_TO_Remaining(mxc_tmr_regs_t *tmr)",
+  "brief": "Amount of time remaining until timeour",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_SW_Start",
+  "proto": "void MXC_TMR_SW_Start(mxc_tmr_regs_t *tmr)",
+  "brief": "Start stopwatch",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_SW_Stop",
+  "proto": "unsigned int MXC_TMR_SW_Stop(mxc_tmr_regs_t *tmr)",
+  "brief": "Stopwatch stop",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_TMR_GetTime",
+  "proto": "int MXC_TMR_GetTime(mxc_tmr_regs_t *tmr, uint32_t ticks, uint32_t *time, mxc_tmr_unit_t *units)",
+  "brief": "Get time from timer",
+  "section": "",
+  "header": "tmr.h",
+  "periph": "tmr",
+  "deprecated": "",
+  "doc": "03_api/periph/tmr.md"
+ },
+ {
+  "name": "MXC_I2S_Init",
+  "proto": "int MXC_I2S_Init(mxc_i2s_req_t *req)",
+  "brief": "Initialize I2S resources",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_Shutdown",
+  "proto": "int MXC_I2S_Shutdown(void)",
+  "brief": "Release I2S, clear configuration and flush FIFOs",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_ConfigData",
+  "proto": "int MXC_I2S_ConfigData(mxc_i2s_req_t *req)",
+  "brief": "Configure data to be transmitted based on word and sample size",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_TXEnable",
+  "proto": "void MXC_I2S_TXEnable(void)",
+  "brief": "Enable TX channel",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_TXDisable",
+  "proto": "void MXC_I2S_TXDisable(void)",
+  "brief": "Disable TX channel",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_RXEnable",
+  "proto": "void MXC_I2S_RXEnable(void)",
+  "brief": "Enable RX channel",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_RXDisable",
+  "proto": "void MXC_I2S_RXDisable(void)",
+  "brief": "Disable RX channel",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_SetRXThreshold",
+  "proto": "int MXC_I2S_SetRXThreshold(uint8_t threshold)",
+  "brief": "Set threshold for RX FIFO",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_SetFrequency",
+  "proto": "int MXC_I2S_SetFrequency(mxc_i2s_ch_mode_t mode, uint16_t clkdiv)",
+  "brief": "Set I2S Frequency, automatically called by I2S_Init",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_SetSampleRate",
+  "proto": "int MXC_I2S_SetSampleRate(uint32_t smpl_rate, mxc_i2s_wsize_t smpl_sz, uint32_t i2s_clk)",
+  "brief": "Sets the clock divider to provide the desired sampling rate.",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_GetSampleRate",
+  "proto": "int MXC_I2S_GetSampleRate(uint32_t i2s_clk)",
+  "brief": "Returns the current sampling rate.",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_CalculateClockDiv",
+  "proto": "int MXC_I2S_CalculateClockDiv(uint32_t smpl_rate, mxc_i2s_wsize_t smpl_sz, uint32_t i2s_clk)",
+  "brief": "Calculates the value of the clock divider that should be used in order to get the desired sampling frequency.",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_Flush",
+  "proto": "void MXC_I2S_Flush(void)",
+  "brief": "Flush I2S FIFO",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_FillTXFIFO",
+  "proto": "int MXC_I2S_FillTXFIFO(void *txData, mxc_i2s_wsize_t wordSize, int len, int smpl_cnt)",
+  "brief": "Fill I2S FIFO with data to transmit",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_ReadRXFIFO",
+  "proto": "int MXC_I2S_ReadRXFIFO(void *rxData, mxc_i2s_wsize_t wordSize, int len, int smpl_cnt)",
+  "brief": "Read audio samples from I2S receive buffer",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_EnableInt",
+  "proto": "void MXC_I2S_EnableInt(uint32_t flags)",
+  "brief": "Enable Interrupts",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_DisableInt",
+  "proto": "void MXC_I2S_DisableInt(uint32_t flags)",
+  "brief": "Disable Interrupt",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_GetFlags",
+  "proto": "int MXC_I2S_GetFlags(void)",
+  "brief": "Get the set interrupt flags",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_ClearFlags",
+  "proto": "void MXC_I2S_ClearFlags(uint32_t flags)",
+  "brief": "Clears Interrupt Flags",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_Transaction",
+  "proto": "int MXC_I2S_Transaction(mxc_i2s_req_t *i2s_req)",
+  "brief": "Performs a blocking I2S transaction.",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_TransactionAsync",
+  "proto": "int MXC_I2S_TransactionAsync(mxc_i2s_req_t *i2s_req)",
+  "brief": "Sets up an asynchronous I2S transaction.",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_TXDMAConfig",
+  "proto": "int MXC_I2S_TXDMAConfig(void *src_addr, int len)",
+  "brief": "Configure TX DMA transaction",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_RXDMAConfig",
+  "proto": "int MXC_I2S_RXDMAConfig(void *dest_addr, int len)",
+  "brief": "Configure RX DMA transaction",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_Handler",
+  "proto": "void MXC_I2S_Handler(void)",
+  "brief": "Handler for asynchronous I2S transactions.",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_RegisterDMACallback",
+  "proto": "void MXC_I2S_RegisterDMACallback(void (*callback)(int, int))",
+  "brief": "Set the callback function pointer for I2S DMA transactions",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_I2S_RegisterAsyncCallback",
+  "proto": "void MXC_I2S_RegisterAsyncCallback(void (*callback)(int))",
+  "brief": "Sets the callback function for asynchronous I2S transactions",
+  "section": "",
+  "header": "i2s.h",
+  "periph": "i2s",
+  "deprecated": "",
+  "doc": "03_api/periph/i2s.md"
+ },
+ {
+  "name": "MXC_GPIO_Init",
+  "proto": "int MXC_GPIO_Init(uint32_t portMask)",
+  "brief": "Initialize GPIO.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_Shutdown",
+  "proto": "int MXC_GPIO_Shutdown(uint32_t portMask)",
+  "brief": "Shutdown GPIO.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_Reset",
+  "proto": "int MXC_GPIO_Reset(uint32_t portMask)",
+  "brief": "Reset GPIO.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_Config",
+  "proto": "int MXC_GPIO_Config(const mxc_gpio_cfg_t *cfg)",
+  "brief": "Configure GPIO pin(s).",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_Disable",
+  "proto": "int MXC_GPIO_Disable(mxc_gpio_regs_t *port, uint32_t mask)",
+  "brief": "Fully disable pin(s), clearing the input buffer, output driver, and pull configuration set by MXC_GPIO_Config().",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_InGet",
+  "proto": "uint32_t MXC_GPIO_InGet(mxc_gpio_regs_t *port, uint32_t mask)",
+  "brief": "Gets the pin(s) input state.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_OutSet",
+  "proto": "void MXC_GPIO_OutSet(mxc_gpio_regs_t *port, uint32_t mask)",
+  "brief": "Sets the pin(s) to a high level output.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_OutClr",
+  "proto": "void MXC_GPIO_OutClr(mxc_gpio_regs_t *port, uint32_t mask)",
+  "brief": "Clears the pin(s) to a low level output.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_OutGet",
+  "proto": "uint32_t MXC_GPIO_OutGet(mxc_gpio_regs_t *port, uint32_t mask)",
+  "brief": "Gets the pin(s) output state.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_OutPut",
+  "proto": "void MXC_GPIO_OutPut(mxc_gpio_regs_t *port, uint32_t mask, uint32_t val)",
+  "brief": "Write the pin(s) to a desired output level.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_OutToggle",
+  "proto": "void MXC_GPIO_OutToggle(mxc_gpio_regs_t *port, uint32_t mask)",
+  "brief": "Toggles the the pin(s) output level.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_IntConfig",
+  "proto": "int MXC_GPIO_IntConfig(const mxc_gpio_cfg_t *cfg, mxc_gpio_int_pol_t pol)",
+  "brief": "Configure GPIO interrupt(s)",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_EnableInt",
+  "proto": "void MXC_GPIO_EnableInt(mxc_gpio_regs_t *port, uint32_t mask)",
+  "brief": "Enables the specified GPIO interrupt",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_DisableInt",
+  "proto": "void MXC_GPIO_DisableInt(mxc_gpio_regs_t *port, uint32_t mask)",
+  "brief": "Disables the specified GPIO interrupt.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_GetFlags",
+  "proto": "uint32_t MXC_GPIO_GetFlags(mxc_gpio_regs_t *port)",
+  "brief": "Gets the interrupt(s) status on a GPIO port",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_ClearFlags",
+  "proto": "void MXC_GPIO_ClearFlags(mxc_gpio_regs_t *port, uint32_t flags)",
+  "brief": "Gets the interrupt(s) status on a GPIO port",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_RegisterCallback",
+  "proto": "void MXC_GPIO_RegisterCallback(const mxc_gpio_cfg_t *cfg, mxc_gpio_callback_fn callback, void *cbdata)",
+  "brief": "Registers a callback for the interrupt on a given port and pin.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_Handler",
+  "proto": "void MXC_GPIO_Handler(unsigned int port)",
+  "brief": "GPIO IRQ Handler. @note If a callback is registered for a given interrupt, the callback function will be called.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_SetVSSEL",
+  "proto": "int MXC_GPIO_SetVSSEL(mxc_gpio_regs_t *port, mxc_gpio_vssel_t vssel, uint32_t mask)",
+  "brief": "Set Voltage select for pins to VDDIO or VDDIOH",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_SetWakeEn",
+  "proto": "void MXC_GPIO_SetWakeEn(mxc_gpio_regs_t *port, uint32_t mask)",
+  "brief": "Enables GPIO pins to be used as a wakeup source.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_ClearWakeEn",
+  "proto": "void MXC_GPIO_ClearWakeEn(mxc_gpio_regs_t *port, uint32_t mask)",
+  "brief": "Disables GPIO pins from being used as a wakeup source.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_GetWakeEn",
+  "proto": "uint32_t MXC_GPIO_GetWakeEn(mxc_gpio_regs_t *port)",
+  "brief": "Returns the pins currently enabled as wakeup sources.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_SetDriveStrength",
+  "proto": "int MXC_GPIO_SetDriveStrength(mxc_gpio_regs_t *port, mxc_gpio_drvstr_t drvstr, uint32_t mask)",
+  "brief": "Set Drive Strength for pins.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_SetConfigLock",
+  "proto": "void MXC_GPIO_SetConfigLock(mxc_gpio_config_lock_t locked)",
+  "brief": "Enables/Disables the lock on all pins' configurations. If locked, any changes to a pin's configuration made through the MXC_GPIO_Config function will be ignored.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_GPIO_GetConfigLock",
+  "proto": "mxc_gpio_config_lock_t MXC_GPIO_GetConfigLock(void)",
+  "brief": "Reads the current lock state on pin configuration.",
+  "section": "",
+  "header": "gpio.h",
+  "periph": "gpio",
+  "deprecated": "",
+  "doc": "03_api/periph/gpio.md"
+ },
+ {
+  "name": "MXC_DMA_Init",
+  "proto": "int MXC_DMA_Init(void)",
+  "brief": "Initialize DMA resources",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_DeInit",
+  "proto": "void MXC_DMA_DeInit(void)",
+  "brief": "De-Initialize DMA resources.",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_AcquireChannel",
+  "proto": "int MXC_DMA_AcquireChannel(void)",
+  "brief": "Request DMA channel",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_ReleaseChannel",
+  "proto": "int MXC_DMA_ReleaseChannel(int ch)",
+  "brief": "Release DMA channel",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_ConfigChannel",
+  "proto": "int MXC_DMA_ConfigChannel(mxc_dma_config_t config, mxc_dma_srcdst_t srcdst)",
+  "brief": "Configure the DMA channel",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_AdvConfigChannel",
+  "proto": "int MXC_DMA_AdvConfigChannel(mxc_dma_adv_config_t advConfig)",
+  "brief": "Configure the DMA channel with more advanced parameters",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_SetSrcDst",
+  "proto": "int MXC_DMA_SetSrcDst(mxc_dma_srcdst_t srcdst)",
+  "brief": "Set channel source, destination, and count for the transfer",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_GetSrcDst",
+  "proto": "int MXC_DMA_GetSrcDst(mxc_dma_srcdst_t *srcdst)",
+  "brief": "Get channel source, destination, and count for transfer",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_SetSrcReload",
+  "proto": "int MXC_DMA_SetSrcReload(mxc_dma_srcdst_t srcdstReload)",
+  "brief": "Set channel reload source, destination, and count for the transfer",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_GetSrcReload",
+  "proto": "int MXC_DMA_GetSrcReload(mxc_dma_srcdst_t *srcdstReload)",
+  "brief": "Get channel reload source, destination, and count for transfer",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_SetCallback",
+  "proto": "int MXC_DMA_SetCallback(int ch, void (*callback)(int, int))",
+  "brief": "Set channel interrupt callback",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_SetChannelInterruptEn",
+  "proto": "int MXC_DMA_SetChannelInterruptEn(int ch, bool chdis, bool ctz)",
+  "brief": "Set channel interrupt",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_ChannelEnableInt",
+  "proto": "int MXC_DMA_ChannelEnableInt(int ch, int flags)",
+  "brief": "Enable channel interrupt",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_ChannelDisableInt",
+  "proto": "int MXC_DMA_ChannelDisableInt(int ch, int flags)",
+  "brief": "Disable channel interrupt",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_ChannelGetFlags",
+  "proto": "int MXC_DMA_ChannelGetFlags(int ch)",
+  "brief": "Read channel interrupt flags",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_ChannelClearFlags",
+  "proto": "int MXC_DMA_ChannelClearFlags(int ch, int flags)",
+  "brief": "Clear channel interrupt flags",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_EnableInt",
+  "proto": "int MXC_DMA_EnableInt(int ch)",
+  "brief": "Enable channel interrupt",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_DisableInt",
+  "proto": "int MXC_DMA_DisableInt(int ch)",
+  "brief": "Disable channel interrupt",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_Start",
+  "proto": "int MXC_DMA_Start(int ch)",
+  "brief": "Start transfer",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_Stop",
+  "proto": "int MXC_DMA_Stop(int ch)",
+  "brief": "Stop DMA transfer, irrespective of status (complete or in-progress)",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_GetCHRegs",
+  "proto": "mxc_dma_ch_regs_t *MXC_DMA_GetCHRegs(int ch)",
+  "brief": "Get a pointer to the DMA channel registers",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_Handler",
+  "proto": "void MXC_DMA_Handler(void)",
+  "brief": "Interrupt handler function",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_MemCpy",
+  "proto": "int MXC_DMA_MemCpy(void *dest, void *src, int len, mxc_dma_complete_cb_t callback)",
+  "brief": "Performs a memcpy, using DMA, optionally asynchronous",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_DMA_DoTransfer",
+  "proto": "int MXC_DMA_DoTransfer(mxc_dma_config_t config, mxc_dma_srcdst_t firstSrcDst, mxc_dma_trans_chain_t callback)",
+  "brief": "Performs a memcpy, using DMA, optionally asynchronous",
+  "section": "",
+  "header": "dma.h",
+  "periph": "dma",
+  "deprecated": "",
+  "doc": "03_api/periph/dma.md"
+ },
+ {
+  "name": "MXC_AES_Init",
+  "proto": "int MXC_AES_Init(void)",
+  "brief": "Enable portions of the AES",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_EnableInt",
+  "proto": "void MXC_AES_EnableInt(uint32_t interrupt)",
+  "brief": "Enable AES Interrupts",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_DisableInt",
+  "proto": "void MXC_AES_DisableInt(uint32_t interrupt)",
+  "brief": "Disable AES Interrupts",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_IsBusy",
+  "proto": "int MXC_AES_IsBusy(void)",
+  "brief": "Checks the global AES Busy Status",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_Shutdown",
+  "proto": "int MXC_AES_Shutdown(void)",
+  "brief": "Disable and reset portions of the AES",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_DMACallback",
+  "proto": "void MXC_AES_DMACallback(int ch, int error)",
+  "brief": "This function should be called from the DMA Handler when using Async functions",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_GenerateKey",
+  "proto": "void MXC_AES_GenerateKey(void)",
+  "brief": "This function should be called before encryption to genrate external key",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_SetKeySize",
+  "proto": "void MXC_AES_SetKeySize(mxc_aes_keys_t key)",
+  "brief": "Set Key size for encryption or decryption",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_GetKeySize",
+  "proto": "mxc_aes_keys_t MXC_AES_GetKeySize(void)",
+  "brief": "Get the currently set key size",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_FlushInputFIFO",
+  "proto": "void MXC_AES_FlushInputFIFO(void)",
+  "brief": "Flush Input Data FIFO",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_FlushOutputFIFO",
+  "proto": "void MXC_AES_FlushOutputFIFO(void)",
+  "brief": "Flush Output Data FIFO",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_Start",
+  "proto": "void MXC_AES_Start(void)",
+  "brief": "Start AES Calculations",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_GetFlags",
+  "proto": "uint32_t MXC_AES_GetFlags(void)",
+  "brief": "Get Interrupt flags set",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_ClearFlags",
+  "proto": "void MXC_AES_ClearFlags(uint32_t flags)",
+  "brief": "Clear the interrupts",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_Generic",
+  "proto": "int MXC_AES_Generic(mxc_aes_req_t *req)",
+  "brief": "@note The result will be stored in the req structure",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_Encrypt",
+  "proto": "int MXC_AES_Encrypt(mxc_aes_req_t *req)",
+  "brief": "Perform an encryption",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_Decrypt",
+  "proto": "int MXC_AES_Decrypt(mxc_aes_req_t *req)",
+  "brief": "Perform a decryption",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_TXDMAConfig",
+  "proto": "int MXC_AES_TXDMAConfig(void *src_addr, int len)",
+  "brief": "Perform AES TX using DMA. Configures DMA request and starts the transmission.",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_RXDMAConfig",
+  "proto": "int MXC_AES_RXDMAConfig(void *dest_addr, int len)",
+  "brief": "Perform AES RX using DMA. Configures DMA request and receives data from AES FIFO.",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_GenericAsync",
+  "proto": "int MXC_AES_GenericAsync(mxc_aes_req_t *req, uint8_t enc)",
+  "brief": "Perform encryption or decryption using DMA",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_EncryptAsync",
+  "proto": "int MXC_AES_EncryptAsync(mxc_aes_req_t *req)",
+  "brief": "Perform an encryption using Interrupt",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_DecryptAsync",
+  "proto": "int MXC_AES_DecryptAsync(mxc_aes_req_t *req)",
+  "brief": "Perform a decryption using Interrupt",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_AES_SetExtKey",
+  "proto": "void MXC_AES_SetExtKey(const void *key, mxc_aes_keys_t len)",
+  "brief": "Set the external key",
+  "section": "",
+  "header": "aes.h",
+  "periph": "aes",
+  "deprecated": "",
+  "doc": "03_api/periph/aes.md"
+ },
+ {
+  "name": "MXC_WUT_Init",
+  "proto": "void MXC_WUT_Init(mxc_wut_pres_t pres)",
+  "brief": "Initialize timer module clock.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_Shutdown",
+  "proto": "void MXC_WUT_Shutdown(void)",
+  "brief": "Shutdown timer module clock.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_Enable",
+  "proto": "void MXC_WUT_Enable(void)",
+  "brief": "Enable the timer.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_Disable",
+  "proto": "void MXC_WUT_Disable(void)",
+  "brief": "Disable the timer.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_Config",
+  "proto": "void MXC_WUT_Config(const mxc_wut_cfg_t *cfg)",
+  "brief": "Configure the timer.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_GetCompare",
+  "proto": "uint32_t MXC_WUT_GetCompare(void)",
+  "brief": "Get the timer compare count.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_GetCount",
+  "proto": "uint32_t MXC_WUT_GetCount(void)",
+  "brief": "Get the timer count.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_IntClear",
+  "proto": "void MXC_WUT_IntClear(void)",
+  "brief": "Clear the timer interrupt.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "Use MXC_WUT_ClearFlags instead.  See wut.h for more details.",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_ClearFlags",
+  "proto": "void MXC_WUT_ClearFlags(void)",
+  "brief": "Clear the timer interrupt.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_IntStatus",
+  "proto": "uint32_t MXC_WUT_IntStatus(void)",
+  "brief": "Get the timer interrupt status.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "Use MXC_WUT_GetFlags instead.  See wut.h for more details.",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_GetFlags",
+  "proto": "uint32_t MXC_WUT_GetFlags(void)",
+  "brief": "Get the timer interrupt status.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_SetCompare",
+  "proto": "void MXC_WUT_SetCompare(uint32_t cmp_cnt)",
+  "brief": "Set the timer compare count.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_SetCount",
+  "proto": "void MXC_WUT_SetCount(uint32_t cnt)",
+  "brief": "Set the timer count.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_GetTicks",
+  "proto": "int MXC_WUT_GetTicks(uint32_t time, mxc_wut_unit_t units, uint32_t *ticks)",
+  "brief": "Convert real time to timer ticks.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_GetTime",
+  "proto": "int MXC_WUT_GetTime(uint32_t ticks, uint32_t *time, mxc_wut_unit_t *units)",
+  "brief": "Convert timer ticks to real time.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_Edge",
+  "proto": "void MXC_WUT_Edge(void)",
+  "brief": "Wait for an edge of the WUT count register.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "Use MXC_WUT_WaitForEdge instead.  See wut.h for more details.",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_WaitForEdge",
+  "proto": "void MXC_WUT_WaitForEdge(void)",
+  "brief": "Wait for an edge of the WUT count register.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_Store",
+  "proto": "void MXC_WUT_Store(void)",
+  "brief": "Store the count and snapshot values.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "Use MXC_WUT_StoreCount instead.  See wut.h for more details.",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_StoreCount",
+  "proto": "void MXC_WUT_StoreCount(void)",
+  "brief": "Store the count and snapshot values.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_RestoreBBClock",
+  "proto": "void MXC_WUT_RestoreBBClock(uint32_t dbbFreq)",
+  "brief": "Restore the DBB clock with the stored count and snapshot values.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_GetSleepTicks",
+  "proto": "uint32_t MXC_WUT_GetSleepTicks(void)",
+  "brief": "Get the difference between the stored counter value and the current counter value.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "MXC_WUT_Delay_MS",
+  "proto": "void MXC_WUT_Delay_MS(uint32_t waitMs)",
+  "brief": "Delays for the given number of milliseconds.",
+  "section": "",
+  "header": "wut.h",
+  "periph": "wut",
+  "deprecated": "",
+  "doc": "03_api/periph/wut.md"
+ },
+ {
+  "name": "_mxc_crit_get_state",
+  "proto": "static inline void _mxc_crit_get_state(void) { uint32_t primask = __get_PRIMASK(); _state.ie_status = (primask == 0); uint32_t mstatus = get_mstatus(); _state.ie_status = ((mstatus & (1 << 3)) != 0)",
+  "brief": "",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_Crit_Enter",
+  "proto": "static inline void MXC_SYS_Crit_Enter(void) { _mxc_crit_get_state(); if (_state.ie_status) __disable_irq(); _state.in_critical = 1",
+  "brief": "Enter a critical section of code that cannot be interrupted. Call @ref MXC_SYS_Crit_Exit to exit the critical section.",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_Crit_Exit",
+  "proto": "static inline void MXC_SYS_Crit_Exit(void) { if (_state.ie_status) { __enable_irq(); } _state.in_critical = 0; _mxc_crit_get_state()",
+  "brief": "Exit a critical section of code from @ref MXC_SYS_Crit_Enter",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_In_Crit_Section",
+  "proto": "static inline int MXC_SYS_In_Crit_Section(void) { return _state.in_critical",
+  "brief": "Polls whether code is currently executing from a critical section.",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_GetUSN",
+  "proto": "int MXC_SYS_GetUSN(uint8_t *usn, uint8_t *checksum)",
+  "brief": "Reads the device USN and verifies the checksum.",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_IsClockEnabled",
+  "proto": "int MXC_SYS_IsClockEnabled(mxc_sys_periph_clock_t clock)",
+  "brief": "Determines if the selected peripheral clock is enabled.",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_ClockDisable",
+  "proto": "void MXC_SYS_ClockDisable(mxc_sys_periph_clock_t clock)",
+  "brief": "Disables the selected peripheral clock.",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_ClockEnable",
+  "proto": "void MXC_SYS_ClockEnable(mxc_sys_periph_clock_t clock)",
+  "brief": "Enables the selected peripheral clock.",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_RTCClockEnable",
+  "proto": "void MXC_SYS_RTCClockEnable(void)",
+  "brief": "Enables the 32kHz oscillator",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_RTCClockDisable",
+  "proto": "int MXC_SYS_RTCClockDisable(void)",
+  "brief": "Disables the 32kHz oscillator",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_ClockSourceEnable",
+  "proto": "int MXC_SYS_ClockSourceEnable(mxc_sys_system_clock_t clock)",
+  "brief": "Enable System Clock Source without switching to it",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_ClockSourceDisable",
+  "proto": "int MXC_SYS_ClockSourceDisable(mxc_sys_system_clock_t clock)",
+  "brief": "Disable System Clock Source",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_GetClockDiv",
+  "proto": "mxc_sys_system_clock_div_t MXC_SYS_GetClockDiv(void)",
+  "brief": "Get the current system clock divider.",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_SetClockDiv",
+  "proto": "void MXC_SYS_SetClockDiv(mxc_sys_system_clock_div_t div)",
+  "brief": "Set the system clock divider.",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_Clock_Select",
+  "proto": "int MXC_SYS_Clock_Select(mxc_sys_system_clock_t clock)",
+  "brief": "Select the system clock.",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_Clock_Timeout",
+  "proto": "int MXC_SYS_Clock_Timeout(uint32_t ready)",
+  "brief": "Wait for a clock to enable with timeout",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_Reset_Periph",
+  "proto": "void MXC_SYS_Reset_Periph(mxc_sys_reset_t reset)",
+  "brief": "Reset the peripherals and/or CPU in the rstr0 or rstr1 register.",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_RISCVRun",
+  "proto": "void MXC_SYS_RISCVRun(void)",
+  "brief": "Setup and run RISCV core",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_RISCVShutdown",
+  "proto": "void MXC_SYS_RISCVShutdown(void)",
+  "brief": "Shutdown the RISCV core",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_RiscVClockRate",
+  "proto": "uint32_t MXC_SYS_RiscVClockRate(void)",
+  "brief": "Returns the clock rate (in Hz) of the Risc-V core.",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_SYS_LockDAP_Permanent",
+  "proto": "int MXC_SYS_LockDAP_Permanent(void)",
+  "brief": "This function PERMANENTLY locks the Debug Access Port.",
+  "section": "Function Prototypes",
+  "header": "mxc_sys.h",
+  "periph": "mxc_sys",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_sys.md"
+ },
+ {
+  "name": "MXC_RTC_SetTimeofdayAlarm",
+  "proto": "int MXC_RTC_SetTimeofdayAlarm(uint32_t ras)",
+  "brief": "Set Time-of-Day alarm value and enable Interrupt",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_SetSubsecondAlarm",
+  "proto": "int MXC_RTC_SetSubsecondAlarm(uint32_t rssa)",
+  "brief": "Set Sub-Second alarm value and enable interrupt,",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_Start",
+  "proto": "int MXC_RTC_Start(void)",
+  "brief": "Start the Real Time Clock (Blocking function)",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_Stop",
+  "proto": "int MXC_RTC_Stop(void)",
+  "brief": "Stop the Real Time Clock (Blocking function)",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_Init",
+  "proto": "int MXC_RTC_Init(uint32_t sec, uint16_t ssec)",
+  "brief": "Initialize the sec and ssec registers and enable RTC (Blocking function)",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_SquareWaveStart",
+  "proto": "int MXC_RTC_SquareWaveStart(mxc_rtc_freq_sel_t fq)",
+  "brief": "Allow generation of Square Wave on the SQW pin (Blocking function)",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_SquareWaveStop",
+  "proto": "int MXC_RTC_SquareWaveStop(void)",
+  "brief": "Stop the generation of square wave (Blocking function)",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_Trim",
+  "proto": "int MXC_RTC_Trim(int8_t trm)",
+  "brief": "Set Trim register value (Blocking function)",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_EnableInt",
+  "proto": "int MXC_RTC_EnableInt(uint32_t mask)",
+  "brief": "Enable Interurpts (Blocking function)",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_DisableInt",
+  "proto": "int MXC_RTC_DisableInt(uint32_t mask)",
+  "brief": "Disable Interurpts (Blocking function)",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_GetFlags",
+  "proto": "int MXC_RTC_GetFlags(void)",
+  "brief": "Gets interrupt flags.",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_ClearFlags",
+  "proto": "int MXC_RTC_ClearFlags(int flags)",
+  "brief": "Clear interrupt flags.",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_GetSubSecond",
+  "proto": "int MXC_RTC_GetSubSecond(void)",
+  "brief": "Get SubSecond or E_BUSY, see /ref MXC_ERROR_CODES",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "Use MXC_RTC_GetSubSeconds() instead.",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_GetSubSeconds",
+  "proto": "int MXC_RTC_GetSubSeconds(uint32_t *ssec)",
+  "brief": "This function stores the current value of the sub-seconds counter into a pointer if the RTC is not busy. If the RTC is busy, an error is returned.",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_GetSecond",
+  "proto": "int MXC_RTC_GetSecond(void)",
+  "brief": "Get Second or E_BUSY, see /ref MXC_ERROR_CODES",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "Use MXC_RTC_GetSeconds() instead.",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_GetSeconds",
+  "proto": "int MXC_RTC_GetSeconds(uint32_t *sec)",
+  "brief": "This function stores the current value of the seconds counter into a pointer if the RTC is not busy. If the RTC is busy, an error is returned.",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_GetTime",
+  "proto": "int MXC_RTC_GetTime(uint32_t *sec, uint32_t *subsec)",
+  "brief": "Get the current second and sub-second counts.",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_GetBusyFlag",
+  "proto": "int MXC_RTC_GetBusyFlag(void)",
+  "brief": "Get RTC busy flag.",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_RTC_TrimCrystal",
+  "proto": "int MXC_RTC_TrimCrystal(void)",
+  "brief": "Use the 32 MHz crystal to trim the 32 kHz crystal.",
+  "section": "",
+  "header": "rtc.h",
+  "periph": "rtc",
+  "deprecated": "",
+  "doc": "03_api/periph/rtc.md"
+ },
+ {
+  "name": "MXC_FLC_Init",
+  "proto": "int MXC_FLC_Init(void)",
+  "brief": "Initializes the Flash Controller for erase/write operations",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_Busy",
+  "proto": "int MXC_FLC_Busy(void)",
+  "brief": "Checks if Flash Controller is busy.",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_MassErase",
+  "proto": "int MXC_FLC_MassErase(void)",
+  "brief": "Erases the entire flash array.",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_PageErase",
+  "proto": "int MXC_FLC_PageErase(uint32_t address)",
+  "brief": "Erases the page of flash at the specified address.",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_Read",
+  "proto": "void MXC_FLC_Read(int address, void *buffer, int len)",
+  "brief": "Read bytes from a flash address.",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_Write",
+  "proto": "int MXC_FLC_Write(uint32_t address, uint32_t length, uint32_t *buffer)",
+  "brief": "Writes data to flash.",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_Write32",
+  "proto": "int MXC_FLC_Write32(uint32_t address, uint32_t data)",
+  "brief": "Writes 32 bits of data to flash.",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_Write128",
+  "proto": "int MXC_FLC_Write128(uint32_t address, uint32_t *data)",
+  "brief": "Writes 128 bits of data to flash.",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_EnableInt",
+  "proto": "int MXC_FLC_EnableInt(uint32_t flags)",
+  "brief": "Enable flash interrupts",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_DisableInt",
+  "proto": "int MXC_FLC_DisableInt(uint32_t flags)",
+  "brief": "Disable flash interrupts",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_GetFlags",
+  "proto": "int MXC_FLC_GetFlags(void)",
+  "brief": "Retrieve flash interrupt flags",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_ClearFlags",
+  "proto": "int MXC_FLC_ClearFlags(uint32_t flags)",
+  "brief": "Clear flash interrupt flags",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_UnlockInfoBlock",
+  "proto": "int MXC_FLC_UnlockInfoBlock(uint32_t address)",
+  "brief": "Unlock info block",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_LockInfoBlock",
+  "proto": "int MXC_FLC_LockInfoBlock(uint32_t address)",
+  "brief": "Lock info block",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_BlockPageWrite",
+  "proto": "int MXC_FLC_BlockPageWrite(uint32_t address)",
+  "brief": "Blocks write operations to the flash page associated with the 'address' argument",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_FLC_BlockPageRead",
+  "proto": "int MXC_FLC_BlockPageRead(uint32_t address)",
+  "brief": "Blocks read operations from the flash page associated with the 'address' argument",
+  "section": "",
+  "header": "flc.h",
+  "periph": "flc",
+  "deprecated": "",
+  "doc": "03_api/periph/flc.md"
+ },
+ {
+  "name": "MXC_WDT_Init",
+  "proto": "int MXC_WDT_Init(mxc_wdt_regs_t *wdt, mxc_wdt_cfg_t *cfg)",
+  "brief": "Initialize the Watchdog Timer",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_Shutdown",
+  "proto": "int MXC_WDT_Shutdown(mxc_wdt_regs_t *wdt)",
+  "brief": "Shutdown the Watchdog Timer",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_SetIntPeriod",
+  "proto": "void MXC_WDT_SetIntPeriod(mxc_wdt_regs_t *wdt, mxc_wdt_cfg_t *cfg)",
+  "brief": "Set the period of the watchdog interrupt.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_SetResetPeriod",
+  "proto": "void MXC_WDT_SetResetPeriod(mxc_wdt_regs_t *wdt, mxc_wdt_cfg_t *cfg)",
+  "brief": "Set the period of the watchdog reset.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_Enable",
+  "proto": "void MXC_WDT_Enable(mxc_wdt_regs_t *wdt)",
+  "brief": "Enable the watchdog timer.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_Disable",
+  "proto": "void MXC_WDT_Disable(mxc_wdt_regs_t *wdt)",
+  "brief": "Disable the watchdog timer.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_EnableInt",
+  "proto": "void MXC_WDT_EnableInt(mxc_wdt_regs_t *wdt)",
+  "brief": "Enable the watchdog interrupt.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_DisableInt",
+  "proto": "void MXC_WDT_DisableInt(mxc_wdt_regs_t *wdt)",
+  "brief": "Disable the watchdog interrupt.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_EnableReset",
+  "proto": "void MXC_WDT_EnableReset(mxc_wdt_regs_t *wdt)",
+  "brief": "Enable the watchdog reset.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_DisableReset",
+  "proto": "void MXC_WDT_DisableReset(mxc_wdt_regs_t *wdt)",
+  "brief": "Disable the watchdog reset.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_ResetTimer",
+  "proto": "void MXC_WDT_ResetTimer(mxc_wdt_regs_t *wdt)",
+  "brief": "Reset the watchdog timer.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_GetResetFlag",
+  "proto": "int MXC_WDT_GetResetFlag(mxc_wdt_regs_t *wdt)",
+  "brief": "Get the status of the reset flag.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_ClearResetFlag",
+  "proto": "void MXC_WDT_ClearResetFlag(mxc_wdt_regs_t *wdt)",
+  "brief": "Clears the reset flag.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_GetIntFlag",
+  "proto": "int MXC_WDT_GetIntFlag(mxc_wdt_regs_t *wdt)",
+  "brief": "Get the status of the interrupt flag.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_ClearIntFlag",
+  "proto": "void MXC_WDT_ClearIntFlag(mxc_wdt_regs_t *wdt)",
+  "brief": "Clears the interrupt flag.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_WDT_SetClockSource",
+  "proto": "int MXC_WDT_SetClockSource(mxc_wdt_regs_t *wdt, mxc_wdt_clock_t clock_source)",
+  "brief": "Sets clock source.",
+  "section": "",
+  "header": "wdt.h",
+  "periph": "wdt",
+  "deprecated": "",
+  "doc": "03_api/periph/wdt.md"
+ },
+ {
+  "name": "MXC_PT_Init",
+  "proto": "void MXC_PT_Init(mxc_clk_scale_t clk_scale)",
+  "brief": "This function initializes the pulse trains to a known stopped state and sets the global PT clock scale.",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_Shutdown",
+  "proto": "void MXC_PT_Shutdown(uint32_t pts)",
+  "brief": "Shutdown the pulse train channel/channels.",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_Config",
+  "proto": "int MXC_PT_Config(mxc_pt_cfg_t *cfg)",
+  "brief": "Configures the pulse train in the specified mode.",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_SqrWaveConfig",
+  "proto": "int MXC_PT_SqrWaveConfig(unsigned channel, uint32_t freq)",
+  "brief": "Configures the pulse train in the square wave mode.",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_Start",
+  "proto": "void MXC_PT_Start(unsigned pts)",
+  "brief": "Starts the pulse trains specified.",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_Stop",
+  "proto": "void MXC_PT_Stop(unsigned pts)",
+  "brief": "Stops pulse trains.",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_IsActive",
+  "proto": "uint32_t MXC_PT_IsActive(uint32_t pts)",
+  "brief": "Determines if the pulse trains selected are running",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_SetPattern",
+  "proto": "void MXC_PT_SetPattern(unsigned pts, uint32_t pattern)",
+  "brief": "Sets the pattern of the pulse train",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_EnableInt",
+  "proto": "void MXC_PT_EnableInt(uint32_t pts)",
+  "brief": "Enable interrupts for the pulse trains selected.",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_DisableInt",
+  "proto": "void MXC_PT_DisableInt(uint32_t pts)",
+  "brief": "Disable interrupts for the pulse trains selected.",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_GetFlags",
+  "proto": "uint32_t MXC_PT_GetFlags(void)",
+  "brief": "Gets the pulse trains's interrupt flags.",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_ClearFlags",
+  "proto": "void MXC_PT_ClearFlags(uint32_t flags)",
+  "brief": "Clears the pulse train's interrupt flag.",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_EnableRestart",
+  "proto": "void MXC_PT_EnableRestart(unsigned start, unsigned stop, uint8_t restartIndex)",
+  "brief": "Setup and enables a pulse train to restart after another pulse train has exited its loop. Each pulse train can have up to two restart triggers.",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_DisableRestart",
+  "proto": "void MXC_PT_DisableRestart(unsigned channel, uint8_t restartIndex)",
+  "brief": "Disable the restart for the specified pulse train",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_PT_Resync",
+  "proto": "void MXC_PT_Resync(uint32_t pts)",
+  "brief": "Resynchronize individual pulse trains together. Resync will stop those resync_pts; others will be still running",
+  "section": "",
+  "header": "pt.h",
+  "periph": "pt",
+  "deprecated": "",
+  "doc": "03_api/periph/pt.md"
+ },
+ {
+  "name": "MXC_CRC_Init",
+  "proto": "int MXC_CRC_Init(void)",
+  "brief": "Enable portions of the CRC",
+  "section": "",
+  "header": "crc.h",
+  "periph": "crc",
+  "deprecated": "",
+  "doc": "03_api/periph/crc.md"
+ },
+ {
+  "name": "MXC_CRC_Shutdown",
+  "proto": "int MXC_CRC_Shutdown(void)",
+  "brief": "Disable and reset portions of the CRC",
+  "section": "",
+  "header": "crc.h",
+  "periph": "crc",
+  "deprecated": "",
+  "doc": "03_api/periph/crc.md"
+ },
+ {
+  "name": "MXC_CRC_Handler",
+  "proto": "void MXC_CRC_Handler(int ch, int error)",
+  "brief": "This function should be called from the CRC ISR Handler when using Async functions",
+  "section": "",
+  "header": "crc.h",
+  "periph": "crc",
+  "deprecated": "",
+  "doc": "03_api/periph/crc.md"
+ },
+ {
+  "name": "MXC_CRC_SetDirection",
+  "proto": "void MXC_CRC_SetDirection(mxc_crc_bitorder_t bitOrder)",
+  "brief": "Set the bit-order of CRC calculation",
+  "section": "",
+  "header": "crc.h",
+  "periph": "crc",
+  "deprecated": "",
+  "doc": "03_api/periph/crc.md"
+ },
+ {
+  "name": "MXC_CRC_GetDirection",
+  "proto": "mxc_crc_bitorder_t MXC_CRC_GetDirection(void)",
+  "brief": "Set the bit-order of CRC calculation",
+  "section": "",
+  "header": "crc.h",
+  "periph": "crc",
+  "deprecated": "",
+  "doc": "03_api/periph/crc.md"
+ },
+ {
+  "name": "MXC_CRC_SwapDataIn",
+  "proto": "void MXC_CRC_SwapDataIn(mxc_crc_bitorder_t bitOrder)",
+  "brief": "Byte Swap CRC Data Input",
+  "section": "",
+  "header": "crc.h",
+  "periph": "crc",
+  "deprecated": "",
+  "doc": "03_api/periph/crc.md"
+ },
+ {
+  "name": "MXC_CRC_SwapDataOut",
+  "proto": "void MXC_CRC_SwapDataOut(mxc_crc_bitorder_t bitOrder)",
+  "brief": "Byte Swap CRC Data output",
+  "section": "",
+  "header": "crc.h",
+  "periph": "crc",
+  "deprecated": "",
+  "doc": "03_api/periph/crc.md"
+ },
+ {
+  "name": "MXC_CRC_SetPoly",
+  "proto": "void MXC_CRC_SetPoly(uint32_t poly)",
+  "brief": "Set the Polynomial for CRC calculation",
+  "section": "",
+  "header": "crc.h",
+  "periph": "crc",
+  "deprecated": "",
+  "doc": "03_api/periph/crc.md"
+ },
+ {
+  "name": "MXC_CRC_GetPoly",
+  "proto": "uint32_t MXC_CRC_GetPoly(void)",
+  "brief": "Get the polynomial for CRC calculation",
+  "section": "",
+  "header": "crc.h",
+  "periph": "crc",
+  "deprecated": "",
+  "doc": "03_api/periph/crc.md"
+ },
+ {
+  "name": "MXC_CRC_GetResult",
+  "proto": "uint32_t MXC_CRC_GetResult(void)",
+  "brief": "Get the result of a CRC calculation",
+  "section": "",
+  "header": "crc.h",
+  "periph": "crc",
+  "deprecated": "",
+  "doc": "03_api/periph/crc.md"
+ },
+ {
+  "name": "MXC_CRC_Compute",
+  "proto": "int MXC_CRC_Compute(mxc_crc_req_t *req)",
+  "brief": "Perform a CRC computation",
+  "section": "",
+  "header": "crc.h",
+  "periph": "crc",
+  "deprecated": "",
+  "doc": "03_api/periph/crc.md"
+ },
+ {
+  "name": "MXC_CRC_ComputeAsync",
+  "proto": "int MXC_CRC_ComputeAsync(mxc_crc_req_t *req)",
+  "brief": "Perform a CRC computation using DMA",
+  "section": "",
+  "header": "crc.h",
+  "periph": "crc",
+  "deprecated": "",
+  "doc": "03_api/periph/crc.md"
+ },
+ {
+  "name": "MXC_TRNG_Init",
+  "proto": "int MXC_TRNG_Init(void)",
+  "brief": "Enable portions of the TRNG",
+  "section": "",
+  "header": "trng.h",
+  "periph": "trng",
+  "deprecated": "",
+  "doc": "03_api/periph/trng.md"
+ },
+ {
+  "name": "MXC_TRNG_EnableInt",
+  "proto": "void MXC_TRNG_EnableInt(void)",
+  "brief": "Enable TRNG Interrupts",
+  "section": "",
+  "header": "trng.h",
+  "periph": "trng",
+  "deprecated": "",
+  "doc": "03_api/periph/trng.md"
+ },
+ {
+  "name": "MXC_TRNG_DisableInt",
+  "proto": "void MXC_TRNG_DisableInt(void)",
+  "brief": "Disable TRNG Interrupts",
+  "section": "",
+  "header": "trng.h",
+  "periph": "trng",
+  "deprecated": "",
+  "doc": "03_api/periph/trng.md"
+ },
+ {
+  "name": "MXC_TRNG_Shutdown",
+  "proto": "int MXC_TRNG_Shutdown(void)",
+  "brief": "Disable and reset portions of the TRNG",
+  "section": "",
+  "header": "trng.h",
+  "periph": "trng",
+  "deprecated": "",
+  "doc": "03_api/periph/trng.md"
+ },
+ {
+  "name": "MXC_TRNG_Handler",
+  "proto": "void MXC_TRNG_Handler(void)",
+  "brief": "This function should be called from the TRNG ISR Handler when using Async functions",
+  "section": "",
+  "header": "trng.h",
+  "periph": "trng",
+  "deprecated": "",
+  "doc": "03_api/periph/trng.md"
+ },
+ {
+  "name": "MXC_TRNG_RandomInt",
+  "proto": "int MXC_TRNG_RandomInt(void)",
+  "brief": "Get a random number",
+  "section": "",
+  "header": "trng.h",
+  "periph": "trng",
+  "deprecated": "",
+  "doc": "03_api/periph/trng.md"
+ },
+ {
+  "name": "MXC_TRNG_Random",
+  "proto": "int MXC_TRNG_Random(uint8_t *data, uint32_t len)",
+  "brief": "Get a random number of length len",
+  "section": "",
+  "header": "trng.h",
+  "periph": "trng",
+  "deprecated": "",
+  "doc": "03_api/periph/trng.md"
+ },
+ {
+  "name": "MXC_TRNG_RandomAsync",
+  "proto": "void MXC_TRNG_RandomAsync(uint8_t *data, uint32_t len, mxc_trng_complete_t callback)",
+  "brief": "Get a random number of length len, do not block while generating data",
+  "section": "",
+  "header": "trng.h",
+  "periph": "trng",
+  "deprecated": "",
+  "doc": "03_api/periph/trng.md"
+ },
+ {
+  "name": "MXC_TRNG_GenerateKey",
+  "proto": "void MXC_TRNG_GenerateKey(void)",
+  "brief": "Generate an AES key and transfer to the AES block",
+  "section": "",
+  "header": "trng.h",
+  "periph": "trng",
+  "deprecated": "",
+  "doc": "03_api/periph/trng.md"
+ },
+ {
+  "name": "MXC_TRNG_HealthTest",
+  "proto": "int MXC_TRNG_HealthTest(void)",
+  "brief": "Perform health test of the TRNG entropy source",
+  "section": "",
+  "header": "trng.h",
+  "periph": "trng",
+  "deprecated": "",
+  "doc": "03_api/periph/trng.md"
+ },
+ {
+  "name": "MXC_PCIF_Init",
+  "proto": "int MXC_PCIF_Init(mxc_pcif_gpio_datawidth_t gpioDataWidth)",
+  "brief": "Initialize the Parallel Camera Interface.",
+  "section": "",
+  "header": "cameraif.h",
+  "periph": "cameraif",
+  "deprecated": "",
+  "doc": "03_api/periph/cameraif.md"
+ },
+ {
+  "name": "MXC_PCIF_SetDataWidth",
+  "proto": "void MXC_PCIF_SetDataWidth(mxc_pcif_datawidth_t datawidth)",
+  "brief": "Set data width for the camera interface.",
+  "section": "",
+  "header": "cameraif.h",
+  "periph": "cameraif",
+  "deprecated": "",
+  "doc": "03_api/periph/cameraif.md"
+ },
+ {
+  "name": "MXC_PCIF_SetTimingSel",
+  "proto": "void MXC_PCIF_SetTimingSel(mxc_pcif_timingsel_t timingsel)",
+  "brief": "Set the desired timing mode for the camera interface.",
+  "section": "",
+  "header": "cameraif.h",
+  "periph": "cameraif",
+  "deprecated": "",
+  "doc": "03_api/periph/cameraif.md"
+ },
+ {
+  "name": "MXC_PCIF_SetThreshold",
+  "proto": "void MXC_PCIF_SetThreshold(int fifo_thrsh)",
+  "brief": "Set camera FIFO threshold.",
+  "section": "",
+  "header": "cameraif.h",
+  "periph": "cameraif",
+  "deprecated": "",
+  "doc": "03_api/periph/cameraif.md"
+ },
+ {
+  "name": "MXC_PCIF_EnableInt",
+  "proto": "void MXC_PCIF_EnableInt(uint32_t flags)",
+  "brief": "Enable camera interrupts.",
+  "section": "",
+  "header": "cameraif.h",
+  "periph": "cameraif",
+  "deprecated": "",
+  "doc": "03_api/periph/cameraif.md"
+ },
+ {
+  "name": "MXC_PCIF_DisableInt",
+  "proto": "void MXC_PCIF_DisableInt(uint32_t flags)",
+  "brief": "Disable camera interrupts.",
+  "section": "",
+  "header": "cameraif.h",
+  "periph": "cameraif",
+  "deprecated": "",
+  "doc": "03_api/periph/cameraif.md"
+ },
+ {
+  "name": "MXC_PCIF_Start",
+  "proto": "void MXC_PCIF_Start(mxc_pcif_readmode_t readmode)",
+  "brief": "Start to capture image from camera interface",
+  "section": "",
+  "header": "cameraif.h",
+  "periph": "cameraif",
+  "deprecated": "",
+  "doc": "03_api/periph/cameraif.md"
+ },
+ {
+  "name": "MXC_PCIF_Stop",
+  "proto": "void MXC_PCIF_Stop(void)",
+  "brief": "Stop capture, disable Parallel camera interface",
+  "section": "",
+  "header": "cameraif.h",
+  "periph": "cameraif",
+  "deprecated": "",
+  "doc": "03_api/periph/cameraif.md"
+ },
+ {
+  "name": "MXC_PCIF_GetData",
+  "proto": "unsigned int MXC_PCIF_GetData(void)",
+  "brief": "Read fifo of PCIF",
+  "section": "",
+  "header": "cameraif.h",
+  "periph": "cameraif",
+  "deprecated": "",
+  "doc": "03_api/periph/cameraif.md"
+ },
+ {
+  "name": "MXC_ICC_ID",
+  "proto": "int MXC_ICC_ID(mxc_icc_regs_t *icc, mxc_icc_info_t cid)",
+  "brief": "Reads the data from the Cache Id Register.",
+  "section": "",
+  "header": "icc.h",
+  "periph": "icc",
+  "deprecated": "",
+  "doc": "03_api/periph/icc.md"
+ },
+ {
+  "name": "MXC_ICC_Enable",
+  "proto": "void MXC_ICC_Enable(mxc_icc_regs_t *icc)",
+  "brief": "Enable the instruction cache controller.",
+  "section": "",
+  "header": "icc.h",
+  "periph": "icc",
+  "deprecated": "",
+  "doc": "03_api/periph/icc.md"
+ },
+ {
+  "name": "MXC_ICC_Disable",
+  "proto": "void MXC_ICC_Disable(mxc_icc_regs_t *icc)",
+  "brief": "Disable the instruction cache controller.",
+  "section": "",
+  "header": "icc.h",
+  "periph": "icc",
+  "deprecated": "",
+  "doc": "03_api/periph/icc.md"
+ },
+ {
+  "name": "MXC_ICC_IsEnabled",
+  "proto": "int MXC_ICC_IsEnabled(mxc_icc_regs_t *icc)",
+  "brief": "Checks if the instruction cache controller is enabled.",
+  "section": "",
+  "header": "icc.h",
+  "periph": "icc",
+  "deprecated": "",
+  "doc": "03_api/periph/icc.md"
+ },
+ {
+  "name": "MXC_ICC_Flush",
+  "proto": "void MXC_ICC_Flush(mxc_icc_regs_t *icc)",
+  "brief": "Flush the instruction cache controller.",
+  "section": "",
+  "header": "icc.h",
+  "periph": "icc",
+  "deprecated": "",
+  "doc": "03_api/periph/icc.md"
+ },
+ {
+  "name": "MXC_ICC_Invalidate",
+  "proto": "void MXC_ICC_Invalidate(mxc_icc_regs_t *icc)",
+  "brief": "Invalidate the instruction cache controller.",
+  "section": "",
+  "header": "icc.h",
+  "periph": "icc",
+  "deprecated": "",
+  "doc": "03_api/periph/icc.md"
+ },
+ {
+  "name": "MXC_ICC_WaitForReady",
+  "proto": "void MXC_ICC_WaitForReady(mxc_icc_regs_t *icc)",
+  "brief": "Wait until the instruction cache controller is ready.",
+  "section": "",
+  "header": "icc.h",
+  "periph": "icc",
+  "deprecated": "",
+  "doc": "03_api/periph/icc.md"
+ },
+ {
+  "name": "MXC_LPCMP_Init",
+  "proto": "int MXC_LPCMP_Init(mxc_lpcmp_cmpsel_t cmp)",
+  "brief": "enables comparator",
+  "section": "",
+  "header": "lpcmp.h",
+  "periph": "lpcmp",
+  "deprecated": "",
+  "doc": "03_api/periph/lpcmp.md"
+ },
+ {
+  "name": "MXC_LPCMP_Shutdown",
+  "proto": "int MXC_LPCMP_Shutdown(mxc_lpcmp_cmpsel_t cmp)",
+  "brief": "Shutdown comparator",
+  "section": "",
+  "header": "lpcmp.h",
+  "periph": "lpcmp",
+  "deprecated": "",
+  "doc": "03_api/periph/lpcmp.md"
+ },
+ {
+  "name": "MXC_LPCMP_EnableInt",
+  "proto": "int MXC_LPCMP_EnableInt(mxc_lpcmp_cmpsel_t cmp, mxc_lpcmp_polarity_t pol)",
+  "brief": "Enable interrupts",
+  "section": "",
+  "header": "lpcmp.h",
+  "periph": "lpcmp",
+  "deprecated": "",
+  "doc": "03_api/periph/lpcmp.md"
+ },
+ {
+  "name": "MXC_LPCMP_DisableInt",
+  "proto": "int MXC_LPCMP_DisableInt(mxc_lpcmp_cmpsel_t cmp)",
+  "brief": "Disable interrupts",
+  "section": "",
+  "header": "lpcmp.h",
+  "periph": "lpcmp",
+  "deprecated": "",
+  "doc": "03_api/periph/lpcmp.md"
+ },
+ {
+  "name": "MXC_LPCMP_GetFlags",
+  "proto": "int MXC_LPCMP_GetFlags(mxc_lpcmp_cmpsel_t cmp)",
+  "brief": "Returns the interrupt flags set",
+  "section": "",
+  "header": "lpcmp.h",
+  "periph": "lpcmp",
+  "deprecated": "",
+  "doc": "03_api/periph/lpcmp.md"
+ },
+ {
+  "name": "MXC_LPCMP_ClearFlags",
+  "proto": "int MXC_LPCMP_ClearFlags(mxc_lpcmp_cmpsel_t cmp)",
+  "brief": "Clear interrupt flags",
+  "section": "",
+  "header": "lpcmp.h",
+  "periph": "lpcmp",
+  "deprecated": "",
+  "doc": "03_api/periph/lpcmp.md"
+ },
+ {
+  "name": "MXC_LPCMP_SelectPolarity",
+  "proto": "int MXC_LPCMP_SelectPolarity(mxc_lpcmp_cmpsel_t cmp, mxc_lpcmp_polarity_t pol)",
+  "brief": "Select polatity",
+  "section": "",
+  "header": "lpcmp.h",
+  "periph": "lpcmp",
+  "deprecated": "",
+  "doc": "03_api/periph/lpcmp.md"
+ },
+ {
+  "name": "MXC_SEMA_Init",
+  "proto": "int MXC_SEMA_Init(void)",
+  "brief": "Initialize the semaphore peripheral",
+  "section": "",
+  "header": "sema.h",
+  "periph": "sema",
+  "deprecated": "",
+  "doc": "03_api/periph/sema.md"
+ },
+ {
+  "name": "MXC_SEMA_GetSema",
+  "proto": "int MXC_SEMA_GetSema(unsigned sema)",
+  "brief": "Attempt to get a semaphore.",
+  "section": "",
+  "header": "sema.h",
+  "periph": "sema",
+  "deprecated": "",
+  "doc": "03_api/periph/sema.md"
+ },
+ {
+  "name": "MXC_SEMA_CheckSema",
+  "proto": "int MXC_SEMA_CheckSema(unsigned sema)",
+  "brief": "Check a semaphore.",
+  "section": "",
+  "header": "sema.h",
+  "periph": "sema",
+  "deprecated": "",
+  "doc": "03_api/periph/sema.md"
+ },
+ {
+  "name": "MXC_SEMA_Status",
+  "proto": "uint32_t MXC_SEMA_Status(void)",
+  "brief": "Check all semaphores.",
+  "section": "",
+  "header": "sema.h",
+  "periph": "sema",
+  "deprecated": "",
+  "doc": "03_api/periph/sema.md"
+ },
+ {
+  "name": "MXC_SEMA_FreeSema",
+  "proto": "void MXC_SEMA_FreeSema(unsigned sema)",
+  "brief": "Frees the semaphore.",
+  "section": "",
+  "header": "sema.h",
+  "periph": "sema",
+  "deprecated": "",
+  "doc": "03_api/periph/sema.md"
+ },
+ {
+  "name": "MXC_SEMA_Shutdown",
+  "proto": "int MXC_SEMA_Shutdown(void)",
+  "brief": "Shutdown the semaphore peripheral",
+  "section": "",
+  "header": "sema.h",
+  "periph": "sema",
+  "deprecated": "",
+  "doc": "03_api/periph/sema.md"
+ },
+ {
+  "name": "MXC_Delay",
+  "proto": "int MXC_Delay(uint32_t us)",
+  "brief": "Blocks and delays for the specified number of microseconds.",
+  "section": "",
+  "header": "mxc_delay.h",
+  "periph": "mxc_delay",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_delay.md"
+ },
+ {
+  "name": "MXC_DelayAsync",
+  "proto": "int MXC_DelayAsync(uint32_t us, mxc_delay_complete_t callback)",
+  "brief": "Starts a non-blocking delay for the specified number of microseconds.",
+  "section": "",
+  "header": "mxc_delay.h",
+  "periph": "mxc_delay",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_delay.md"
+ },
+ {
+  "name": "MXC_DelayCheck",
+  "proto": "int MXC_DelayCheck(void)",
+  "brief": "Returns the status of a non-blocking delay request",
+  "section": "",
+  "header": "mxc_delay.h",
+  "periph": "mxc_delay",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_delay.md"
+ },
+ {
+  "name": "MXC_DelayAbort",
+  "proto": "void MXC_DelayAbort(void)",
+  "brief": "Stops an asynchronous delay previously started.",
+  "section": "",
+  "header": "mxc_delay.h",
+  "periph": "mxc_delay",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_delay.md"
+ },
+ {
+  "name": "MXC_DelayHandler",
+  "proto": "void MXC_DelayHandler(void)",
+  "brief": "Processes the delay interrupt.",
+  "section": "",
+  "header": "mxc_delay.h",
+  "periph": "mxc_delay",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_delay.md"
+ },
+ {
+  "name": "MXC_NVIC_SetVector",
+  "proto": "void MXC_NVIC_SetVector(IRQn_Type irqn, void (*irq_callback)(void))",
+  "brief": "Set an IRQ hander callback function. If the IRQ table is in flash, this will copy it to RAM and set NVIC to RAM based table.",
+  "section": "",
+  "header": "nvic_table.h",
+  "periph": "nvic_table",
+  "deprecated": "",
+  "doc": "03_api/periph/nvic_table.md"
+ },
+ {
+  "name": "NVIC_SetVector",
+  "proto": "inline void NVIC_SetVector(IRQn_Type irqn, void (*irq_callback)(void)) { MXC_NVIC_SetVector(irqn, irq_callback)",
+  "brief": "",
+  "section": "",
+  "header": "nvic_table.h",
+  "periph": "nvic_table",
+  "deprecated": "Use MXC_NVIC_SetVector instead.  See nvic_table.h for more details.",
+  "doc": "03_api/periph/nvic_table.md"
+ },
+ {
+  "name": "NVIC_SetRAM",
+  "proto": "void NVIC_SetRAM(void)",
+  "brief": "Copy NVIC vector table to RAM and set NVIC to RAM based table.",
+  "section": "",
+  "header": "nvic_table.h",
+  "periph": "nvic_table",
+  "deprecated": "",
+  "doc": "03_api/periph/nvic_table.md"
+ },
+ {
+  "name": "MXC_NVIC_GetVector",
+  "proto": "uint32_t MXC_NVIC_GetVector(IRQn_Type IRQn)",
+  "brief": "Get Interrupt Vector",
+  "section": "",
+  "header": "nvic_table.h",
+  "periph": "nvic_table",
+  "deprecated": "",
+  "doc": "03_api/periph/nvic_table.md"
+ },
+ {
+  "name": "NVIC_GetVector",
+  "proto": "inline void NVIC_GetVector(IRQn_Type irqn) { MXC_NVIC_GetVector(irqn)",
+  "brief": "",
+  "section": "",
+  "header": "nvic_table.h",
+  "periph": "nvic_table",
+  "deprecated": "Use MXC_NVIC_GetVector instead.  See nvic_table.h for more details.",
+  "doc": "03_api/periph/nvic_table.md"
+ },
+ {
+  "name": "MXC_GetLock",
+  "proto": "int MXC_GetLock(uint32_t *lock, uint32_t value)",
+  "brief": "Attempts to acquire the lock.",
+  "section": "",
+  "header": "mxc_lock.h",
+  "periph": "mxc_lock",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_lock.md"
+ },
+ {
+  "name": "MXC_FreeLock",
+  "proto": "void MXC_FreeLock(uint32_t *lock)",
+  "brief": "Free the given lock.",
+  "section": "",
+  "header": "mxc_lock.h",
+  "periph": "mxc_lock",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_lock.md"
+ },
+ {
+  "name": "mxc_assert",
+  "proto": "void mxc_assert(const char *expr, const char *file, int line)",
+  "brief": "Assert an error when the given expression fails during debugging.",
+  "section": "",
+  "header": "mxc_assert.h",
+  "periph": "mxc_assert",
+  "deprecated": "",
+  "doc": "03_api/periph/mxc_assert.md"
+ }
+]

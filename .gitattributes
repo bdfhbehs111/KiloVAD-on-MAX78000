@@ -1,0 +1,37 @@
+# ============================================================================
+#  sys_agent_max78000 —— Git 属性
+#
+#  为什么要这个文件
+#  ----------------
+#  本仓库的文件来自两个源头，换行符**天然混杂**：
+#    - 从 MSDK 拷贝的驱动/头文件 → CRLF
+#    - 本项目脚本生成的 .md/.py/.cmake → LF
+#  如果不明确禁止转换，在 core.autocrlf=true 的机器上 clone 之后，
+#  整个工作区会立刻显示为「已修改」——几百个文件的假 diff。
+#  所以这里显式关闭所有文本转换，让仓库内容与工作区**逐字节一致**。
+# ============================================================================
+
+# 不做任何换行符规范化
+* -text
+
+# ── 二进制文件 ──────────────────────────────────────────────────────────────
+# 显式声明（binary = -text -diff -merge），避免 git 尝试做文本 diff/patch
+*.pth.tar   binary
+*.npy       binary
+*.a         binary
+*.elf       binary
+*.bin       binary
+*.hex       binary
+*.o         binary
+*.svd       binary
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.ico       binary
+*.m4a       binary
+*.wav       binary
+*.pdf       binary
+
+# ── 语言统计用（可选，不影响行为）───────────────────────────────────────────
+*.md        linguist-documentation
