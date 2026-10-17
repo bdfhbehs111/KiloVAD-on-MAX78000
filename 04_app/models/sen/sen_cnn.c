@@ -55,7 +55,7 @@
 #include "gcfr_regs.h"
 #include "sen_cnn.h"
 #include "sen_weights.h"
-
+volatile uint32_t sen_cnn_time;
 void SEN_CNN_ISR(void)
 {
   // Acknowledge interrupt to all quadrants

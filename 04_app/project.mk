@@ -54,6 +54,13 @@ LINKERFILE = max78000_app.ld
 VPATH += .
 IPATH += .
 
+# 两个模型 + 共享 softmax：三个子目录都要挂，缺一个就会「模型不参与编译」或「头文件找不到」。
+#   models      -> softmax.c   + model_common.h
+#   models/sen  -> sen_cnn.c   + sen_cnn.h / sen_weights.h
+#   models/kws  -> kws_cnn.c   + kws_cnn.h / kws_weights.h
+VPATH += models models/sen models/kws
+IPATH += models models/sen models/kws
+
 # -- 调试 / 优化 -------------------------------------------------------------
 # DEBUG=1 -> gcc.mk:443-444 加 `-g3 -ggdb -DDEBUG`，且优化级别变 -Og
 #            （-DDEBUG 会定义 DEBUG 宏，FreeRTOSConfig.h 里已处理这个副作用）
@@ -62,6 +69,44 @@ DEBUG = 1
 
 # 出性能数时用它覆盖：
 # MXC_OPTIMIZE_CFLAGS = -O2
+
+# -- 烧录工具链（OpenOCD）----------------------------------------------------
+# 实测通过（板子 DAPLink 枚举正常）：OpenOCD 能连上 Cortex-M4，
+#   flash 正确识别为 base 0x10000000 / size 512 KB。
+#
+# 由两处来源拼起来：
+#   ① 可执行文件：D:\MaximSDK 自带的 xPack 通用版 OpenOCD
+#      （来自安装器缓存 Tools\_downloads\openocd.zip，即 xpack-openocd-0.12.0-7）
+#   ② TCL 配置：本项目树里 ai8x-synthesis\openocd\ 自带整套 MAX78000 配置
+#      （max78000.cfg / interface\cmsis-dap.cfg / target\max32xxx.cfg /
+#        target\swj-dp.tcl / mem_helper.tcl）
+#
+#   重要事实：ADI 的 MSDK 安装器【不】提供 max78000.cfg ——
+#   它下载的 xPack 包里只有 max32620~max32690。这份 cfg 只存在于
+#   ai8x-synthesis 里（那是 MAX78000 模型合成工具链，自带 OpenOCD 支持）。
+#
+# 已把 ② 的 5 个文件按 flash.mk 期望的布局复制到下面这个目录：
+#   D:\MaximSDK\Tools\OpenOCD\scripts\
+#       mem_helper.tcl
+#       interface\cmsis-dap.cfg
+#       target\max78000.cfg
+#       target\max32xxx.cfg
+#       target\swj-dp.tcl
+#
+# flash.mk:94 实际执行的是：
+#   openocd -s ${OPENOCD_SCRIPTS} -f interface/${OPENOCD_ADAPTER}
+#           -f target/${TARGET_LC}.cfg -c "program <hex> verify reset exit"
+# 所以 max78000.cfg 必须落在 scripts\target\ 下，布局不能错。
+#
+# 注意：gcc.mk / flash.mk 里的路径用正斜杠，且不能带引号。
+OPENOCD_SCRIPTS = D:/MaximSDK/Tools/OpenOCD/scripts
+
+# flash.mk:45 默认 OPENOCDEXE ?= openocd.exe（隐含要求它在 PATH 上）。
+# 这里给绝对路径，免得依赖 PATH 配置。
+OPENOCDEXE = D:/MaximSDK/Tools/OpenOCD/xpack-openocd-0.12.0-7/bin/openocd.exe
+
+# 调试器适配器：FTHR 板载 DAPLink（= flash.mk:37 的默认值 cmsis-dap.cfg）
+OPENOCD_ADAPTER = cmsis-dap.cfg
 
 # -- 板子限制 ----------------------------------------------------------------
 ifeq ($(BOARD),Aud01_RevA)

@@ -23,6 +23,8 @@
                 "D:/MaximSDK/Libraries/FreeRTOS/Source/include",
                 "D:/MaximSDK/Libraries/FreeRTOS/Source/portable/GCC/ARM_CM4F",
                 "D:/MaximSDK/Libraries/FreeRTOS-Plus/Source/FreeRTOS-Plus-CLI",
+                "${workspaceFolder}/04_app/models",
+                "${workspaceFolder}/04_app/models/sen",
                 "${workspaceFolder}/04_app/models/kws"
             ],
             "defines": [

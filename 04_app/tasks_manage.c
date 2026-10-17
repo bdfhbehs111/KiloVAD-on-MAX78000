@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+#include "max20303.h"
 #include "mxc.h"
 /* main.c */
 #include <stdio.h>
@@ -24,7 +24,36 @@ static int32_t y0, y1;
 
 /*==============================任务自用函数======================*/
 
+static uint8_t cnn_load_data(uint8_t *pIn)
+{
+    uint32_t mem;
+    uint16_t index = 0;
 
+    /* data should already be formated correctly */
+    /* pIn is 16KB, each 1KB belongs to a memory group */
+    for (mem = 0x50400000; mem <= 0x50418000; mem += 0x8000) {
+        memcpy((uint8_t *)mem, &pIn[index], 1024);
+        //printf("%.10X \n",(uint8_t *)mem);
+        index += 1024;
+    }
+
+    for (mem = 0x50800000; mem <= 0x50818000; mem += 0x8000) {
+        memcpy((uint8_t *)mem, &pIn[index], 1024);
+        index += 1024;
+    }
+
+    for (mem = 0x50C00000; mem <= 0x50C18000; mem += 0x8000) {
+        memcpy((uint8_t *)mem, &pIn[index], 1024);
+        index += 1024;
+    }
+
+    for (mem = 0x51000000; mem <= 0x51018000; mem += 0x8000) {
+        memcpy((uint8_t *)mem, &pIn[index], 1024);
+        index += 1024;
+    }
+
+    return 1;
+}
 static void HPF_init(void)
 {
     Coeff = 32604; //0.995
@@ -40,7 +69,7 @@ static void i2s_isr(void)
     MXC_I2S_ClearFlags(MXC_F_I2S_INTFL_RX_THD_CH0);   
     portYIELD_FROM_ISR(higher_woken);  
 }
-static void HPF(int16_t input)
+static int16_t HPF(int16_t input)
 {
     int16_t Acc, output;
     int32_t tmp;
@@ -150,7 +179,8 @@ static uint8_t AddTranspose(uint8_t *pIn, uint8_t *pOut, uint16_t inSize, uint16
 
 
 /*=========================任务管理和任务本体函数===================*/
-
+static void vTaskAudioCapture_process(void* pv);
+static void vTaskCNN(void *pv);
 int rtos_management(){
     BaseType_t rc;
     fifo_frame = xQueueCreate(Q_FRAME_LEN, sizeof(uint8_t*)); //i2s（裸fifo）与cnn加速器之间连接的队列
@@ -255,16 +285,40 @@ static void vTaskAudioCapture_process(void* pv)
 }
 
 
+
+model_state state;
+
 static void vTaskCNN(void *pv) {
     uint8_t *p_infer;
+    sen_cnn_enable(MXC_S_GCR_PCLKDIV_CNNCLKSEL_PCLK, MXC_S_GCR_PCLKDIV_CNNCLKDIV_DIV1);
+    sen_cnn_boost_enable(MXC_GPIO2, MXC_GPIO_PIN_5);
+    sen_cnn_init();
     while (1) {
-        // 阻塞等，队列里有指针才返回
+        switch (state)
+        {
+        case STATE_SENTINEL:
+                    // 阻塞等，队列里有指针才返回
         if (xQueueReceive(fifo_frame, &p_infer, portMAX_DELAY) == pdPASS) {
-            // p_infer 指向 a_pAI85Buffer 或 b_pAI85Buffer，直接送 CNN
+
+        }
+            break;
+        case STATE_LOADING_HEAVY:
+
+            break;
+        case STATE_HEAVY:
+
+            break;
+        case STATE_UNLOADING:
+
+            break;
+
+        }
+
+            
             
         }
-    }
 }
+
 
 
 

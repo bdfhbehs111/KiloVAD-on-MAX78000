@@ -55,6 +55,7 @@
 #include "gcfr_regs.h"
 #include "kws_cnn.h"
 #include "kws_weights.h"
+volatile uint32_t kws_cnn_time;
 
 void KWS_CNN_ISR(void)
 {
