@@ -15,6 +15,8 @@
 #include "sen_cnn.h"
 #include "kws_cnn.h"
 static TaskHandle_t fifo_task_sentinel;
+TaskHandle_t cnn_isr;
+
 QueueHandle_t fifo_frame = NULL;
 uint8_t a_pAI85Buffer[SAMPLE_SIZE];
 uint8_t b_pAI85Buffer[SAMPLE_SIZE];
@@ -187,7 +189,7 @@ int rtos_management(){
 
     rc = xTaskCreate(vTaskAudioCapture_process, "audio",APP_STACK_AUDIO, NULL, APP_PRIO_AUDIO, &fifo_task_sentinel);
     if (rc != pdPASS) return 1;
-    rc = xTaskCreate(vTaskCNN,"cnn_run",APP_STACK_CNN,NULL,APP_PRIO_CNN,NULL);
+    rc = xTaskCreate(vTaskCNN,"cnn_run",APP_STACK_CNN,NULL,APP_PRIO_CNN,&cnn_isr);
     if (rc != pdPASS) return 2;
 
 
@@ -286,31 +288,50 @@ static void vTaskAudioCapture_process(void* pv)
 
 
 
-model_state state;
+
+
 
 static void vTaskCNN(void *pv) {
+    static model_type current_model = SEN;   /* 加速器里装的是谁 */
+    model_state state = IDLE;                /* 我在干什么 */
     uint8_t *p_infer;
     sen_cnn_enable(MXC_S_GCR_PCLKDIV_CNNCLKSEL_PCLK, MXC_S_GCR_PCLKDIV_CNNCLKDIV_DIV1);
     sen_cnn_boost_enable(MXC_GPIO2, MXC_GPIO_PIN_5);
     sen_cnn_init();
+    sen_cnn_load_weights();
+    sen_cnn_load_bias();
+    sen_cnn_configure();
     while (1) {
         switch (state)
         {
-        case STATE_SENTINEL:
-                    // 阻塞等，队列里有指针才返回
+        case IDLE:
         if (xQueueReceive(fifo_frame, &p_infer, portMAX_DELAY) == pdPASS) {
-
+            if(current_model==SEN) state=STATE_SENTINEL;
+            else {
+                /*此情况出现意味着设备在处理复杂数据kws的时候有当前音频数据溢出了/系统出现故障了，之后加个缓冲区专门处理或者上报错误日志，
+                在state_sentinel里面将优先处理缓冲区的内容*/
+            }
         }
-            break;
+        break;
+        case STATE_SENTINEL:
+        /*推理*/    
+        state = IDLE;
+        break;
         case STATE_LOADING_HEAVY:
-
-            break;
+        
+        
+        state = IDLE;
+        break;
         case STATE_HEAVY:
 
-            break;
+
+        state = IDLE;
+        break;
         case STATE_UNLOADING:
 
-            break;
+
+        state = IDLE;
+        break;
 
         }
 

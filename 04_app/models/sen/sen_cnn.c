@@ -46,7 +46,8 @@
 // Layer 4: 16x1x1 flattened to 16x1x1, no pooling, linear, no activation, 2x1x1 output
 
 // Final Scales: {0: 0, 1: 0, 2: 0, 4: 0}
-
+#include "FreeRTOS.h" 
+#include "semphr.h"
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
@@ -55,8 +56,11 @@
 #include "gcfr_regs.h"
 #include "sen_cnn.h"
 #include "sen_weights.h"
+#define CNN_DONE_LED() LED_Off(1)
 volatile uint32_t sen_cnn_time;
-void SEN_CNN_ISR(void)
+extern volatile uint32_t kws_cnn_time;
+extern TaskHandle_t cnn_isr;
+void CNN_ISR(void)
 {
   // Acknowledge interrupt to all quadrants
   *((volatile uint32_t *) 0x50100000) &= ~((1<<12) | 1);
@@ -64,13 +68,11 @@ void SEN_CNN_ISR(void)
   *((volatile uint32_t *) 0x50900000) &= ~((1<<12) | 1);
   *((volatile uint32_t *) 0x50d00000) &= ~((1<<12) | 1);
 
-  SEN_CNN_COMPLETE; // Signal that processing is complete
-#ifdef CNN_INFERENCE_TIMER
-  sen_cnn_time = MXC_TMR_SW_Stop(CNN_INFERENCE_TIMER);
-#else
-  sen_cnn_time = 1;
-#endif
-}
+  CNN_DONE_LED();        /* LED1 灭。现在只有这一个 ISR 点灯，不会再打架 */
+  BaseType_t higher_woken = pdFALSE;
+  vTaskNotifyGiveFromISR(cnn_isr,&higher_woken);  
+  portYIELD_FROM_ISR(higher_woken);  
+}  //通用中断入口，数据中断与处理解耦。
 
 int sen_cnn_continue(void)
 {
@@ -422,8 +424,8 @@ int sen_cnn_enable(uint32_t clock_source, uint32_t clock_divider)
                      | clock_divider | clock_source;
   MXC_SYS_ClockEnable(MXC_SYS_PERIPH_CLOCK_CNN); // Enable CNN clock
 
-  MXC_NVIC_SetVector(CNN_IRQn, SEN_CNN_ISR); // Set CNN complete vector
-
+  MXC_NVIC_SetVector(CNN_IRQn, CNN_ISR); // Set CNN complete vector
+  NVIC_SetPriority(CNN_IRQn, 5);  //rtos特化的调优
   return SEN_CNN_OK;
 }
 

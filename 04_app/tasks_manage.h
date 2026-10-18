@@ -14,11 +14,17 @@
 #define SAMPLE_SCALE_FACTOR 4 
 // multiplies 16-bit samples by this scale factor before converting to 8-bit
 typedef enum {
-    STATE_SENTINEL = 0,      // 小模型常驻
+    IDLE= 0,  //空闲，等数据
+    STATE_SENTINEL ,      // 小模型常驻
     STATE_LOADING_HEAVY,     // 加载大模型
     STATE_HEAVY,             // 大模型推理中
     STATE_UNLOADING,         // 切回小模型
 } model_state;
+typedef enum {
+    SEN,
+    KWS,
+} model_type;
+
     /*设计四态状态机处理双模型协作：
     ┌──────────────────────────────────────────────────────┐
     │  STATE_SENTINEL（小模型常驻）                        │

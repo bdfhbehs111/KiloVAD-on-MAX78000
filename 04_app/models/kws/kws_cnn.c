@@ -56,22 +56,7 @@
 #include "kws_cnn.h"
 #include "kws_weights.h"
 volatile uint32_t kws_cnn_time;
-
-void KWS_CNN_ISR(void)
-{
-  // Acknowledge interrupt to all quadrants
-  *((volatile uint32_t *) 0x50100000) &= ~((1<<12) | 1);
-  *((volatile uint32_t *) 0x50500000) &= ~((1<<12) | 1);
-  *((volatile uint32_t *) 0x50900000) &= ~((1<<12) | 1);
-  *((volatile uint32_t *) 0x50d00000) &= ~((1<<12) | 1);
-
-  KWS_CNN_COMPLETE; // Signal that processing is complete
-#ifdef CNN_INFERENCE_TIMER
-  kws_cnn_time = MXC_TMR_SW_Stop(CNN_INFERENCE_TIMER);
-#else
-  kws_cnn_time = 1;
-#endif
-}
+extern void CNN_ISR(void);
 
 int kws_cnn_continue(void)
 {
@@ -460,7 +445,7 @@ int kws_cnn_unload(uint32_t *out_buf)
 
   return KWS_CNN_OK;
 }
-
+/*
 int kws_cnn_enable(uint32_t clock_source, uint32_t clock_divider)
 {
   // Reset all domains, restore power to CNN
@@ -477,7 +462,7 @@ int kws_cnn_enable(uint32_t clock_source, uint32_t clock_divider)
   MXC_NVIC_SetVector(CNN_IRQn, KWS_CNN_ISR); // Set CNN complete vector
 
   return KWS_CNN_OK;
-}
+} kws原中断使能函数，现已废弃*/   
 
 int kws_cnn_boost_enable(mxc_gpio_regs_t *port, uint32_t pin)
 {
