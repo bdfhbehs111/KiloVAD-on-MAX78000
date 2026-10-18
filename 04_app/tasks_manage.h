@@ -1,6 +1,6 @@
 #define APP_STACK_AUDIO  1024   
 #define APP_PRIO_AUDIO   4
-#define Q_FRAME_LEN    2 
+#define Q_FRAME_LEN    1 
 
 #define APP_STACK_CNN 512
 #define APP_PRIO_CNN 4

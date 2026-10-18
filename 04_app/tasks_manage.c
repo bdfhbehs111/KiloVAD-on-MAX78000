@@ -295,6 +295,9 @@ static void vTaskCNN(void *pv) {
     static model_type current_model = SEN;   /* 加速器里装的是谁 */
     model_state state = IDLE;                /* 我在干什么 */
     uint8_t *p_infer;
+    uint32_t sen_out2;
+    uint32_t kws_out26[26]; 
+    uint16_t miss_frame=0;
     sen_cnn_enable(MXC_S_GCR_PCLKDIV_CNNCLKSEL_PCLK, MXC_S_GCR_PCLKDIV_CNNCLKDIV_DIV1);
     sen_cnn_boost_enable(MXC_GPIO2, MXC_GPIO_PIN_5);
     sen_cnn_init();
@@ -308,13 +311,27 @@ static void vTaskCNN(void *pv) {
         if (xQueueReceive(fifo_frame, &p_infer, portMAX_DELAY) == pdPASS) {
             if(current_model==SEN) state=STATE_SENTINEL;
             else {
+                miss_frame++;
                 /*此情况出现意味着设备在处理复杂数据kws的时候有当前音频数据溢出了/系统出现故障了，之后加个缓冲区专门处理或者上报错误日志，
                 在state_sentinel里面将优先处理缓冲区的内容*/
             }
         }
         break;
         case STATE_SENTINEL:
-        /*推理*/    
+        while (ulTaskNotifyTake(pdTRUE, 0) != 0) { }   /*等价于清空标志位，为了防止数据结果有误，i2s不使用因为意外唤醒有while的条件判断兜底，且前一万个样本作废*/
+        cnn_load_data(p_infer);
+        sen_cnn_start();
+        if (ulTaskNotifyTake(pdTRUE, pdMS_TO_TICKS(50)) == 0) {
+            miss_frame++;                                   /* 超时，绝不死等 */
+            state = IDLE;
+            break;   //等待isr中断通知
+        }
+        sen_cnn_unload(&sen_out2);
+        int8_t s0 = (int8_t)(sen_out2 & 0xff);
+        int8_t s1 = (int8_t)((sen_out2 >> 16) & 0xff);
+
+        int margin = (int)s0 - (int)s1;
+        printf("m=%d miss=%u\n", margin, miss_frame);
         state = IDLE;
         break;
         case STATE_LOADING_HEAVY:
