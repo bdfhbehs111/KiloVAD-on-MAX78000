@@ -12,7 +12,7 @@
 #include "semphr.h"         /* 不用信号量就删 */
 #include "mxc.h"            /* board.h / led.h / i2s.h / gpio.h / SEC / MSEC 全在里面 */
 /* 两个改名后的模型（见 tools/namespace_models.py） */
-#include "sen_cnn.h"
+#include "sen_cnn1.h"
 #include "kws_cnn.h"
 static TaskHandle_t fifo_task_sentinel;
 TaskHandle_t cnn_isr;
@@ -271,8 +271,35 @@ static void vTaskAudioCapture_process(void* pv)
         if (chunkCount == CHUNK){
             chunkCount = 0;//攒够 128 个采样点变成一个chunk才转置 ，作为预处理的准入条件
             ret = AddTranspose(pChunkBuff, cur_pAI85Buffer, CHUNK, SAMPLE_SIZE, TRANSPOSE_WIDTH);
-                if(ret){  
-                    uint8_t *p_ready = cur_pAI85Buffer;  // 刚填完的那块
+                if(ret){
+                    /* 逐带归一化：对每个 col(通道/块内位置) 沿 row(时间块) 归一化。
+                    base 对应 col，row=0..127 的采样在 cur_pAI85Buffer[base + 8*r]。 */
+                    for (int col = 0; col < 128; col++) {
+                        int group      = (col % 64) / 4;
+                        int secondHalf = (col >= 64) ? 1 : 0;
+                        int byteInWord = col % 4;
+                        int base       = 1024 * group + 4 * secondHalf + byteInWord;
+
+                        int32_t sum = 0;
+                        for (int r = 0; r < 128; r++) sum += (int8_t)cur_pAI85Buffer[base + 8 * r];
+                        float mean = (float)sum / 128.0f;
+
+                        float var = 0.0f;
+                        for (int r = 0; r < 128; r++) {
+                            float d = (float)(int8_t)cur_pAI85Buffer[base + 8 * r] - mean;
+                            var += d * d;
+                        }
+                        float std = sqrtf(var / 128.0f);
+
+                        for (int r = 0; r < 128; r++) {
+                            float xn = ((float)(int8_t)cur_pAI85Buffer[base + 8 * r] - mean) / (std + 1e-5f);
+                            int32_t q = (int32_t)roundf(xn * 8.0f);   /* ×8，见下 */
+                            if (q > 127)  q = 127;
+                            if (q < -128) q = -128;
+                            cur_pAI85Buffer[base + 8 * r] = (uint8_t)(int8_t)q;
+                        }
+                    }
+                    uint8_t *p_ready = cur_pAI85Buffer;   /* 归一化后再入队 */  
                     // 发指针到队列
                     if (xQueueSend(fifo_frame, &p_ready, 0) != pdPASS) {
                         frame_drop_count++;
@@ -298,12 +325,12 @@ static void vTaskCNN(void *pv) {
     uint32_t sen_out2;
     uint32_t kws_out26[26]; 
     uint16_t miss_frame=0;
-    sen_cnn_enable(MXC_S_GCR_PCLKDIV_CNNCLKSEL_PCLK, MXC_S_GCR_PCLKDIV_CNNCLKDIV_DIV1);
-    sen_cnn_boost_enable(MXC_GPIO2, MXC_GPIO_PIN_5);
-    sen_cnn_init();
-    sen_cnn_load_weights();
-    sen_cnn_load_bias();
-    sen_cnn_configure();
+    sen1_cnn_enable(MXC_S_GCR_PCLKDIV_CNNCLKSEL_PCLK, MXC_S_GCR_PCLKDIV_CNNCLKDIV_DIV1);
+    sen1_cnn_boost_enable(MXC_GPIO2, MXC_GPIO_PIN_5);
+    sen1_cnn_init();
+    sen1_cnn_load_weights();
+    sen1_cnn_load_bias();
+    sen1_cnn_configure();
     while (1) {
         switch (state)
         {
@@ -320,13 +347,13 @@ static void vTaskCNN(void *pv) {
         case STATE_SENTINEL:
         while (ulTaskNotifyTake(pdTRUE, 0) != 0) { }   /*等价于清空标志位，为了防止数据结果有误，i2s不使用因为意外唤醒有while的条件判断兜底，且前一万个样本作废*/
         cnn_load_data(p_infer);
-        sen_cnn_start();
+        sen1_cnn_start();
         if (ulTaskNotifyTake(pdTRUE, pdMS_TO_TICKS(50)) == 0) {
             miss_frame++;                                   /* 超时，绝不死等 */
             state = IDLE;
             break;   //等待isr中断通知
         }
-        sen_cnn_unload(&sen_out2);
+        sen1_cnn_unload(&sen_out2);
         int8_t s0 = (int8_t)(sen_out2 & 0xff);
         int8_t s1 = (int8_t)((sen_out2 >> 16) & 0xff);
 
