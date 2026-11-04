@@ -11,7 +11,7 @@
 #define CHUNK 128 
 // number of data points to read at a time and average for threshold, keep multiple of 128
 #define TRANSPOSE_WIDTH 128
-#define SAMPLE_SCALE_FACTOR 4 
+#define SAMPLE_SCALE_FACTOR 1 
 // multiplies 16-bit samples by this scale factor before converting to 8-bit
 typedef enum {
     IDLE= 0,  //空闲，等数据

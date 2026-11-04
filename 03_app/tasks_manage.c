@@ -12,7 +12,7 @@
 #include "semphr.h"         /* 不用信号量就删 */
 #include "mxc.h"            /* board.h / led.h / i2s.h / gpio.h / SEC / MSEC 全在里面 */
 /* 两个改名后的模型（见 tools/namespace_models.py） */
-#include "sen_cnn1.h"
+#include "sen1_cnn.h"
 #include "kws_cnn.h"
 static TaskHandle_t fifo_task_sentinel;
 TaskHandle_t cnn_isr;
@@ -22,6 +22,12 @@ uint8_t a_pAI85Buffer[SAMPLE_SIZE];
 uint8_t b_pAI85Buffer[SAMPLE_SIZE];
 static int16_t x0, x1, Coeff;
 static int32_t y0, y1;
+
+/* 归一化要用的两个 libm 函数。
+   不能 #include <math.h>：它顺带声明了 Bessel 函数 y0()/y1()，和上面 HPF 的
+   状态变量重名，会直接编译报错。libm 由 gcc.mk:517 的 STD_LIBS=-lc -lm 链进来。 */
+extern float sqrtf(float x);
+extern float roundf(float x);
 
 
 /*==============================任务自用函数======================*/
@@ -293,7 +299,7 @@ static void vTaskAudioCapture_process(void* pv)
 
                         for (int r = 0; r < 128; r++) {
                             float xn = ((float)(int8_t)cur_pAI85Buffer[base + 8 * r] - mean) / (std + 1e-5f);
-                            int32_t q = (int32_t)roundf(xn * 8.0f);   /* ×8，见下 */
+                            int32_t q = (int32_t)roundf(xn * 16.0f);   /* ×16，实测标定拐点 */
                             if (q > 127)  q = 127;
                             if (q < -128) q = -128;
                             cur_pAI85Buffer[base + 8 * r] = (uint8_t)(int8_t)q;
@@ -358,7 +364,8 @@ static void vTaskCNN(void *pv) {
         int8_t s1 = (int8_t)((sen_out2 >> 16) & 0xff);
 
         int margin = (int)s0 - (int)s1;
-        printf("m=%d miss=%u\n", margin, miss_frame);
+        /* 类 0 = 非人声(s0)，类 1 = 人声(s1) → margin = s0 - s1 < 0 才是人声 */
+        printf("m=%d %s miss=%u\n", margin, margin < 0 ? "VOICE" : "non", miss_frame);
         state = IDLE;
         break;
         case STATE_LOADING_HEAVY:

@@ -56,7 +56,7 @@ IPATH += .
 
 # 两个模型 + 共享 softmax：三个子目录都要挂，缺一个就会「模型不参与编译」或「头文件找不到」。
 #   models      -> softmax.c   + model_common.h
-#   models/sen  -> sen_cnn.c   + sen_cnn.h / sen_weights.h
+#   models/sen  -> sen1_cnn.c + sen1_cnn.h / sen1_cnn_weights.h
 #   models/kws  -> kws_cnn.c   + kws_cnn.h / kws_weights.h
 VPATH += models models/sen models/kws
 IPATH += models models/sen models/kws

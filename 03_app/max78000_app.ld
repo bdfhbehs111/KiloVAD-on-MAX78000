@@ -1,0 +1,235 @@
+/******************************************************************************
+ *
+ * Copyright (C) 2022-2023 Maxim Integrated Products, Inc. (now owned by 
+ * Analog Devices, Inc.),
+ * Copyright (C) 2023-2026 Analog Devices, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ ******************************************************************************/
+
+/* ============================================================================
+ * max78000_app.ld —— sys_agent MAX78000 应用工程链接脚本
+ *
+ * 来源：D:/MaximSDK/Libraries/CMSIS/Device/Maxim/MAX78000/Source/GCC/max78000.ld
+ *       逐字节副本（SHA256 BEEC7B494B5D3F4E9C127D408F419342CE04141D5D4404A6F
+ *       CF99F1E3CEF8E97），除本注释块外未做任何改动。
+ *
+ * 为什么复制一份而不直接引用 MSDK 的：
+ *   gcc.mk:207 把 $(LINKERFILE) 当成 make 的前置依赖，gcc.mk:686 又把它原样交给 -T，
+ *   所以它必须是能在工程目录里找到的实体文件，不能只写个裸名字去 MSDK 里搜。
+ *
+ * 内存布局（MSDK 默认，未改动）：
+ *   ROM     0x00000000   64 KiB   片上 ROM（.rom / .rom_code）
+ *   FLASH   0x10000000  512 KiB   程序 + .rodata + .data 初值
+ *   SRAM    0x20000000  130,944 B (0x1FF80)  .data / .bss / heap / stack
+ *   SHARED  0x2001FF80      128 B  核间共享（CFS 用）
+ *
+ * 本工程预算参考：
+ *   Flash  ── sen1_cnn_weights.h 约 260 KB 常量进 .rodata → 占 Flash
+ *   SRAM   ── 两个 16 KB 推理缓冲区(a/b_pAI85Buffer) + FreeRTOS heap + 任务栈
+ *   CNN    ── 0x50400000 一带是加速器专用数据内存，不占上面任何一段
+ * ========================================================================== */
+
+MEMORY {
+    ROM        (rx) : ORIGIN = 0x00000000, LENGTH = 0x00010000 /* 64kB ROM */
+    FLASH      (rx) : ORIGIN = 0x10000000, LENGTH = 0x00080000 /* 512KB Flash */
+    SRAM      (rwx) : ORIGIN = 0x20000000, LENGTH = 0x0001FF80 /* ~128KB SRAM */
+    SHARED     (rw) : ORIGIN = 0x2001FF80, LENGTH = 0x00000080 /* 128B Shared */
+}
+
+/* The address and length of the SHARED section defined above. */
+__shared_origin = ORIGIN(SHARED);
+__shared_length = LENGTH(SHARED);
+
+SECTIONS {
+    .rom :
+    {
+        KEEP(*(.rom_vector))
+        *(.rom_handlers*)
+    } > ROM
+
+    .text :
+    {
+        _text = .;
+        KEEP(*(.isr_vector))
+        EXCLUDE_FILE (*riscv.o) *(.text*)    /* Program code (exclude RISCV code) */
+        *(.rodata*)  /* read-only data: "const" */
+
+        KEEP(*(.init))
+        KEEP(*(.fini))
+
+        /* .ctors */
+        *crtbegin.o(.ctors)
+        *crtbegin?.o(.ctors)
+        *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+        *(SORT(.ctors.*))
+        *(.ctors)
+
+        /* .dtors */
+        *crtbegin.o(.dtors)
+        *crtbegin?.o(.dtors)
+        *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+        *(SORT(.dtors.*))
+        *(.dtors)
+
+        /* C++ Exception handling */
+        KEEP(*(.eh_frame*))
+        _etext = .;
+    } > FLASH
+
+    .ARM.extab :
+    {
+        *(.ARM.extab* .gnu.linkonce.armextab.*)
+    } > FLASH
+
+    /* Binary import */
+    .bin_storage :
+    {
+       FILL(0xFF)
+      _bin_start_ = .;
+      KEEP(*(.bin_storage_img))
+      _bin_end_ = .;
+      . = ALIGN(4);
+    } > FLASH
+    
+    .rom_code :
+    {
+        . = ALIGN(16);
+        _sran_code = .;
+        *(.rom_code_section)
+        _esran_code = .;
+    } > ROM
+
+    .flash_code :
+    {
+        . = ALIGN(16);
+        _sran_code = .;
+        *(.flash_code_section)
+        _esran_code = .;
+    } > FLASH
+
+    .sram_code :
+    {
+        . = ALIGN(16);
+        _sran_code = .;
+        *(.sram_code_section)
+        _esran_code = .;
+    } > SRAM
+
+    /* it's used for C++ exception handling      */
+    /* we need to keep this to avoid overlapping */
+    .ARM.exidx :
+    {
+        __exidx_start = .;
+        *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+        __exidx_end = .;
+    } > FLASH
+
+    .data :
+    {
+        _data = ALIGN(., 4);
+        *(vtable)
+        *(.data*)           /*read-write initialized data: initialized global variable*/
+        *(.flashprog*)      /* Flash program */
+
+        /* These array sections are used by __libc_init_array to call static C++ constructors */
+        . = ALIGN(4);
+        /* preinit data */
+        PROVIDE_HIDDEN (__preinit_array_start = .);
+        KEEP(*(.preinit_array))
+        PROVIDE_HIDDEN (__preinit_array_end = .);
+
+        . = ALIGN(4);
+        /* init data */
+        PROVIDE_HIDDEN (__init_array_start = .);
+        KEEP(*(SORT(.init_array.*)))
+        KEEP(*(.init_array))
+        PROVIDE_HIDDEN (__init_array_end = .);
+
+        . = ALIGN(4);
+        /* finit data */
+        PROVIDE_HIDDEN (__fini_array_start = .);
+        KEEP(*(SORT(.fini_array.*)))
+        KEEP(*(.fini_array))
+        PROVIDE_HIDDEN (__fini_array_end = .);
+
+        _edata = ALIGN(., 4);
+    } > SRAM AT>FLASH
+    __load_data = LOADADDR(.data);
+
+    .bss :
+    {
+        . = ALIGN(4);
+        _bss = .;
+        *(.bss*)     /*read-write zero initialized data: uninitialzed global variable*/
+        *(COMMON)
+        _ebss = ALIGN(., 4);
+    } > SRAM
+
+    /* We map the .shared section to a symbol rather than >SHARED to allow for backwards compatibility in CFS
+     * with older projects that did not provide SHARED (note that CFS replaces the MEMORY command at the top of
+     * this file). In that case, we just map to the end of memory.
+     * We add an assert to ensure that the section fits in the available space.
+     */
+    PROVIDE(__shared_origin = 0x2001FFF8);
+    PROVIDE(__shared_length = 8);
+
+    .shared __shared_origin (NOLOAD) :
+    {
+        . = ALIGN(4);
+        _shared = .;
+        *(.mailbox*)
+        . = ALIGN(4);
+        *(.shared*)     /*read-write zero initialized data: uninitialzed global variable*/
+        _eshared = ALIGN(., 4);
+    }
+    __shared_data = LOADADDR(.shared);
+
+    ASSERT(SIZEOF(.shared) <= __shared_length, ".shared section overflow: exceeds inter-core shared memory region")
+
+    /* Set stack top to end of RAM, and stack limit move down by
+     * size of stack_dummy section */
+    __StackTop = ORIGIN(SRAM) + LENGTH(SRAM);
+    __StackLimit = __StackTop - SIZEOF(.stack_dummy);
+
+    /* .stack_dummy section doesn't contains any symbols. It is only
+     * used for linker to calculate size of stack sections, and assign
+     * values to stack symbols later */
+    .stack_dummy (COPY):
+    {
+        *(.stack*)
+    } > SRAM
+
+    .heap (COPY):
+    {
+        . = ALIGN(4);
+        *(.heap*)
+        __HeapLimit = ABSOLUTE(__StackLimit);
+    } > SRAM
+
+    PROVIDE(__stack = __StackTop);
+
+    /* Check if data + heap + stack exceeds RAM limit */
+    ASSERT(__StackLimit >= _ebss, "region RAM overflowed with stack")
+
+    /* Section used by RISCV loader projects.  See RISCV_LOAD documentation in the build system. */
+    .riscv_flash :
+    {
+        /* Align address to mod 256 with a small offset. This is required to match the flash page size.*/
+        . = ALIGN(256); /* ALIGN operatator is used here.  Note that (. & 0x1FFFFF00) was used in the past, but a strange bug was seen on Windows where the & did not behave as expected.*/
+        . += 0x100;
+        _riscv_boot = .;
+        KEEP(*riscv.o (.text*))
+    } > FLASH
+}
