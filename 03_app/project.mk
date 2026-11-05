@@ -54,12 +54,13 @@ LINKERFILE = max78000_app.ld
 VPATH += .
 IPATH += .
 
-# 两个模型 + 共享 softmax：三个子目录都要挂，缺一个就会「模型不参与编译」或「头文件找不到」。
+# 三个模型 + 共享 softmax：四个子目录都要挂，缺一个就会「模型不参与编译」或「头文件找不到」。
 #   models      -> softmax.c   + model_common.h
 #   models/sen  -> sen1_cnn.c + sen1_cnn.h / sen1_cnn_weights.h
+#   models/vad  -> vad_cnn.c  + vad_cnn.h / vad_cnn_weights.h   （剪枝+自蒸馏，10,784 B）
 #   models/kws  -> kws_cnn.c   + kws_cnn.h / kws_weights.h
-VPATH += models models/sen models/kws
-IPATH += models models/sen models/kws
+VPATH += models models/sen models/vad models/kws
+IPATH += models models/sen models/vad models/kws
 
 # -- 调试 / 优化 -------------------------------------------------------------
 # DEBUG=1 -> gcc.mk:443-444 加 `-g3 -ggdb -DDEBUG`，且优化级别变 -Og

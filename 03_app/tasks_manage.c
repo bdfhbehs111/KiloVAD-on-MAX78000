@@ -12,7 +12,7 @@
 #include "semphr.h"         /* 不用信号量就删 */
 #include "mxc.h"            /* board.h / led.h / i2s.h / gpio.h / SEC / MSEC 全在里面 */
 /* 两个改名后的模型（见 tools/namespace_models.py） */
-#include "sen1_cnn.h"
+#include "vad_cnn.h"
 #include "kws_cnn.h"
 static TaskHandle_t fifo_task_sentinel;
 TaskHandle_t cnn_isr;
@@ -331,12 +331,12 @@ static void vTaskCNN(void *pv) {
     uint32_t sen_out2;
     uint32_t kws_out26[26]; 
     uint16_t miss_frame=0;
-    sen1_cnn_enable(MXC_S_GCR_PCLKDIV_CNNCLKSEL_PCLK, MXC_S_GCR_PCLKDIV_CNNCLKDIV_DIV1);
-    sen1_cnn_boost_enable(MXC_GPIO2, MXC_GPIO_PIN_5);
-    sen1_cnn_init();
-    sen1_cnn_load_weights();
-    sen1_cnn_load_bias();
-    sen1_cnn_configure();
+    vad_cnn_enable(MXC_S_GCR_PCLKDIV_CNNCLKSEL_PCLK, MXC_S_GCR_PCLKDIV_CNNCLKDIV_DIV1);
+    vad_cnn_boost_enable(MXC_GPIO2, MXC_GPIO_PIN_5);
+    vad_cnn_init();
+    vad_cnn_load_weights();
+    vad_cnn_load_bias();
+    vad_cnn_configure();
     while (1) {
         switch (state)
         {
@@ -353,13 +353,13 @@ static void vTaskCNN(void *pv) {
         case STATE_SENTINEL:
         while (ulTaskNotifyTake(pdTRUE, 0) != 0) { }   /*等价于清空标志位，为了防止数据结果有误，i2s不使用因为意外唤醒有while的条件判断兜底，且前一万个样本作废*/
         cnn_load_data(p_infer);
-        sen1_cnn_start();
+        vad_cnn_start();
         if (ulTaskNotifyTake(pdTRUE, pdMS_TO_TICKS(50)) == 0) {
             miss_frame++;                                   /* 超时，绝不死等 */
             state = IDLE;
             break;   //等待isr中断通知
         }
-        sen1_cnn_unload(&sen_out2);
+        vad_cnn_unload(&sen_out2);
         int8_t s0 = (int8_t)(sen_out2 & 0xff);
         int8_t s1 = (int8_t)((sen_out2 >> 16) & 0xff);
 
