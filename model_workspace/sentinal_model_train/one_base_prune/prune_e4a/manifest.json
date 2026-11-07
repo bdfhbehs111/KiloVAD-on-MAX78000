@@ -1,0 +1,152 @@
+{
+  "run_id": "20261104-165447",
+  "checkpoint": "C:\\Users\\13157\\Desktop\\work\\blasphemy-edgeai\\project-sys_agent\\max78000\\model_workspace\\sentinal_model_train\\ai8x-training\\logs\\one_base___2026.11.03-182532\\one_base_best.pth.tar",
+  "checkpoint_epoch": 27,
+  "base_channels": [
+    64,
+    96,
+    96,
+    64,
+    32,
+    16
+  ],
+  "input_shape": [
+    1,
+    128,
+    128
+  ],
+  "batch": 64,
+  "round_to": 4,
+  "ft_epochs": 5,
+  "lr": 0.001,
+  "seed": 0,
+  "shebang": "逐层敏感度扫描，为 E1c/Optuna 提供先验",
+  "search_space": {
+    "conv1": {
+      "original": 64,
+      "allowed": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64
+      ]
+    },
+    "conv2": {
+      "original": 96,
+      "allowed": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96
+      ]
+    },
+    "conv3": {
+      "original": 96,
+      "allowed": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96
+      ]
+    },
+    "conv4": {
+      "original": 64,
+      "allowed": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64
+      ]
+    },
+    "conv5": {
+      "original": 32,
+      "allowed": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32
+      ]
+    },
+    "conv6": {
+      "original": 16,
+      "allowed": [
+        4,
+        8,
+        12,
+        16
+      ]
+    }
+  },
+  "note": "fc 只有 2 类，不可剪；剪 conv_k 的 out 会同步切 conv_{k+1} 的 in",
+  "started": "2026-11-04T16:54:47",
+  "finished": "2026-11-04T18:40:21",
+  "n_points_done": 19
+}

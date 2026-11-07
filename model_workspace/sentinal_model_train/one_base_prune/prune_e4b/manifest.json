@@ -1,0 +1,233 @@
+{
+  "run_id": "20261104-224058",
+  "checkpoint": "C:\\Users\\13157\\Desktop\\work\\blasphemy-edgeai\\project-sys_agent\\max78000\\model_workspace\\sentinal_model_train\\ai8x-training\\logs\\one_base___2026.11.03-182532\\one_base_best.pth.tar",
+  "input_shape": [
+    1,
+    128,
+    128
+  ],
+  "base_channels": [
+    64,
+    96,
+    96,
+    64,
+    32,
+    16
+  ],
+  "step": 4,
+  "search_space": {
+    "conv1": {
+      "low": 32,
+      "high": 64,
+      "allowed": [
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64
+      ]
+    },
+    "conv2": {
+      "low": 24,
+      "high": 96,
+      "allowed": [
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96
+      ]
+    },
+    "conv3": {
+      "low": 24,
+      "high": 96,
+      "allowed": [
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        92,
+        96
+      ]
+    },
+    "conv4": {
+      "low": 16,
+      "high": 64,
+      "allowed": [
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52,
+        56,
+        60,
+        64
+      ]
+    },
+    "conv5": {
+      "low": 8,
+      "high": 32,
+      "allowed": [
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32
+      ]
+    },
+    "conv6": {
+      "low": 4,
+      "high": 16,
+      "allowed": [
+        4,
+        8,
+        12,
+        16
+      ]
+    }
+  },
+  "objectives": [
+    "cycles",
+    "auc_val"
+  ],
+  "directions": {
+    "cycles": "minimize",
+    "auc_val": "maximize"
+  },
+  "ft_epochs": 12,
+  "lr": 0.0003,
+  "seed": 0,
+  "sampler": "tpe",
+  "seed_trials": [
+    [
+      64,
+      96,
+      96,
+      64,
+      32,
+      16
+    ],
+    [
+      64,
+      64,
+      64,
+      64,
+      32,
+      16
+    ],
+    [
+      48,
+      64,
+      64,
+      48,
+      24,
+      16
+    ],
+    [
+      32,
+      64,
+      64,
+      64,
+      32,
+      16
+    ],
+    [
+      32,
+      48,
+      48,
+      32,
+      16,
+      16
+    ],
+    [
+      32,
+      24,
+      96,
+      64,
+      32,
+      16
+    ],
+    [
+      64,
+      24,
+      32,
+      16,
+      8,
+      16
+    ],
+    [
+      32,
+      24,
+      32,
+      16,
+      8,
+      16
+    ]
+  ],
+  "baseline": {
+    "channels": [
+      64,
+      96,
+      96,
+      64,
+      32,
+      16,
+      16
+    ],
+    "bytes": 79392,
+    "cycles_proc": 118272,
+    "val_fpr": 0.01262674574325617,
+    "test_fpr": 0.010951859435264987,
+    "auc_test": 0.9958235374603431
+  },
+  "prior": "one_base E4a 单层敏感度（prune_e4a/results.csv, 18 点, 5ep/lr1e-3）。只改 conv1 下界 16->32；dFPR 的 val/test 符号仅 8/18 一致 -> 只把 AUC 当排序轴",
+  "versions": {
+    "python": "3.11.15",
+    "torch": "2.11.0+cu128",
+    "numpy": "1.26.4",
+    "sklearn": "1.9.1",
+    "optuna": "5.0.0"
+  },
+  "started": "2026-11-04T22:40:58",
+  "note": "目标 = (cycles 一阶模型, AUC val)。FPR@TPR95 / TPR@FPR1% 只在 test 上报告，不参与选择。cycles 未经 ai8xize 实测，方向可信、绝对值不可信。",
+  "finished": "2026-11-04T23:37:00",
+  "n_trials_in_study": 40
+}

@@ -1,0 +1,34 @@
+{
+  "run_id": "20261105-112400",
+  "teacher": "C:\\Users\\13157\\Desktop\\work\\blasphemy-edgeai\\project-sys_agent\\max78000\\model_workspace\\sentinal_model_train\\ai8x-training\\logs\\one_base___2026.11.03-182532\\one_base_best.pth.tar",
+  "teacher_epoch": 27,
+  "student": "fresh-prune-from-base",
+  "student_weights": "fresh-prune-from-base",
+  "T": 3.0,
+  "alpha": 0.7,
+  "epochs": 8,
+  "lr": 0.0003,
+  "seeds": 3,
+  "modes": [
+    "kd",
+    "ce"
+  ],
+  "targets": {
+    "t7-base": [
+      32,
+      24,
+      32,
+      16,
+      8,
+      16
+    ]
+  },
+  "note": "teacher 冻结 eval+no_grad；kd/ce 共用同一 seed 与同一学生起点",
+  "versions": {
+    "python": "3.11.15",
+    "torch": "2.11.0+cu128",
+    "numpy": "1.26.4"
+  },
+  "started": "2026-11-05T11:24:00",
+  "finished": "2026-11-05T12:33:46"
+}

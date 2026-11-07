@@ -1,0 +1,18 @@
+C:\Users\13157\Desktop\work\blasphemy-edgeai\project-sys_agent\max78000_backup\ai8x-synthesis\ai8xize.py --device MAX78000 --config-file C:\Users\13157\Desktop\work\blasphemy-edgeai\project-sys_agent\max78000\model_workspace\sentinal_model_train\one_base_withqat\sen1_cnn.yaml --checkpoint-file C:\Users\13157\Desktop\work\blasphemy-edgeai\project-sys_agent\max78000\model_workspace\sentinal_model_train\one_base_withqat\_gin\q_SCALE.pth.tar --prefix vad_cnn --test-dir C:\Users\13157\Desktop\work\blasphemy-edgeai\project-sys_agent\max78000\model_workspace\sentinal_model_train\two_base\_probe_tmp --sample-input C:\Users\13157\Desktop\work\blasphemy-edgeai\project-sys_agent\max78000\model_workspace\sentinal_model_train\one_base_withqat\_gin\abnoise7_k16.npy --no-version-check --overwrite
+MAX78000
+
+vad_cnn
+SUMMARY OF OPS
+Hardware: 3,838,512 ops (3,801,632 macc; 36,880 comp; 0 add; 0 mul; 0 bitwise)
+  Layer 0 (conv1_Conv_8): 1,056,768 ops (1,048,576 macc; 8,192 comp; 0 add; 0 mul; 0 bitwise)
+  Layer 1 (conv2_Conv_6): 1,193,984 ops (1,179,648 macc; 14,336 comp; 0 add; 0 mul; 0 bitwise)
+  Layer 2 (conv3_Conv_6): 893,952 ops (884,736 macc; 9,216 comp; 0 add; 0 mul; 0 bitwise)
+  Layer 3 (conv4_Conv_6): 591,872 ops (589,824 macc; 2,048 comp; 0 add; 0 mul; 0 bitwise)
+  Layer 4 (conv5_Conv_6): 100,864 ops (98,304 macc; 2,560 comp; 0 add; 0 mul; 0 bitwise)
+  Layer 5 (conv6_Conv_6): 1,040 ops (512 macc; 528 comp; 0 add; 0 mul; 0 bitwise)
+  Layer 6 (fc_MatMul_3): 32 ops (32 macc; 0 comp; 0 add; 0 mul; 0 bitwise)
+
+RESOURCE USAGE
+Weight memory: 79,392 bytes out of 442,368 bytes total (17.9%)
+Bias memory:   370 bytes out of 2,048 bytes total (18.1%)
+

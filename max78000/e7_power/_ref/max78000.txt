@@ -1,0 +1,4053 @@
+
+===== PAGE 1 =====
+General Description
+Artificial intelligence (AI) requires extreme computational
+horsepower, but Maxim is cutting the power cord from
+AI insights. The MAX78000 is a new breed of AI mi-
+crocontroller built to enable neural networks to execute
+at ultra-low power and live at the edge of the IoT. This
+product combines the most energy-efficient AI processing
+with Maxim's proven ultra-low power microcontrollers. Our
+hardware-based convolutional neural network (CNN) ac-
+celerator enables battery-powered applications to execute
+AI inferences while spending only microjoules of energy.
+The MAX78000 is an advanced system-on-chip featuring
+an Arm® Cortex®-M4 with FPU CPU for efficient system
+control with an ultra-low-power deep neural network accel-
+erator. The CNN engine has a weight storage memory of
+442KB, and can support 1-, 2-, 4-, and 8-bit weights (sup-
+porting networks of up to 3.5 million weights). The CNN
+weight memory is SRAM-based, so AI network updates
+can be made on the fly. The CNN engine also has 512KB
+of data memory. The CNN architecture is highly flexible,
+allowing networks to be trained in conventional toolsets
+like PyTorch® and TensorFlow®, then converted for exe-
+cution on the MAX78000 using tools provided by Maxim.
+In addition to the memory in the CNN engine, the
+MAX78000 has large on-chip system memory for the mi-
+crocontroller core, with 512KB flash and up to 128KB
+SRAM. Multiple high-speed and low-power communica-
+tions interfaces are supported, including I2S and a parallel
+camera interface (PCIF).
+The device is available in a 81-pin CTBGA (8mm x 8mm,
+0.8mm pitch) package.
+Applications
+●Object Detection and Classification
+●Audio Processing: Multi-Keyword Recognition, Sound
+Classification, Noise Cancellation
+●Facial Recognition
+●Time-Series Data Processing: Heart Rate/Health
+Signal Analysis, Multi-Sensor Analysis, Predictive
+Maintenance
+Benefits and Features
+●
+Dual Core Ultra-Low-Power Microcontroller
+•
+Arm Cortex-M4 Processor with FPU up to 100MHz
+•
+512KB Flash and 128KB SRAM
+•
+Optimized Performance with 16KB Instruction
+Cache
+•
+Optional Error Correction Code (ECC-SEC-DED)
+for SRAM
+•
+32-Bit RISC-V Coprocessor up to 60MHz
+•
+Up to 52 General-Purpose I/O Pins
+•
+12-Bit Parallel Camera Interface
+•
+One I2S Master/Slave for Digital Audio Interface
+●
+Neural Network Accelerator
+•
+Highly Optimized for Deep Convolutional Neural
+Networks
+•
+442k 8-Bit Weight Capacity with 1,2,4,8-Bit Weights
+•
+Programmable Input Image Size up to 1024 x 1024
+pixels
+•
+Programmable Network Depth up to 64 Layers
+•
+Programmable per Layer Network Channel Widths
+up to 1024 Channels
+•
+1 and 2 Dimensional Convolution Processing
+•
+Streaming Mode
+•
+Flexibility to Support Other Network Types,
+Including MLP and Recurrent Neural Networks
+●
+Power Management Maximizes Operating Time for
+Battery Applications
+•
+Integrated Single-Inductor Multiple-Output (SIMO)
+Switch-Mode Power Supply (SMPS)
+•
+2.0V to 3.6V SIMO Supply Voltage Range
+•
+Dynamic Voltage Scaling Minimizes Active Core
+Power Consumption
+•
+22.2μA/MHz While Loop Execution at 3.0V from
+Cache (CM4 Only)
+•
+Selectable SRAM Retention in Low-Power Modes
+with Real-Time Clock (RTC) Enabled
+●
+Security and Integrity
+•
+Available Secure Boot
+•
+AES 128/192/256 Hardware Acceleration Engine
+•
+True Random Number Generator (TRNG) Seed
+Generator
+Ordering Information appears at end of data sheet.
+Arm and Cortex are registered trademarks of Arm Limited (or its subsidiaries) in the US and/or elsewhere.
+CoreMark is a registered trademark of the Embedded Microprocessor Benchmark Consortium.
+Motorola is a registered trademark of Motorola Trademark Holdings, LLC.
+PyTorch is a trademark of Facebook, Inc.
+TensorFlow is a trademark of Google, Inc.
+Click here to ask about the production status of specific part numbers.
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-
+Low-Power Convolutional Neural Network
+Accelerator
+19-100868; Rev 1; 5/21
+
+===== PAGE 2 =====
+Simplified Block Diagram
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  2
+
+===== PAGE 3 =====
+TABLE OF CONTENTS
+General Description. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+Applications . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+Benefits and Features . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+Simplified Block Diagram . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+Absolute Maximum Ratings. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+Package Information . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+81-CTBGA . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+Electrical Characteristics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+Electrical Characteristics—SPI . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+Electrical Characteristics—I2C . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+Electrical Characteristics—I2S . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+Electrical Characteristics—PCIF . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+Electrical Characteristics—1-Wire Master . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+Pin Configuration. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+81 CTBGA . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+Pin Description . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+Detailed Description . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+Arm Cortex-M4 with FPU Processor and RISC-V RV32 Processor. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+Convolutional Neural Network Accelerator (CNN) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+Memory . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+Internal Flash Memory. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+Internal SRAM. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+Comparators. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+Dynamic Voltage Scaling (DVS) Controller . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+Clocking Scheme . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+General-Purpose I/O and Special Function Pins . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 35
+Parallel Camera Interface (PCIF) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+Analog-to-Digital Converter . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+Single-Inductor Multiple-Output Switch-Mode Power Supply (SIMO SMPS) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+Power Management . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+Power Management Unit. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+ACTIVE Mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+SLEEP Mode. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+LOW POWER Mode (LPM). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+MICRO POWER Mode (μPM). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+STANDBY Mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+BACKUP Mode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+POWER DOWN Mode (PDM) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  3
+
+===== PAGE 4 =====
+TABLE OF CONTENTS (CONTINUED)
+Wakeup Sources. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+Real-Time Clock. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+Programmable Timers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+32-Bit Timer/Counter/PWM (TMR, LPTMR) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+Watchdog Timer (WDT) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+Pulse Train Engine (PT) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+Serial Peripherals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+I2C Interface (I2C) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+I2S Interface (I2S) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+Serial Peripheral Interface (SPI) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+UART (UART, LPUART) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+1-Wire Master (OWM) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+Standard DMA Controller . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+Security . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+AES . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+True Random Number Generator (TRNG) Non-Deterministic Random Bit Generator (NDRBG). . . . . . . . . . . . . 44
+CRC Module . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+Bootloader. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+Secure Boot. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+Debug and Development Interface (SWD, JTAG) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+Applications Information . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
+Bypass Capacitors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
+Ordering Information . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
+Revision History . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  4
+
+===== PAGE 5 =====
+LIST OF FIGURES
+Figure 1. SPI Master Mode Timing Diagram . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+Figure 2. SPI Slave Mode Timing Diagram . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+Figure 3. I2C Timing Diagram . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+Figure 4. I2S Timing Diagram . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+Figure 5. Parallel Camera Interface Timing Diagram . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+Figure 6. 1-Wire Master Data Timing Diagram . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+Figure 7. Clocking Scheme Diagram. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 35
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  5
+
+===== PAGE 6 =====
+LIST OF TABLES
+Table 1. BACKUP Mode SRAM Retention . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+Table 2. Wakeup Sources . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+Table 3. Timer Configuration Options . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+Table 4. Watchdog Timer Configuration Options . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+Table 5. SPI Configuration Options. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+Table 6. UART Configuration Options. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+Table 7. Common CRC Polynomials. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  6
+
+===== PAGE 7 =====
+Absolute Maximum Ratings
+VCOREA, VCOREB ............................................... -0.3V to +1.21V
+VDDIO .................................................................... -0.3V to +3.6V
+VDDIOH.................................................................. -0.3V to +3.6V
+VREGI .................................................................... -0.3V to +3.6V
+VDDA ................................................................... -0.3V to +1.89V
+GPIO (VDDIO)............................................ -0.3V to VDDIO + 0.5V
+RSTN, GPIO (VDDIOH)............................-0.3V to VDDIOH + 0.5V
+32KIN, 32KOUT ......................................... -0.3V to VDDA + 0.2V
+VDDIO Combined Pins (sink)............................................. 100mA
+VDDIOH Combined Pins (sink)........................................... 100mA
+VSSA.................................................................................. 100mA
+VSS ....................................................................................200mA
+VSSPWR.............................................................................100mA
+Output Current (sink) by any GPIO Pin................................25mA
+Output Current (source) by any GPIO Pin ......................... -25mA
+Continuous Package Power Dissipation CTBGA (multilayer
+board)
+TA
+=
++70°C
+(derate
+29.81mW/°C
+above
++70°C)........................................................................2384.50mW
+Operating Temperature Range...........................-40°C to +105°C
+Storage Temperature Range ..............................-65°C to +150°C
+Soldering Temperature .....................................................+260°C
+Stresses beyond those listed under “Absolute Maximum Ratings” may cause permanent damage to the device. These are stress ratings only, and functional operation of the
+device at these or any other conditions beyond those indicated in the operational sections of the specifications is not implied. Exposure to absolute maximum rating conditions for
+extended periods may affect device reliability.
+Package Information
+81-CTBGA
+Package Code
+X8188+3C
+Outline Number
+21-0735
+Land Pattern Number
+90-0460
+Thermal Resistance, Four-Layer Board
+Junction to Ambient (θJA)
+33.55°C/W
+Junction to Case (θJC)
+6.73°C/W
+For the latest package outline information and land patterns (footprints), go to www.maximintegrated.com/packages.
+Note that a “+”, “#”, or “-” in the package code indicates RoHS status only. Package drawings may show a different
+suffix character, but the drawing pertains to the package regardless of RoHS status.
+Package thermal resistances were obtained using the method described in JEDEC specification JESD51-7, using a
+four-layer board. For detailed information on package thermal considerations, refer to www.maximintegrated.com/
+thermal-tutorial.
+Electrical Characteristics
+(Limits are 100% tested at TA = +25°C and TA = +105°C. TYP specifications are provided for TA = +25°C. Limits over the operating
+temperature range and relevant supply voltage range are guaranteed by design and characterization. Specifications marked GBD are
+guaranteed by design and not production tested. Specifications to the minimum operating temperature are guaranteed by design and
+are not production tested. GPIO are only tested at TA = +105°C.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+POWER SUPPLIES
+Core Input Supply
+Voltage A
+VCOREA
+Falling
+VCOREA
+VRST
+1.1
+1.21
+V
+Rising
+0.9
+1.1
+1.21
+Core Input Supply
+Voltage B
+VCOREB
+Falling
+VCOREB
+VRST
+1.1
+1.21
+V
+Rising
+0.9
+1.1
+1.21
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  7
+
+===== PAGE 8 =====
+Electrical Characteristics (continued)
+(Limits are 100% tested at TA = +25°C and TA = +105°C. TYP specifications are provided for TA = +25°C. Limits over the operating
+temperature range and relevant supply voltage range are guaranteed by design and characterization. Specifications marked GBD are
+guaranteed by design and not production tested. Specifications to the minimum operating temperature are guaranteed by design and
+are not production tested. GPIO are only tested at TA = +105°C.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+Input Supply Voltage,
+Battery
+VREGI
+Falling
+VREGI
+VRST
+3.0
+3.6
+V
+Rising
+2.45
+3.0
+3.6
+Input Supply Voltage,
+Analog
+VDDA
+1.71
+1.8
+1.89
+V
+Input Supply Voltage,
+GPIO
+VDDIO
+1.71
+1.8
+1.89
+V
+Input Supply Voltage,
+GPIO (High)
+VDDIOH
+1.71
+3.0
+3.6
+V
+Power-Fail Reset
+Voltage
+VRST
+Monitors VCOREA
+0.76
+V
+Monitors VCOREB
+0.72
+0.77
+Monitors VDDA
+1.58
+1.64
+1.69
+Monitors VDDIO
+1.58
+1.64
+1.69
+Monitors VDDIOH
+1.58
+1.64
+1.69
+Monitors VREGI
+1.91
+1.98
+2.08
+Power-On Reset
+Voltage
+VPOR
+Monitors VCOREA
+0.63
+V
+Monitors VDDA
+1.25
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  8
+
+===== PAGE 9 =====
+Electrical Characteristics (continued)
+(Limits are 100% tested at TA = +25°C and TA = +105°C. TYP specifications are provided for TA = +25°C. Limits over the operating
+temperature range and relevant supply voltage range are guaranteed by design and characterization. Specifications marked GBD are
+guaranteed by design and not production tested. Specifications to the minimum operating temperature are guaranteed by design and
+are not production tested. GPIO are only tested at TA = +105°C.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+VREGI Current, ACTIVE
+Mode
+IREGI_DACT
+Dynamic, IPO enabled, fSYS_CLK(MAX) =
+100MHz, total current into VREGI pin,
+VREGI = 3.0V, VCOREA = VCOREB =
+1.1V, CM4 in Active mode executing
+CoreMark®, RV32 in ACTIVE mode
+executing While(1), ECC disabled, all
+CNN quadrants disabled, all CNN
+memory disabled; inputs tied to VSS,
+VDDIO, or VDDIOH; outputs source/sink
+0mA
+41.9
+μA/MHz
+Dynamic, IPO enabled, fSYS_CLK(MAX) =
+100MHz, total current into VREGI pin,
+VREGI = 3.0V, VCOREA = VCOREB =
+1.1V, CM4 and RV32 in ACTIVE mode
+executing While(1), ECC disabled, all
+CNN quadrants disabled, all CNN
+memory disabled; inputs tied to VSS,
+VDDIO, or VDDIOH; outputs source/sink
+0mA
+38
+Dynamic, IPO enabled, fSYS_CLK(MAX) =
+100MHz, total current into VREGI pin,
+VREGI = 3.0V, VCOREA = VCOREB =
+1.1V, CM4 in ACTIVE mode executing
+While(1), RV32 in SLEEP mode, ECC
+disabled, all CNN quadrants disabled, all
+CNN memory disabled; inputs tied to
+VSS, VDDIO, or VDDIOH; outputs source/
+sink 0mA
+22.2
+Dynamic, total current into VREGI pin,
+VREGI = 3.0V, VCOREA = VCOREB =
+1.1V, CM4 in SLEEP mode, RV32 in
+ACTIVE mode running from ISO, ECC
+disabled, all CNN quadrants disabled, all
+CNN memory disabled; inputs tied to
+VSS, VDDIO, or VDDIOH; outputs source/
+sink 0mA
+22.9
+IREGI_FACT
+Fixed, IPO enabled, ISO enabled, total
+current into VREGI, VREGI = 3.0V,
+VCOREA = VCOREB = 1.1V, CM4 in
+ACTIVE mode 0MHz, RV32 in ACTIVE
+mode 0MHz, all CNN quadrants disabled,
+all CNN memory disabled; inputs tied to
+VSS, VDDIO, or VDDIOH; outputs source/
+sink 0mA
+744
+μA
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  9
+
+===== PAGE 10 =====
+Electrical Characteristics (continued)
+(Limits are 100% tested at TA = +25°C and TA = +105°C. TYP specifications are provided for TA = +25°C. Limits over the operating
+temperature range and relevant supply voltage range are guaranteed by design and characterization. Specifications marked GBD are
+guaranteed by design and not production tested. Specifications to the minimum operating temperature are guaranteed by design and
+are not production tested. GPIO are only tested at TA = +105°C.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+VREGI Current, SLEEP
+Mode
+IREGI_DSLP
+Dynamic, IPO enabled, fSYS_CLK(MAX) =
+100MHz, ISO enabled, total current into
+VREGI pins, VREGI = 3.0V, VCOREA =
+VCOREB = 1.1V, CM4 in SLEEP mode,
+RV32 in SLEEP mode, ECC disabled, all
+CNN quadrants disabled, all CNN
+memory disabled, standard DMA with 2
+channels active; inputs tied to VSS,
+VDDIO, or VDDIOH; outputs source/sink
+0mA
+22.5
+μA/MHz
+IREGI_FSLP
+Fixed, IPO enabled, ISO enabled, total
+current into VREGI pins, VREGI = 3.0V,
+VCOREA = VCOREB = 1.1V, CM4 in
+SLEEP mode, RV32 in SLEEP mode,
+ECC disabled, all CNN quadrants
+disabled, all CNN memory disabled;
+inputs tied to VSS, VDDIO, or VDDIOH;
+outputs source/sink 0mA
+1.5
+mA
+VREGI Current, LOW
+POWER Mode
+IREGI_DLP
+Dynamic, ISO enabled, total current into
+VREGI pins, VREGI = 3.0V, VCOREA =
+VCOREB = 1.1V, CM4 powered off, RV32
+in ACTIVE mode, fSYS_CLK(MAX) =
+60MHz, all CNN quadrants disabled, all
+CNN memory disabled; inputs tied to
+VSS, VDDIO, or VDDIOH; outputs source/
+sink 0mA
+18.3
+μA/MHz
+IREGI_FLP
+Fixed, ISO enabled, total current into
+VREGI pins, VREGI = 3.0V, VCOREA =
+VCOREB = 1.1V, CM4 powered off, RV32
+in ACTIVE mode 0MHz, all CNN
+quadrants disabled, all CNN memory
+disabled; inputs tied to VSS, VDDIO, or
+VDDIOH; outputs source/sink 0mA
+0.64
+mA
+VREGI Current, MICRO
+POWER Mode
+IREGI_DMP
+Dynamic, ERTCO enabled, IBRO
+enabled, total current into VREGI pins,
+VREGI = 3.0V, VCOREA = VCOREB =
+1.1V, LPUART active, fLPUART =
+32.768kHz, all CNN quadrants disabled,
+all CNN memory disabled; inputs tied to
+VSS, VDDIO, or VDDIOH; outputs source/
+sink 0mA
+230
+μA
+VREGI Current,
+STANDBY Mode
+IREGI_STBY
+Fixed, total current into VREGI pins,
+VREGI = 3.0V, VCOREA = VCOREB =
+1.1V, all CNN quadrants disabled, all
+CNN memory disabled; inputs tied to
+VSS, VDDIO, or VDDIOH; outputs source/
+sink 0mA
+11.3
+μA
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  10
+
+===== PAGE 11 =====
+Electrical Characteristics (continued)
+(Limits are 100% tested at TA = +25°C and TA = +105°C. TYP specifications are provided for TA = +25°C. Limits over the operating
+temperature range and relevant supply voltage range are guaranteed by design and characterization. Specifications marked GBD are
+guaranteed by design and not production tested. Specifications to the minimum operating temperature are guaranteed by design and
+are not production tested. GPIO are only tested at TA = +105°C.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+VREGI Current,
+BACKUP Mode
+IREGI_BK
+Total current into
+VREGI pins, VREGI
+= 3.0V, VCOREA =
+VCOREB = 1.1V,
+RTC disabled, all
+CNN quadrants
+disabled, all CNN
+memory disabled;
+inputs tied to VSS,
+VDDIO, or VDDIOH;
+outputs source/sink
+0mA
+All SRAM retained
+11.1
+μA
+No SRAM retention
+9
+SRAM0 retained
+9.6
+SRAM0 and
+SRAM1 retained
+10.1
+SRAM0, SRAM1,
+and SRAM2
+retained
+10.6
+VREGI Current, POWER
+DOWN Mode
+IREGI_PDM
+Total current into VREGI pins, VREGI =
+3.0V, VCOREA = VCOREB = 1.1V; inputs
+tied to VSS, VDDIO, or VDDIOH; outputs
+source/sink 0mA
+0.17
+μA
+VREGO_X Output
+Current
+VREGO_A_IOU
+T
+VREGO_A output current
+5
+50
+mA
+VREGO_B_IOU
+T
+VREGO_B output current
+5
+50
+VREGO_C_IOU
+T
+VREGO_C output current
+10
+100
+VREGO_X Output
+Current Combined
+VREGO_X_IOU
+T_TOT
+All three VREGO_X outputs combined
+20
+100
+mA
+VREGO_X Output
+Voltage Range
+VREGO_X_RA
+NGE
+VREGI ≥ VREGO_X + 200mV
+0.5
+1.0
+1.85
+V
+VREGO_X Efficiency
+VREGO_X_EFF
+VREGI = 2.7V, VREGO_X = 1.1 V, load =
+30mA
+90
+%
+SLEEP Mode Resume
+Time
+tSLP_ON
+Time from power mode exit to execution
+of first user instruction
+0.67
+μs
+LOW-POWER Mode
+Resume Time
+tLP_ON
+Time from power mode exit to execution
+of first user instruction
+9.5
+μs
+MICROPOWER Mode
+Resume Time
+tMP_ON
+Time from power mode exit to execution
+of first user instruction
+31
+us
+STANDBY Mode
+Resume Time
+tSTBY_ON
+Time from power mode exit to execution
+of first user instruction
+35
+μs
+BACKUP Mode Resume
+Time
+tBKU_ON
+Time from power mode exit to execution
+of first user instruction
+0.14
+ms
+POWER-DOWN Mode
+Resume Time
+tPDM_ON
+Time from power mode exit to execution
+of first user instruction. Includes
+bootloader execution time.
+5
+ms
+CLOCKS
+System Clock
+Frequency
+fSYS_CLK
+0.0625
+100,000
+kHz
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  11
+
+===== PAGE 12 =====
+Electrical Characteristics (continued)
+(Limits are 100% tested at TA = +25°C and TA = +105°C. TYP specifications are provided for TA = +25°C. Limits over the operating
+temperature range and relevant supply voltage range are guaranteed by design and characterization. Specifications marked GBD are
+guaranteed by design and not production tested. Specifications to the minimum operating temperature are guaranteed by design and
+are not production tested. GPIO are only tested at TA = +105°C.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+System Clock Period
+tSYS_CLK
+1/
+fSYS_CL
+K
+ns
+Internal Primary
+Oscillator (IPO)
+fIPO
+100
+MHz
+Internal Secondary
+Oscillator (ISO)
+fISO
+60
+MHz
+Internal Baud Rate
+Oscillator (IBRO)
+fIBRO
+7.3728
+MHz
+Internal Nano-Ring
+Oscillator (INRO)
+fINRO
+8kHz selected
+8
+kHz
+16kHz selected
+16
+30kHz selected
+32
+External RTC Oscillator
+(ERTCO)
+fERTCO
+32kHz watch crystal, CL = 6pF, ESR <
+90kΩ, C0 ≤ 2pF
+32.768
+kHz
+RTC Operating Current
+IRTC
+All power modes, RTC enabled
+0.3
+μA
+RTC Power-Up Time
+tRTC_ ON
+250
+ms
+External I2S Clock Input
+Frequency
+fEXT_I2S_CLK
+I2S_CLKEXT selected
+25
+MHz
+External System Clock
+Input Frequency
+fEXT_CLK
+EXT_CLK selected
+80
+MHz
+External Low Power
+Timer 1 Clock Input
+Frequency
+fEXT_LPTMR1_
+CLK
+LPTMR1_CLK selected
+8
+MHz
+External Low Power
+Timer 2 Clock Input
+Frequency
+fEXT_LPTMR2_
+CLK
+LPTMR2_CLK selected
+8
+MHz
+CONVOLUTIONAL NEURAL NETWORK
+CNN Active Energy
+ΕJ_CNN
+Max power
+network, random
+data, and random
+mask configuration
+x16 Quadrant 0, 1,
+2, and 3 enabled
+4.02
+pJ/MAC
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  12
+
+===== PAGE 13 =====
+Electrical Characteristics (continued)
+(Limits are 100% tested at TA = +25°C and TA = +105°C. TYP specifications are provided for TA = +25°C. Limits over the operating
+temperature range and relevant supply voltage range are guaranteed by design and characterization. Specifications marked GBD are
+guaranteed by design and not production tested. Specifications to the minimum operating temperature are guaranteed by design and
+are not production tested. GPIO are only tested at TA = +105°C.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+VCOREA CNN Active
+Current
+ICOREA_CNN_
+MNISTA
+MNIST Standard
+dataset, optimized
+network
+x16 Quadrant 0
+enabled; x16
+Quadrant 1, 2, and
+3 powered down
+and isolated
+10.1
+mA
+ICOREA_CNN_
+MNISTB
+x16 Quadrant 0, 1,
+2, and 3 enabled
+29
+ICOREA_CNNM
+PRA
+Max power
+network, random
+data, and random
+mask configuration
+x16 Quadrant 0
+enabled; x16
+Quadrant 1, 2, and
+3 powered down
+and isolated
+31.7
+ICOREA_CNNM
+PRB
+x16 Quadrant 0, 1,
+2, and 3 enabled.
+External power
+supply must be
+used for VCOREA
+since the on-board
+SIMO will not
+supply above
+100mA.
+118
+ICOREA_CNNM
+PA
+Max power
+network, data,
+mask configuration
+x16 Quadrant 0
+enabled; x16
+Quadrant 1, 2, and
+3 powered down
+and isolated
+38.5
+ICOREA_CNNM
+PB
+x16 Quadrant 0, 1,
+2, and 3 enabled.
+External power
+supply must be
+used for VCOREA
+since the on-board
+SIMO will not
+supply above
+100mA.
+146
+VREGI Mask Memory
+Retention Current
+IREGI_CNNMR
+VCOREB = 1.0V
+x16 Quadrant 0
+only; x16 Quadrant
+1, 2, and 3
+powered down and
+isolated
+6.625
+μA
+x16 Quadrant 0, 1,
+2, and 3 enabled
+26.5
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  13
+
+===== PAGE 14 =====
+Electrical Characteristics (continued)
+(Limits are 100% tested at TA = +25°C and TA = +105°C. TYP specifications are provided for TA = +25°C. Limits over the operating
+temperature range and relevant supply voltage range are guaranteed by design and characterization. Specifications marked GBD are
+guaranteed by design and not production tested. Specifications to the minimum operating temperature are guaranteed by design and
+are not production tested. GPIO are only tested at TA = +105°C.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+VREGI CNN Inactive
+Current
+IREGI_CNNIA
+CNN enabled/
+inactive, clocks
+disabled
+x16 Quadrant 0
+enabled; x16
+Quadrant 1, 2, and
+3 powered down
+and isolated
+264
+μA
+x16 Quadrant 0, 1,
+2, and 3 enabled
+790.4
+GENERAL-PURPOSE I/O
+Input Low Voltage for All
+GPIO Except P3.0 and
+P3.1
+VIL_VDDIO
+P3.0 and P3.1 can
+only use VDDIOH
+as I/O supply and
+cannot use VDDIO
+as I/O supply
+VDDIO selected as
+I/O supply
+0.3 ×
+VDDIO
+V
+Input Low Voltage for All
+GPIO
+VIL_VDDIOH
+VDDIOH selected as I/O supply
+0.3 ×
+VDDIOH
+V
+Input Low Voltage for
+RSTN
+VIL_RSTN
+0.5 x
+VDDIOH
+V
+Input High Voltage for
+All GPIO Except P3.0
+and P3.1
+VIH_VDDIO
+P3.0 and P3.1 can
+only use VDDIOH
+as I/O supply and
+cannot use VDDIO
+as I/O supply
+VDDIO selected as
+I/O supply
+0.7 ×
+VDDIO
+V
+Input High Voltage for
+All GPIO
+VIH_VDDIOH
+VDDIOH selected as I/O supply
+0.7 ×
+VDDIOH
+V
+Input High Voltage for
+RSTN
+VIH_RSTN
+0.5 x
+VDDIOH
+V
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  14
+
+===== PAGE 15 =====
+Electrical Characteristics (continued)
+(Limits are 100% tested at TA = +25°C and TA = +105°C. TYP specifications are provided for TA = +25°C. Limits over the operating
+temperature range and relevant supply voltage range are guaranteed by design and characterization. Specifications marked GBD are
+guaranteed by design and not production tested. Specifications to the minimum operating temperature are guaranteed by design and
+are not production tested. GPIO are only tested at TA = +105°C.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+Output Low Voltage for
+All GPIO Except P3.0
+and P3.1
+VOL_VDDIO
+P3.0 and P3.1 can
+only use VDDIOH
+as I/O supply and
+cannot use VDDIO
+as I/O supply
+VDDIO selected as
+I/O supply, VDDIO
+= 1.71V,
+GPIOn_DS_SEL[1:
+0] = 00, IOL = 1mA
+0.2
+0.4
+V
+VDDIO selected as
+I/O supply, VDDIO
+= 1.71V,
+GPIOn_DS_SEL[1:
+0] = 01, IOL = 2mA
+0.2
+0.4
+VDDIO selected as
+I/O supply, VDDIO
+= 1.71V,
+GPIOn_DS_SEL[1:
+0] = 10, IOL = 4mA
+0.2
+0.4
+VDDIO selected as
+I/O supply, VDDIO
+= 1.71V,
+GPIOn_DS_SEL[1:
+0] = 11, IOL = 8mA
+0.2
+0.4
+Output Low Voltage for
+All GPIO
+VOL_VDDIOH
+VDDIOH selected as I/O supply, VDDIOH
+= 1.71V, GPIOn_DS_SEL[1:0] = 00, IOL
+= 1mA
+0.2
+0.4
+V
+VDDIOH selected as I/O supply, VDDIOH
+= 1.71V, GPIOn_DS_SEL[1:0] = 01, IOL
+= 2mA
+0.2
+0.4
+VDDIOH selected as I/O supply, VDDIOH
+= 1.71V, GPIOn_DS_SEL[1:0] = 10, IOL
+= 4mA
+0.2
+0.4
+VDDIOH selected as I/O supply, VDDIOH
+= 1.71V, GPIOn_DS_SEL[1:0] = 11, IOL
+= 8mA
+0.2
+0.4
+Combined IOL, All GPIO
+IOL_TOTAL
+48
+mA
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  15
+
+===== PAGE 16 =====
+Electrical Characteristics (continued)
+(Limits are 100% tested at TA = +25°C and TA = +105°C. TYP specifications are provided for TA = +25°C. Limits over the operating
+temperature range and relevant supply voltage range are guaranteed by design and characterization. Specifications marked GBD are
+guaranteed by design and not production tested. Specifications to the minimum operating temperature are guaranteed by design and
+are not production tested. GPIO are only tested at TA = +105°C.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+Output High Voltage for
+All GPIO Except P3.0
+and P3.1
+VOH_VDDIO
+P3.0 and P3.1 can
+only use VDDIOH
+as I/O supply and
+cannot use VDDIO
+as I/O supply
+VDDIO selected as
+I/O supply, VDDIO
+= 1.71V,
+GPIOn_DS_SEL[1:
+0] = 00, IOL = -1mA
+VDDIO -
+0.4
+V
+VDDIO selected as
+I/O supply, VDDIO
+= 1.71V,
+GPIOn_DS_SEL[1:
+0] = 01, IOL = -2mA
+VDDIO -
+0.4
+VDDIO selected as
+I/O supply, VDDIO
+= 1.71V,
+GPIOn_DS_SEL[1:
+0] = 10, IOL = -4mA
+VDDIO -
+0.4
+VDDIO selected as
+I/O supply, VDDIO
+= 1.71V,
+GPIOn_DS_SEL[1:
+0] = 11, IOL = -8mA
+VDDIO -
+0.4
+Output High Voltage for
+All GPIO Except P3.0
+and P3.1
+VOH_VDDIOH
+VDDIOH selected as I/O supply, VDDIOH
+= 1.71V, GPIOn_DS_SEL[1:0] = 00, IOL
+= -1mA
+VDDIOH
+- 0.4
+V
+VDDIOH selected as I/O supply, VDDIOH
+= 1.71V, GPIOn_DS_SEL[1:0] = 01, IOL
+= -2mA
+VDDIOH
+- 0.4
+VDDIOH selected as I/O supply, VDDIOH
+= 1.71V, GPIOn_DS_SEL[1:0] = 10, IOL
+= -4mA
+VDDIOH
+- 0.4
+VDDIOH selected as I/O supply, VDDIOH
+= 1.71V, GPIOn_DS_SEL[1:0] = 11, IOL
+= -8mA
+VDDIOH
+- 0.4
+Output High Voltage for
+P3.0 and P3.1
+VOH_VDDIOH
+VDDIOH = 1.71V, GPIOn_DS_SEL[1:0]
+fixed at 00, IOL = -1mA
+VDDIOH
+- 0.4
+V
+Combined IOH, All GPIO
+IOH_TOTAL
+-48
+mA
+Input Hysteresis
+(Schmitt)
+VIHYS
+300
+mV
+Input Leakage Current
+Low
+IIL
+VDDIO = 1.89V, VDDIOH = 3.6V, VDDIOH
+selected as I/O supply, VIN = 0V, internal
+pullup disabled
+-100
++100
+nA
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  16
+
+===== PAGE 17 =====
+Electrical Characteristics (continued)
+(Limits are 100% tested at TA = +25°C and TA = +105°C. TYP specifications are provided for TA = +25°C. Limits over the operating
+temperature range and relevant supply voltage range are guaranteed by design and characterization. Specifications marked GBD are
+guaranteed by design and not production tested. Specifications to the minimum operating temperature are guaranteed by design and
+are not production tested. GPIO are only tested at TA = +105°C.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+Input Leakage Current
+High
+IIH
+VDDIO = 1.89V, VDDIOH = 3.6V, VDDIOH
+selected as I/O supply, VIN = 3.6V,
+internal pulldown disabled
+-800
++800
+nA
+IOFF
+VDDIO = 0V, VDDIOH = 0V, VDDIO
+selected as I/O supply, VIN < 1.89V
+-1
++1
+μA
+IIH3V
+VDDIO = VDDIOH = 1.71V, VDDIO
+selected as I/O supply, VIN = 3.6V
+-2
++2
+Input Pullup Resistor
+RSTN
+RPU_R
+Pullup to VDDIOH
+25
+kΩ
+Input Pullup/Pulldown
+Resistor for All GPIO
+RPU1
+Normal resistance, P1M = 0
+25
+kΩ
+RPU2
+Highest resistance, P1M = 1
+1
+MΩ
+ADC (SIGMA-DELTA)
+Resolution
+10
+Bits
+ADC Clock Rate
+fACLK
+0.1
+8
+MHz
+ADC Clock Period
+tACLK
+1/fACLK
+μs
+Input Voltage Range
+VAIN
+AIN[7:0],
+ADC_DIVSEL =
+[00],
+ADC_CH_SEL =
+[7:0]
+REF_SEL = 0,
+INPUT_SCALE = 0
+VSSA +
+0.05
+VBG
+V
+AIN[7:0],
+ADC_DIVSEL =
+[01],
+ADC_CH_SEL =
+[7:0]
+REF_SCALE = 0,
+INPUT_SCALE = 0
+VSSA +
+0.05
+2 x VBG
+AIN[7:0],
+ADC_DIVSEL =
+[10],
+ADC_CH_SEL =
+[7:0]
+REF_SCALE = 0,
+INPUT_SCALE =
+0, VDDIOH selected
+as the I/O supply
+VSSA +
+0.05
+VDDIOH
+AIN[7:0],
+ADC_DIVSEL =
+[11],
+ADC_CH_SEL =
+[7:0]
+REF_SEL = 0,
+INPUT_SCALE =
+0, VDDIOH selected
+as the I/O supply
+VSSA +
+0.05
+VDDIOH
+Input Impedance
+RAIN
+30
+kΩ
+Analog Input
+Capacitance
+CAIN
+Fixed capacitance to VSSA
+1
+pF
+Dynamically switched capacitance
+250
+fF
+Integral Nonlinearity
+INL
+Measured at +25°C
+±2
+LSb
+Differential Nonlinearity
+DNL
+Measured at +25°C
+±1
+LSb
+Offset Error
+VOS
+±1
+LSb
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  17
+
+===== PAGE 18 =====
+Electrical Characteristics (continued)
+(Limits are 100% tested at TA = +25°C and TA = +105°C. TYP specifications are provided for TA = +25°C. Limits over the operating
+temperature range and relevant supply voltage range are guaranteed by design and characterization. Specifications marked GBD are
+guaranteed by design and not production tested. Specifications to the minimum operating temperature are guaranteed by design and
+are not production tested. GPIO are only tested at TA = +105°C.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+ADC Active Current
+IADC
+ADC active, reference buffer enabled,
+input buffer disabled
+102
+µA
+ADC Setup Time
+tADC_SU
+Any power-up of ADC clock or ADC bias
+to CpuAdcStart
+10
+µs
+ADC Output Latency
+tADC
+1067
+tACLK
+ADC Sample Rate
+fADC
+7.8
+ksps
+ADC Input Leakage
+IADC_LEAK
+ADC inactive or channel not selected
+10
+nA
+Full-Scale Voltage
+VFS
+ADC code = 0x3FF
+1.2
+V
+Bandgap Temperature
+Coefficient
+VTEMPCO
+Box method
+30
+ppm
+COMPARATORS
+Input Offset Voltage
+VOFFSET
+±1
+mV
+Input Hysteresis
+VHYST
+AINCOMPHYST[1:0] = 00
+±23
+mV
+AINCOMPHYST[1:0] = 01
+±50
+AINCOMPHYST[1:0] = 10
+±2
+AINCOMPHYST[1:0] = 11
+±7
+Input Voltage Range
+VIN_CMP
+Common-mode range
+0.6
+1.35
+V
+FLASH MEMORY
+Flash Erase Time
+tM_ERASE
+Mass erase
+20
+ms
+tP_ERASE
+Page erase
+20
+Flash Programming
+Time per Word
+tPROG
+32-bit programming mode, fFLC_CLK =
+1MHz
+42
+μs
+Flash Endurance
+10
+kcycles
+Data Retention
+tRET
+TA = +105°C
+10
+years
+Electrical Characteristics—SPI
+(Timing specifications are guaranteed by design and not production tested.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+MASTER MODE
+SPI Master Operating
+Frequency for SPI0
+fMCK0
+fSYS_CLK = 100MHz, fMCK0(MAX) =
+fSYS_CLK/2
+50
+MHz
+SPI Master Operating
+Frequency for SPI1
+fMCK1
+fSYS_CLK = 100MHz, fMCK1(MAX) =
+fSYS_CLK/4
+25
+MHz
+SPI Master SCK Period
+tMCKX
+1/fMCKX
+ns
+SCK Output Pulse-
+Width High/Low
+tMCH, tMCL
+tMCKX/2
+ns
+MOSI Output Hold Time
+After SCK Sample Edge
+tMOH
+tMCX/2
+ns
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  18
+
+===== PAGE 19 =====
+Electrical Characteristics—SPI (continued)
+(Timing specifications are guaranteed by design and not production tested.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+MOSI Output Valid to
+Sample Edge
+tMOV
+tMCKX/2
+ns
+MOSI Output Hold Time
+After SCK Low Idle
+tMLH
+tMCKX/2
+ns
+MISO Input Valid to
+SCK Sample Edge
+Setup
+tMIS
+5
+ns
+MISO Input to SCK
+Sample Edge Hold
+tMIH
+tMCKX/2
+ns
+SLAVE MODE
+SPI Slave Operating
+Frequency
+fSCK
+50
+MHz
+SPI Slave SCK Period
+tSCK
+1/fSCK
+ns
+SCK Input Pulse-Width
+High/Low
+tSCH, tSCL
+tSCK/2
+SSx Active to First Shift
+Edge
+tSSE
+10
+ns
+MOSI Input to SCK
+Sample Edge Rise/Fall
+Setup
+tSIS
+5
+ns
+MOSI Input from SCK
+Sample Edge Transition
+Hold
+tSIH
+1
+ns
+MISO Output Valid After
+SCLK Shift Edge
+Transition
+tSOV
+5
+ns
+SCK Inactive to SSx
+Inactive
+tSSD
+10
+ns
+SSx Inactive Time
+tSSH
+1/fSCK
+μs
+MISO Hold Time After
+SSx Deassertion
+tSLH
+10
+ns
+Electrical Characteristics—I2C
+(Timing specifications are guaranteed by design and not production tested.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+STANDARD MODE
+Output Fall Time
+tOF
+Standard mode, from VIH(MIN) to
+VIL(MAX)
+150
+ns
+SCL Clock Frequency
+fSCL
+0
+100
+kHz
+Low Period SCL Clock
+tLOW
+4.7
+μs
+High Time SCL Clock
+tHIGH
+4.0
+μs
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  19
+
+===== PAGE 20 =====
+Electrical Characteristics—I2C (continued)
+(Timing specifications are guaranteed by design and not production tested.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+Setup Time for
+Repeated Start
+Condition
+tSU;STA
+4.7
+μs
+Hold Time for Repeated
+Start Condition
+tHD;STA
+4.0
+μs
+Data Setup Time
+tSU;DAT
+300
+ns
+Data Hold Time
+tHD;DAT
+10
+ns
+Rise Time for SDA and
+SCL
+tR
+800
+ns
+Fall Time for SDA and
+SCL
+tF
+200
+ns
+Setup Time for a Stop
+Condition
+tSU;STO
+4.0
+μs
+Bus Free Time Between
+a Stop and Start
+Condition
+tBUS
+4.7
+μs
+Data Valid Time
+tVD;DAT
+3.45
+μs
+Data Valid Acknowledge
+Time
+tVD;ACK
+3.45
+μs
+FAST MODE
+Output Fall Time
+tOF
+From VIH(MIN) to VIL(MAX)
+150
+ns
+Pulse Width Suppressed
+by Input Filter
+tSP
+75
+ns
+SCL Clock Frequency
+fSCL
+0
+400
+kHz
+Low Period SCL Clock
+tLOW
+1.3
+μs
+High Time SCL Clock
+tHIGH
+0.6
+μs
+Setup Time for
+Repeated Start
+Condition
+tSU;STA
+0.6
+μs
+Hold Time for Repeated
+Start Condition
+tHD;STA
+0.6
+μs
+Data Setup Time
+tSU;DAT
+125
+ns
+Data Hold Time
+tHD;DAT
+10
+ns
+Rise Time for SDA and
+SCL
+tR
+30
+ns
+Fall Time for SDA and
+SCL
+tF
+30
+ns
+Setup Time for a Stop
+Condition
+tSU;STO
+0.6
+μs
+Bus Free Time Between
+a Stop and Start
+Condition
+tBUS
+1.3
+μs
+Data Valid Time
+tVD;DAT
+0.9
+μs
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  20
+
+===== PAGE 21 =====
+Electrical Characteristics—I2C (continued)
+(Timing specifications are guaranteed by design and not production tested.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+Data Valid Acknowledge
+Time
+tVD;ACK
+0.9
+μs
+FAST MODE PLUS
+Output Fall Time
+tOF
+From VIH(MIN) to VIL(MAX)
+80
+ns
+Pulse Width Suppressed
+by Input Filter
+tSP
+75
+ns
+SCL Clock Frequency
+fSCL
+0
+1000
+kHz
+Low Period SCL Clock
+tLOW
+0.5
+μs
+High Time SCL clock
+tHIGH
+0.26
+μs
+Setup Time for
+Repeated Start
+Condition
+tSU;STA
+0.26
+μs
+Hold Time for Repeated
+Start Condition
+tHD;STA
+0.26
+μs
+Data Setup Time
+tSU;DAT
+50
+ns
+Data Hold Time
+tHD;DAT
+10
+ns
+Rise Time for SDA and
+SCL
+tR
+50
+ns
+Fall Time for SDA and
+SCL
+tF
+30
+ns
+Setup Time for a Stop
+Condition
+tSU;STO
+0.26
+μs
+Bus Free Time Between
+a Stop and Start
+Condition
+tBUS
+0.5
+μs
+Data Valid Time
+tVD;DAT
+0.45
+μs
+Data Valid Acknowledge
+Time
+tVD;ACK
+0.45
+μs
+Electrical Characteristics—I2S
+(Timing specifications are guaranteed by design and not production tested.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+Bit Clock Frequency
+fBCLKS
+25
+MHz
+Bit Clock Period
+tBCLKS
+1/fBCLKS
+ns
+BCLK High Time
+tWBCLKHS
+0.5
+1/fBCLKS
+BCLK Low Time
+tWBCLKLS
+0.5
+1/fBCLKS
+LRCLK Setup Time
+tLRCLK_BCLKS
+25
+ns
+Delay Time, BCLK to
+SD (Output) Valid
+tBCLK_SDOS
+12
+ns
+Setup Time for SD
+(Input)
+tSU_SDIS
+6
+ns
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  21
+
+===== PAGE 22 =====
+Electrical Characteristics—I2S (continued)
+(Timing specifications are guaranteed by design and not production tested.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+Hold Time SD (Input)
+tHD_SDIS
+3
+ns
+Electrical Characteristics—PCIF
+(Timing specifications are guaranteed by design and not production tested.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+PCIF
+PCIF Operating
+Frequency
+fCLK
+10
+MHz
+PCIF Clock Period
+tCLK
+1/fCLK
+ns
+PCIF_PCLK Output
+Pulse-Width High/Low
+tWCH, tWCL
+tCLK/2
+ns
+PCIF_VSYNC,
+PCIF_HSYNC Setup
+Time
+tSSU
+5
+ns
+PCIF_VSYNC,
+PCIF_HSYNC Hold
+Time
+tSHLD
+5
+ns
+PCIF_D0-PCIF_D11
+Setup TIme
+tDSU
+5
+ns
+PCIF_D0_PCIF_D11
+Hold Time
+tDHLD
+5
+ns
+Electrical Characteristics—1-Wire Master
+(Timing specifications are guaranteed by design and not production tested.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+Write 0 Low Time
+tW0L
+Standard
+60
+μs
+Overdrive
+8
+Write 1 Low Time
+tW1L
+Standard
+6
+μs
+Standard, Long Line mode
+8
+Overdrive
+1
+Presence Detect
+Sample
+tMSP
+Standard
+70
+μs
+Standard, Long Line mode
+85
+Overdrive
+9
+Read Data Value
+tMSR
+Standard
+15
+μs
+Standard, Long Line mode
+24
+Overdrive
+3
+Recovery Time
+tREC0
+Standard
+10
+μs
+Standard, Long Line mode
+20
+Overdrive
+4
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  22
+
+===== PAGE 23 =====
+Electrical Characteristics—1-Wire Master (continued)
+(Timing specifications are guaranteed by design and not production tested.)
+PARAMETER
+SYMBOL
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+Reset Time High
+tRSTH
+Standard
+480
+μs
+Overdrive
+58
+Reset Time Low
+tRSTL
+Standard
+600
+μs
+Overdrive
+70
+Time Slot
+tSLOT
+Standard
+70
+μs
+Overdrive
+12
+SSx
+(SHOWN ACTIVE LOW)
+SCK
+CKPOL/CKPHA
+0/1 OR 1/0
+SCK
+CKPOL/CKPHA
+0/0 OR 1/1
+MOSI/SDIOx
+(OUTPUT)
+MISO/SDIOx
+(INPUT)
+LSB
+LSB
+SHIFT SAMPLE SHIFT SAMPLE
+MSB
+MSB-1
+MSB
+MSB-1
+tMOH
+tMOV
+tMIS
+tMIH
+tMLH
+tMCK
+tMCH
+tMCL
+Figure 1. SPI Master Mode Timing Diagram
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  23
+
+===== PAGE 24 =====
+SHIFT SAMPLE SHIFT SAMPLE
+SCK
+CKPOL/CKPHA
+0/1 OR 1/0
+SCK
+CKPOL/CKPHA
+0/0 OR 1/1
+MOSI/SDIOx
+(INPUT)
+MISO/SDIOx
+(OUTPUT)
+MSB
+MSB-1
+MSB
+MSB-1
+LSB
+LSB
+SSx
+(SHOWN ACTIVE LOW)
+tSSE
+tSCK
+tSSD
+tSSH
+tSLH
+tSOV
+tSIH
+tSIS
+tSCH
+tSCL
+Figure 2. SPI Slave Mode Timing Diagram
+SDA
+tOF
+tHIGH
+tLOW
+tSU;STA
+tHD;STA
+tSU;DAT
+tR
+tSU;STO
+tBUS
+SCL
+tVD;ACK
+tSP
+START
+START 
+REPEAT
+START
+STOP
+tVD;DAT
+tHD;DAT
+Figure 3. I2C Timing Diagram
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  24
+
+===== PAGE 25 =====
+BCLK
+(INPUT)
+LRCLK
+(INPUT)
+tWBCLKHS tWBCLKLS
+SDO
+(OUTPUT)
+tBCLKS
+tBCLK_SDOS
+tLRCLK_BCLKS
+LSB
+MSB
+SDI
+(INPUT)
+LSB
+MSB
+tSU_SDIS
+LSB
+MSB
+LSB
+MSB
+CONDITIONS: I2S_CTRL0CH0.ws_pol = 0; I2S_CTRL0CH0.ch_mode = 3; I2S_CTRL0CH0.lsb_first = 0; I2S_CTRL0CH0.stereo = 0; I2S_CTRL1CH0.en = 1
+tHD_SDIS
+WORD N-1 RIGHT CHANNEL
+WORD N LEFT CHANNEL
+WORD N RIGHT CHANNEL
+Figure 4. I2S Timing Diagram
+PCIF_VSYNC, 
+PCIF_HSYNC
+tWCH
+tWCL
+tCLK
+tDSU
+Not 
+Valid
+Not 
+Valid
+PCIF_PCLK
+PCIF_D0— 
+PCIF_D11
+tSSU
+tSHLD
+tDHLD
+Figure 5. Parallel Camera Interface Timing Diagram
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  25
+
+===== PAGE 26 =====
+INITIALIZATION RESET AND PRESENCE PULSE
+INITIALIZATION RESET AND PRESENCE PULSE
+OWM_IO
+tRSTL
+tPDH
+tPDL
+tRSTH
+WRITE TIME SLOTS
+WRITE TIME SLOTS
+OWM_IO
+tREC
+tSLOT
+tLOW1
+tSLOT
+tLOW0
+OWM_IO
+tREC
+tSLOT
+tLOW1
+tSLOT
+tLOW1
+READ TIME SLOTS
+READ TIME SLOTS
+WRITE 0 SLOT
+WRITE 1 SLOT
+READ 0 SLOT
+READ 1 SLOT
+tRDV
+tRDV
+LEGEND
+LEGEND
+SLAVE DEVICE 
+ACTIVE LOW
+BOTH MASTER AND 
+SLAVE DEVICE 
+ACTIVE LOW
+RESISTOR 
+PULLUP
+1-Wire MASTER 
+ACTIVE LOW
+Figure 6. 1-Wire Master Data Timing Diagram
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  26
+
+===== PAGE 27 =====
+Pin Configuration
+81 CTBGA
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+A
+B
+C
+D
+E
+F
+G
+H
+J
+A
+B
+C
+D
+E
+F
+G
+H
+J
+TOP VIEW
+P1.8
+VDDIO
+32KOUT
+VREGO_B
+LXB
+P1.6
+P1.9
+P3.1
+RSTN
+32KIN
+LXA
+P1.7
+P3.0
+VSS
+VDDA
+VBST
+VREGI
+P1.4
+P1.5
+P0.21
+P0.16
+P0.11
+P2.0
+VCOREA
+P1.3
+P0.26
+P0.20
+P0.15
+P0.10
+P2.2
+P2.1
+P1.1
+P1.2
+P0.25
+P0.19
+P0.14
+P0.9
+P2.5
+P2.4
+P2.3
+P1.0
+P0.31
+P0.24
+P0.18
+P0.13
+P0.8
+P0.6
+P2.6
+P2.7
+P0.30
+P0.28
+P0.23
+P0.17
+P0.12
+P0.7
+P0.5
+P0.3
+P0.1
+P0.29
+P0.27
+P0.22
+P0.4
+P0.2
+P0.0
+MAX78000
+81 CTBGA
+81 CTBGA
+8mm X 8mm
+8mm X 8mm
+VCOREA
+VCOREB
+VDDIO
+VDDIO
+VDDIOH
+VDDIOH
+VDDIOH
+VREGI
+VREGO_A
+VREGO_C
+VSS
+VSS
+VSS
+VSS
+VSS
+VSSA
+VSSPWR
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  27
+
+===== PAGE 28 =====
+Pin Description
+PIN
+NAME
+FUNCTION MODE
+FUNCTION
+Primary Signal
+(Default)
+Alternate
+Function 1
+Alternate
+Function 2
+POWER (See the Applications Information section for bypass capacitor recommendations.)
+C9, C6
+VREGI
+—
+—
+—
+Battery Power Supply for the SIMO Switch-
+Mode Power Supply (SMPS). Bypass device pin
+C9 with 2 x 47μF capacitors placed as close as
+possible to the device pin C9 and VSSPWR pins
+for applications using a coin cell as the battery.
+See Bypass Capacitors for more information. If
+power to the device is cycled, the voltage
+applied to this device pin must reach
+VREGI_POR.
+C7
+VDDA
+—
+—
+—
+1.8V Analog Power Supply
+D9, E1
+VCOREA
+—
+—
+—
+Digital Core Supply Voltage A
+D8
+VCOREB
+—
+—
+—
+Digital Core Supply Voltage B
+C8
+VBST
+—
+—
+—
+Boosted Supply Voltage for the Gate Drive of
+High-Side Switches. Bypass VBST to LXB with a
+3.3nF capacitor.
+B8
+VREGO_A
+—
+—
+—
+Buck Converter A Voltage Output. Bypass
+VREGO_A with a 22μF capacitor to VSS placed
+as close as possible to the VDDA device pin.
+A7
+VREGO_B
+—
+—
+—
+Buck Converter B Voltage Output. Bypass
+VREGO_B with a 22μF capacitor to VSS placed
+as close as possible to the closest VCOREB
+device pin.
+B7
+VREGO_C
+—
+—
+—
+Buck Converter C Voltage Output. Bypass
+VREGO_C with a 22μF capacitor to VSS placed
+as close as possible to the closest VCOREA
+device pin.
+A4, D1,
+J5
+VDDIO
+—
+—
+—
+GPIO Supply Voltage. Bypass this pin to VSS
+with a 1.0μF capacitor placed as close as
+possible to the package.
+A3, C1,
+J4
+VDDIOH
+—
+—
+—
+GPIO Supply Voltage, High. VDDIOH ≥ VDDIO.
+Bypass this pin to VSS with a 1.0μF capacitor
+placed as close as possible to the package.
+A1, A6,
+C4, C5,
+E9, J6
+VSS
+—
+—
+—
+Digital Ground
+B6
+VSSA
+—
+—
+—
+Analog Ground
+A9
+VSSPWR
+—
+—
+—
+Ground for the SIMO Switch-Mode Power
+Supply (SMPS). This device pin is the return
+path for the VREGI device pins C6 and C9.
+B9
+LXA
+—
+—
+—
+Switching Inductor Input A. Connect a 2.2μH
+inductor between LXA and LXB.
+A8
+LXB
+—
+—
+—
+Switching Inductor Input B. Connect a 2.2μH
+inductor between LXA and LXB.
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  28
+
+===== PAGE 29 =====
+81 CTBGA
+PIN
+NAME
+FUNCTION MODE
+FUNCTION
+Primary Signal
+(Default)
+Alternate
+Function 1
+Alternate
+Function 2
+RESET AND CONTROL
+B4
+RSTN
+—
+—
+—
+Active-Low, External System Reset Input. The
+device remains in reset while this pin is in its
+active state. When the pin transitions to its
+inactive state, the device performs a POR reset
+(resetting all logic on all supplies except for RTC
+circuitry) and begins execution.
+This pin has an internal pullup to the VDDIOH
+supply.
+CLOCK
+A5
+32KOUT
+—
+—
+—
+32kHz Crystal Oscillator Output
+B5
+32KIN
+—
+—
+—
+32kHz Crystal Oscillator Input. Connect a 32kHz
+crystal between 32KIN and 32KOUT for RTC
+operation. Optionally, this pin can be configured
+as the input for an external CMOS-level clock
+source.
+GPIO AND ALTERNATE FUNCTION (See the Applications Information section for GPIO and Alternate Function Matrices.)
+J9
+P0.0
+P0.0
+UART0A_RX
+—
+UART0 Receive Port Map A
+H9
+P0.1
+P0.1
+UART0A_TX
+—
+UART0 Transmit Port Map A
+J8
+P0.2
+P0.2
+TMR0A__IOA
+UART0B_CTS
+Timer 0 I/O 32 Bits or Lower 16 Bits Port Map A;
+UART0 Clear to Send Port Map B
+H8
+P0.3
+P0.3
+EXT_CLK/
+TMR0A_IOB
+UART0B_RTS
+External Clock for Use as SYS_OSC/Timer 0
+I/O Upper 16 Bits Port Map A; UART0 Request
+to Send Port Map B
+J7
+P0.4
+P0.4
+SPI0_SS0
+TMR0B_IOAN
+SPI0 Slave Select 0; Timer 0 Inverted Output
+Port Map B
+H7
+P0.5
+P0.5
+SPI0_MOSI
+TMR0B_IOBN
+SP0 Master-Out Slave-In Serial Data 0; Timer 0
+Inverted Output Upper 16 Bits Port Map B
+G7
+P0.6
+P0.6
+SPI0_MISO
+OWM_IO
+SPI0 Master-In Slave-Out Serial Data 1; 1-Wire
+Master Data I/O
+H6
+P0.7
+P0.7
+SPI0_SCK
+OWM_PE
+SPI0 Clock; 1-Wire Master Pullup Enable Output
+G6
+P0.8
+P0.8
+SPI0_SDIO2
+TMR0B_IOA
+SPI0 Data 2 I/O; Timer 0 I/O 32 Bits or Lower 16
+Bits Port Map B
+F6
+P0.9
+P0.9
+SPI0_SDIO3
+TMR0B_IOB
+SPI0 Data 3 I/O; Timer 0 I/O Upper 16 Bits Port
+Map B
+E6
+P0.10
+P0.10
+I2C0_SCL
+SPI0_SS2
+I2C0 Clock; SPI0 Slave Select 2
+D6
+P0.11
+P0.11
+I2C0_SDA
+SPI0_SS1
+I2C0 Serial Data; SPI0 Slave Select 1
+H5
+P0.12
+P0.12
+UART1A_RX
+TMR1B_IOAN
+UART1 Receive Port Map A; Timer 1 Inverted
+Output Port Map B
+G5
+P0.13
+P0.13
+UART1A_TX
+TMR1B_IOBN
+UART1 Transmit Port Map A; Timer 1 Inverted
+Output Upper 16 Bits Port Map B
+F5
+P0.14
+P0.14
+TMR1A_IOA
+I2S_CLKEXT
+Timer 1 I/O 32 Bits or Lower 16 Bits Port Map A;
+I2S External Clock Input
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  29
+
+===== PAGE 30 =====
+81 CTBGA
+PIN
+NAME
+FUNCTION MODE
+FUNCTION
+Primary Signal
+(Default)
+Alternate
+Function 1
+Alternate
+Function 2
+E5
+P0.15
+P0.15
+TMR1A_IOB
+PCIF_VSYNC
+Timer 1 I/O Upper 16 Bits Port Map A; Parallel
+Camera Interface Vertical Sync
+D5
+P0.16
+P0.16
+I2C1_SCL
+PT2
+I2C1 Clock; Pulse Train 2
+H4
+P0.17
+P0.17
+I2C1_SDA
+PT3
+I2C1 Serial Data; Pulse Train 3
+G4
+P0.18
+P0.18
+PT0
+OWM_IO
+Pule Train 0; 1-Wire Master Data I/O
+F4
+P0.19
+P0.19
+PT1
+OWM_PE
+Pulse Train 1; 1-Wire Master Pullup Enable
+Output
+E4
+P0.20
+P0.20
+SPI1_SS0
+PCIF_D0
+SPI1 Slave Select 0; Parallel Camera Interface
+Data 0
+D4
+P0.21
+P0.21
+SPI1_MOSI
+PCIF_D1
+SPI1_Master Out Slave In Serial Data 0; Parallel
+Camera Interface Data 1
+J3
+P0.22
+P0.22
+SPI1_MISO
+PCIF_D2
+SPI1 Master In Slave Out Serial Data 1; Parallel
+Camera Interface Data 2
+H3
+P0.23
+P0.23
+SPI1_SCK
+PCIF_D3
+SPI1 Clock; Parallel Camera Interface Data 3
+G3
+P0.24
+P0.24
+SPI1_SDIO2
+PCIF_D4
+SPI1 Data 2; Parallel Camera Interface Data 4
+F3
+P0.25
+P0.25
+SPI1_SDIO3
+PCIF_D5
+SPI1 Data 3; Parallel Camera Interface Data 5
+E3
+P0.26
+P0.26
+TMR2A_IOA
+PCIF_D6
+Timer 2 I/O 32 Bits or Lower 16 Bits Port Map A;
+Parallel Camera Interface Data 6
+J2
+P0.27
+P0.27
+TMR2A_IOB
+PCIF_D7
+Timer 2 I/O Upper 16 Bits Port Map A; Parallel
+Camera Interface Data 7
+H2
+P0.28
+P0.28
+SWDIO
+—
+Serial Wire Debug Data I/O
+J1
+P0.29
+P0.29
+SWCLK
+—
+Serial Wire Debug Clock
+H1
+P0.30
+P0.30
+I2C2_SCL
+PCIF_D8
+I2C2 Clock; Parallel Camera Interface Data 8
+G2
+P0.31
+P0.31
+I2C2_SDA
+PCIF_D9
+I2C2 Serial Data; Parallel Camera Interface
+Data 9
+G1
+P1.0
+P1.0
+UART2A_RX
+RV_TCK
+UART2 Receive Port Map A; 32-bit RISC-V Test
+Port Clock
+F1
+P1.1
+P1.1
+UART2A_TX
+RV_TMS
+UART2 Transmit Port Map A; 32-bit RISC-V
+Test Port Select
+F2
+P1.2
+P1.2
+I2S_SCK
+RV_TDI
+I2S Bit Clock; 32-bit RISC-V Test Port Data
+Input
+E2
+P1.3
+P1.3
+I2S_WS
+RV_TDO
+I2S Left/Right Clock; 32-bit RISC-V Test Port
+Data Output
+D2
+P1.4
+P1.4
+I2S_SDI
+TMR3B_IOA
+I2S Serial Data Input; Timer 3 I/O 32 Bits or
+Lower 16 Bits Port Map B
+D3
+P1.5
+P1.5
+I2S_SDO
+TMR3B_IOB
+I2S Serial Data Output; Timer 3 I/O Upper 16
+Bits Port Map B
+B1
+P1.6
+P1.6
+TMR3A_IOA
+PCIF_D10
+Timer 3 I/O 32 Bits or Lower 16 Bits Port Map A;
+Parallel Camera Interface Data 10
+C2
+P1.7
+P1.7
+TMR3A_IOB
+PCIF_D11
+Timer 3 I/O Upper 16 Bits Port Map A; Parallel
+Camera Interface Data 11
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  30
+
+===== PAGE 31 =====
+81 CTBGA
+PIN
+NAME
+FUNCTION MODE
+FUNCTION
+Primary Signal
+(Default)
+Alternate
+Function 1
+Alternate
+Function 2
+A2
+P1.8
+P1.8
+PCIF_HSYNC
+RXEV0
+Parallel Camera Interface Horizontal Sync; CM4
+RX Event Input
+B2
+P1.9
+P1.9
+PCIF_PCLK
+TXEV0
+Parallel Camera Interface Pixel Clock; CM4 TX
+Event Output
+D7
+P2.0
+P2.0
+AIN0/AINON
+—
+Analog to Digital Converter Input 0/Comparator
+0 Negative Input
+E8
+P2.1
+P2.1
+AIN1/AIN0P
+—
+Analog to Digital Converter Input 1/Comparator
+0 Positive Input
+E7
+P2.2
+P2.2
+AIN2/AIN1N
+—
+Analog to Digital Converter Input 2/Comparator
+1 Negative Input
+F9
+P2.3
+P2.3
+AIN3/AIN1P
+—
+Analog to Digital Converter Input 3/Comparator
+1 Positive Input
+F8
+P2.4
+P2.4
+AIN4/AIN2N
+LPTMR0B_IOA
+Analog to Digital Converter Input 4/Comparator
+2 Negative Input; Low-Power Timer 0 I/O Port
+Map B
+F7
+P2.5
+P2.5
+AIN5/AIN2P
+LPTMR1_IOA
+Analog to Digital Converter Input 5/Comparator
+2 Positive Input; Low-Power Timer 1 I/O Port
+Map B
+G8
+P2.6
+P2.6
+LPTMR0_CLK/
+AIN6/AIN3N
+LPUARTB_RX
+Low-Power Timer 0 External Clock Input/Analog
+to Digital Converter Input 6/Comparator 3
+Negative Input; Low-Power UART 0 Receive
+Port Map B
+G9
+P2.7
+P2.7
+LPTMR1_CLK/
+AIN7/AIN3P
+LPUARTB_TX
+Low-Power Timer 1 External Clock Input/Analog
+to Digital Converter Input 7/Comparator 3
+Positive Input; Low-Power UART Transmit Port
+Map B
+C3
+P3.0
+P3.0
+PDOWN
+WAKEUP
+Power-Down Output; Wakeup Input. This device
+pin can only be powered by VDDIOH.
+B3
+P3.1
+P3.1
+SQWOUT
+WAKEUP
+Square-Wave Output; Wakeup Input. This
+device pin can only be powered by VDDIOH.
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  31
+
+===== PAGE 32 =====
+Detailed Description
+The MAX78000 is the first of a new breed of low-power microcontrollers built to thrive in the rapidly evolving AI at the edge
+market. These products include Maxim's proven ultra-low power MCU IP along with deep neural network AI acceleration.
+The MAX78000 is an advanced system-on-chip featuring an Arm Cortex-M4 with FPU CPU for efficient computation of
+complex functions and algorithms with integrated power management. It also includes a 442KB-weight CNN accelerator.
+The devices offer large on-chip memory with 512KB flash and up to 128KB SRAM. Multiple high-speed and low-
+power communication interfaces are supported including high-speed SPI, high-speed I2C serial interface, and LPUART.
+Additional low-power peripherals include flexible LPTIMER and analog comparators. A PCIF is included for capturing
+images from an image sensor for processing by the CNN. An I2S interface is included for interfacing to an audio codec
+for capturing audio samples also for processing by the CNN.
+Arm Cortex-M4 with FPU Processor and RISC-V RV32 Processor
+The Arm Cortex-M4 with FPU processor CM4 is ideal for the artificial intelligence system control. The architecture
+combines high-efficiency signal processing functionality with low power, low cost, and ease of use.
+The Arm Cortex-M4 with FPU DSP supports single instruction, multiple data (SIMD) path DSP extensions, providing:
+●Four parallel 8-bit add/sub
+●Floating point single precision
+●Two parallel 16-bit add/sub
+●Two parallel MACs
+●32- or 64-bit accumulate
+●Signed, unsigned, data with or without saturation
+The addition of a 32-bit RISC-V coprocessor RV32 provides the system with ultra-low power consumption signal
+processing.
+Convolutional Neural Network Accelerator (CNN)
+The CNN accelerator consists of 64 parallel processors with 512KB of SRAM-based storage. Each processor includes a
+pooling unit and a convolutional engine with dedicated weight memory. Four processors share one data memory. These
+are further organized into groups of 16 processors that share common controls. A group of 16 processors operates as
+a slave to another group or independently. Data is read from SRAM associated with each processor and written to any
+data memory located within the accelerator. Any given processor has visibility of its dedicated weight memory and to the
+data memory instance it shares with the three others.
+The features of the CNN accelerator include:
+●512KB SRAM data storage
+•
+Configured as 8Kx8-bit integers x64 channels or 32Kx8-bit integers x4 channels for input layers
+•
+Hardware load and unload assist
+●64 parallel physical channel processors
+•
+Organized as 4x16 processors
+•
+8-bit integer data path with option for 32-bit integers on the output layer
+•
+Per-channel processor enable/disable
+•
+Expandable to 1024 parallel logical channel processors
+●1x1 or 3x3 2D kernel sizes
+●Configurable 1D kernel size to 1x9
+●Full resolution sum-of-product arithmetic for 1024 8-bit integer channels
+●Operating frequency up to 50MHz
+●Nominal 1 output channel per clock, maximum 4 output channels per clock (passthru)
+●Configurable input layer image size
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  32
+
+===== PAGE 33 =====
+•
+32K pixels, 16 channels, non-streaming
+•
+8K pixels, 4 channels, non-streaming
+•
+1024 x 1024 pixels, 4 channels, streaming
+●Hidden layers
+•
+Up to 8K 8-bit integer data per channel, x64 channels, non-streaming
+•
+8K bytes can be split equally across 1 to 16 logical channels, non-streaming
+•
+1M 8-bit integer data per channel, x64 channels, streaming
+•
+1M bytes can be split equally across eight layers, streaming
+●Optional interrupt on CNN completion
+●User-accessible BIST on all SRAM storage
+●User-accessible zeroization of all SRAM storage
+●Single-step operation with full data SRAM access for CNN operation debug
+●Flexible power management
+•
+Independent x16 processor supply enables
+•
+Independent x16 processor mask retention enables
+•
+Independent x16 data path clock enables
+•
+Active Arm peripheral bus clock gating with per x16 processor override
+•
+CNN clock frequency scaling (divide by 2, 4, 8, 16)
+•
+Chip-level voltage control for performance power optimization
+●Configurable weight storage
+•
+SRAM-based weight storage with selectable data retention
+•
+Configurable from 442K 8-bit integer weights to 3.456M 1-bit logical weights
+•
+Organized as 768X9X64 8-bit integer weights to 768x72x64 1-bit logical weights
+•
+Can be configured on a per-layer basis
+•
+Programmable per x16 processor weight RAM start address, start pointer, and mask count
+•
+Optional weight load hardware assist for packed weight storage
+●32 independently configurable layer groups
+•
+Each group can contain element-wise, and/or pooling, and/or convolution operations for a minimum of 32 and a
+maximum of 96 layers
+•
+Processor and mask enables (16 channels)
+•
+Input data format
+•
+Per-layer data streaming
+•
+Stream start - relative to prior stream
+•
+Dual-stream processing delay counters - 1 column, 1 row delta counter
+•
+Data SRAM circular buffer size
+•
+Input data size (row, column)
+•
+Row and column padding 0 to 4 bytes
+•
+Number of input channels 1 to 1024
+•
+Kernel bit width size (1, 2, 4, 8)
+•
+Kernel SRAM start pointer and count
+•
+Inflight input image pooling
+•
+Pool mode - none, maximum or average
+•
+Pool size - 1x1 to 16x16
+•
+Stride - 1 row, 1 column to 4 rows, 4 columns
+•
+Data SRAM read pointer base address
+•
+Data SRAM write pointer configuration
+•
+Base address
+•
+Independent offsets for output channel storage in SRAM
+•
+Programmable stride increment offset
+•
+Bias - 2048 8-bit integers with option for 512 32-bit integers
+•
+Pre-activation output scaling from 0 to 8 bits
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  33
+
+===== PAGE 34 =====
+•
+Output activation - none, ReLU, absolute value
+•
+Passthru - 8-bit or 32-bit integers
+•
+Element-wise operations (add, subtract, xor, or) with optional convolution - up to 16 elements
+•
+Deconvolution (upscaling)
+•
+Flattening for MLP processing
+•
+1x1 convolution
+Memory
+Internal Flash Memory
+512KB of internal flash memory provides nonvolatile storage of program and data memory.
+Internal SRAM
+The internal 128KB SRAM provides low-power retention of application information in all power modes except POWER
+DOWN. The SRAM is divided into 4 banks. SRAM0 and SRAM1 are both 32KB, SRAM2 is 48KB and SRAM3 is 16KB.
+SRAM2 and SRAM3 are accessible by the RV-32 in LOW POWER mode. For enhanced system reliability, SRAM0
+(32KB) can be configured with error correction coded (ECC) single error correction-double error detection (SED-DED).
+This data retention feature is optional and configurable. This granularity allows the application to minimize its power
+consumption by only retaining the most essential data.
+Comparators
+The eight AIN[7:0] inputs can be configured as four pairs and deployed as four independent comparators with the
+following features:
+●Comparison events can trigger interrupts
+●Events can wake the CM4 from SLEEP, LOW POWER, MICRO POWER, STANDBY, or BACKUP operating modes
+●Can be active in all power modes
+Dynamic Voltage Scaling (DVS) Controller
+The DVS controller works using the fixed high-speed oscillator and the VCOREA supply voltage to optimally operate the
+Arm core at the lowest practical voltage. The ability to adaptively adjust the voltage provides a significant reduction in
+dynamic power consumption.
+The DVS controller provides the following features:
+●Controls DVS monitoring and adjustment functions
+●Continuous monitoring with programmable monitor sample period
+●Controlled transition to a programmable operating point
+●Independent high and low operating limits for safe, bounded operation
+●Independent high, center, and low operating range delay line delay monitors
+●Programmable adjustment rate – when an adjustment is required
+●Single clock operation
+●Arm peripheral bus interface provides control and status access
+●Interrupt capability during error
+Clocking Scheme
+Multiple clock sources can be selected as the system clock:
+●Internal primary oscillator (IPO) at a nominal frequency of 100MHz
+●Internal secondary oscillator (ISO) at a nominal frequency of 60MHz
+●Configurable internal nano-ring oscillator (INRO) at 8kHz, 16kHz, or 30kHz
+●External RTC oscillator at 32.768kHz (ERTCO) (external crystal required)
+●Internal baud rate oscillator at 7.3728MHz (IBRO)
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  34
+
+===== PAGE 35 =====
+●External square-wave clock up to 80MHz
+There are multiple external clock inputs:
+●LPTMR0 and LPTMR1 can be clocked from unique external sources.
+●I2S can be clocked from its own external source.
+UART0
+4-WIRE
+UART1
+2-WIRE
+UART2
+2-WIRE
+WDT0
+32KOUT
+NANO-RING (INRO)
+8kHz, 16kHz, 30kHz
+Arm Cortex 
+M4
+(CM4)
+32KIN
+XTAL DRIVER OR 
+EXTERNAL CLOCK  
+32.768kHz 
+CRYSTAL
+RTC/CALIBRATION
+OUTPUT
+POWER 
+MANAGEMENT UNIT
+32.768kHz
+GCR_CLKCN.clksel
+PRESCALER
+100MHz
+GCR_CLKCN.psc
+32.768kHz
+OSC
+32KIN BYPASS
+7.3728MHz
+RTC_OSCCTRL.bypass
+SYS_OSC
+SYS_CLK
+32.768kHz
+÷2
+APB CLK
+4-CH 
+DMA
+SPI1
+3 x 
+I2C
+TMR0
+TMR1
+TMR2
+TMR3
+SQWOUT
+(P3.1)
+LPTMR0  
+LPTMR1  
+LPUART0
+2-WIRE
+AES/CRC/
+TRNG
+I2S
+EXT_CLK (P0.3)
+7.3728MHz
+INTERNAL BAUD RATE 
+OSCILLATOR (IBRO)
+60MHz
+LPWDT0
+LPTMR0_CLK (P2.6)
+LPTMR1_CLK (P2.7)
+REAL-TIME CLOCK
+1Hz 512Hz 4096Hz 32768Hz
+4 x PULSE 
+TRAINS
+PCIF
+1-Wire
+ADC
+ADC
+CLOCK 
+SCALER
+GCR_PCKDIV.adcfrq
+<8MHz
+60MHz
+INTERNAL SECONDARY 
+OSCILLATOR (ISO)
+POWER-DOWN MODE 
+CONTROLLER
+CNN 
+QUADRANTS
+RISC-V
+(RV32)
+MICROPOWER DOMAIN PERIPHERALS
+I2S_CLKEXT (P0.14)
+AUTO-CAL
+INTERNAL PRIMARY 
+OSCILLATOR (IPO)
+100MHz
+32.768kHz
+÷8
+GCR_PCKDIV.cnnclksel
+GCR_PCKDIV.cnnfrq
+PWRSEQ_LPCN.lpmclksel
+SPI0
+CNN 
+MEMORY
+CNN 
+PRESCALER
+LEGEND
+LEGEND
+=  UNCONNECTED CLOCK INPUT
+X
+=  DEVICE PIN
+Figure 7. Clocking Scheme Diagram
+General-Purpose I/O and Special Function Pins
+Most general-purpose I/O (GPIO) pins share both a firmware-controlled I/O function and one or more alternate functions
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  35
+
+===== PAGE 36 =====
+associated with peripheral modules. Pins can be individually enabled for GPIO or peripheral special function use.
+Configuring a pin as a special function usually supersedes its use as a firmware-controlled I/O. Although this multiplexing
+between peripheral and GPIO functions is usually static, it can also be done dynamically. The electrical characteristics of
+a GPIO pin are identical whether the pin is configured as an I/O or special function, except where explicitly noted in the
+Electrical Characteristics tables.
+In GPIO mode, pins are logically divided into ports of 32 pins. Each pin of a port has an interrupt function that can be
+independently enabled, and configured as a level- or edge-sensitive interrupt. All GPIOs of a given port share the same
+interrupt vector.
+When configured as GPIO, the following features are provided. The features can be independently enabled or disabled
+on a per-pin basis.
+●Configurable as input, output, bidirectional, or high impedance
+●Optional internal pullup resistor or internal pulldown resistor when configured as input
+●Exit from low-power modes on rising or falling edge
+●Selectable standard- or high-drive modes
+The MAX78000 provides up to 52 GPIO pins. Caution is needed since Port 3 (P3.0 and P3.1 device pins) are configured
+in a different manner from the above description.
+Parallel Camera Interface (PCIF)
+The PCIF is a low voltage interface suited for CMOS image sensors. It provides up to 12-bits of parallel access capability
+with single capture and continuous mode operation.
+Analog-to-Digital Converter
+The 10-bit sigma-delta ADC provides an integrated reference generator and a single-ended input multiplexer. The
+multiplexer selects an input channel from one of the eight external analog input signals (AIN0–AIN7) or the internal power
+supply inputs.
+The reference for the ADC can be:
+●Internal 1.22V bandgap
+●VDDA analog supply
+An optional feature allows samples captured by the ADC to be automatically compared against user-programmable high
+and low limits. Up to four channel limit pairs can be configured in this way. The comparison allows the ADC to trigger an
+interrupt (and potentially wake the CPU from a power mode) when a captured sample goes outside the preprogrammed
+limit range. Since this comparison is performed directly by the sample limit monitors, it can be performed even while the
+CPU is in SLEEP, LOW POWER or MICRO POWER mode. The eight AIN[7:0] inputs can be configured as four pairs
+and deployed as four independent comparators.
+The ADC measures the following voltages:
+●AIN[7:0] up to 3.3V
+●VREGI
+●VDDA
+●VCOREA
+●VCOREB
+●VDDIOH
+●VDDIO
+Single-Inductor Multiple-Output Switch-Mode Power Supply (SIMO SMPS)
+The SIMO SMPS built into the device provides a monolithic power supply architecture for operation from a single lithium
+cell. The SIMO provides three buck regulator outputs that are voltage programmable. This architecture optimizes power
+consumption efficiency of the device and minimizes the bill of materials for the circuit design since only a single inductor/
+capacitor pair is required.
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  36
+
+===== PAGE 37 =====
+Power Management
+Power Management Unit
+The power management unit (PMU) provides high-performance operation while minimizing power consumption. It
+exercises intelligent, precise control of power distribution to the CPUs and peripheral circuitry.
+The PMU provides the following features:
+●User-configurable system clock
+●Automatic enabling and disabling of crystal oscillators based on power mode
+●Multiple power domains
+●Fast wake-up of powered-down peripherals when activity detected
+ACTIVE Mode
+In this mode, the CM4 and the RV32 can execute application code and all digital and analog peripherals are available on
+demand. Dynamic clocking disables peripherals not in use, providing the optimal mix of high performance and low power
+consumption. The CM4 has access to all system SRAM. The RV32 has access to SRAM2 and SRAM3. Both the CM4
+and the RV32 can execute from internal flash simultaneously. SRAM3 can be configured as an instruction cache for the
+RV32.
+SLEEP Mode
+This mode consumes less power, but wakes faster because the clocks can optionally be enabled.
+The device status is as follows:
+●CM4 is asleep.
+●RV32 is asleep.
+●CNN quadrants and memory are configurable.
+●Peripherals are on.
+●Standard DMA is available for optional use.
+LOW POWER Mode (LPM)
+This mode is suitable for running the RV32 processor to collect and move data from enabled peripherals.
+The device status is as follows:
+●The CM4, SRAM0, SRAM1 are in state retention.
+●CNN quadrants and memory are configurable and active.
+●The RV32 can access the SPI, all UARTS, all timers, I2C, 1-Wire, pulse train engines, I2S, CRC, AES, TRNG, PCIF,
+and comparators, as well as SRAM2 and SRAM3. SRAM3 can be configured to operate as RV32 instruction cache.
+●The transition from LOW POWER mode to ACTIVE mode is faster than the transition from BACKUP mode because
+system initialization is not required.
+●The DMA can access flash.
+●IPO can be optionally powered down.
+●The following oscillators are enabled:
+•
+IBRO
+•
+ERTCO
+•
+INRO
+•
+ISO
+MICRO POWER Mode (μPM)
+This mode is used for extremely low power consumption while using a minimal set of peripherals to provide wakeup
+capability.
+The device status is as follows:
+●Both CM4 and RV32 are state retained. System state and all SRAM is retained.
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  37
+
+===== PAGE 38 =====
+●CNN quadrants are powered off.
+●CNN memory provides selectable retention.
+●The GPIO pins retain their state.
+●All non-MICRO POWER peripherals are state retained.
+●The following oscillators are powered down:
+•
+IPO
+•
+ISO
+●The following oscillators are enabled:
+•
+IBRO
+•
+ERTCO
+•
+INRO
+●The following MICRO POWER mode peripherals are available to wake up the device:
+•
+LPUART0, LPUART1
+•
+WWDT1
+•
+All four low-power analog comparators
+STANDBY Mode
+This mode is used to maintain the system operation while keeping time with the RTC.
+The device status is as follows:
+●Both CM4 and RV32 are state retained. System state and all SRAM are retained.
+●CNN quadrants are powered off.
+●CNN memory provides selectable retention.
+●GPIO pins retain their state.
+●All peripherals are state retained.
+●The following oscillators are powered down:
+•
+IPO
+•
+ISO
+•
+IBRO
+●The following oscillators are enabled:
+•
+ERTCO
+•
+INRO
+BACKUP Mode
+This mode is used to maintain the system RAM. The device status is as follows:
+●CM4 and RV32 are powered off.
+●SRAM0, SRAM1, SRAM2, and SRAM3 can be configured to be state retained as per Table 1.
+●CNN memory provides selectable retention.
+●All peripherals are powered off.
+The following oscillators are powered down:
+●IPO
+●ISO
+●IBRO
+The following oscillators are enabled:
+●ERTCO
+●INRO
+Table 1. BACKUP Mode SRAM Retention
+RAM BLOCK
+RAM SIZE
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  38
+
+===== PAGE 39 =====
+Table 1. BACKUP Mode SRAM Retention (continued)
+SRAM0
+32KB + ECC
+SRAM1
+32KB
+SRAM2
+48KB
+SRAM3
+16KB
+POWER DOWN Mode (PDM)
+This mode is used during product level distribution and storage. The device status is as follows:
+●CM4 and RV32 are powered off.
+●All peripherals and SRAM are powered down.
+●All oscillators are powered down.
+●There is no data retention in this mode, but values in flash memory are preserved.
+●Voltage monitors are operational.
+Wakeup Sources
+The sources of wakeup from the SLEEP, LOW POWER, MICRO POWER, STANDBY, BACKUP, and POWER DOWN
+operating modes are summarized in Table 2.
+Table 2. Wakeup Sources
+OPERATING MODE
+WAKEUP SOURCE
+SLEEP
+Any enabled peripheral with interrupt capability; RSTN
+LOW POWER (LPM)
+SPI0, I2S, I2C, UARTs, timers, watchdog timers, wakeup timer, all comparators, RTC, GPIOs, RSTN, and
+RV32
+MICRO POWER
+(μPM)
+All comparators, LPUART, LPTMR1, LPTIMER2, LPWDT0, RTC, wakeup timer, GPIOs, RSTN
+STANDBY
+RTC, wakeup timer, GPIOs, CMP0, RSTN
+BACKUP
+RTC, wakeup timer, GPIOs, CMP0, RSTN
+POWER DOWN
+(PDM)
+P3.0, P3.1, RSTN
+Real-Time Clock
+An RTC keeps the time of day in absolute seconds. The 32-bit seconds register can count up to approximately 136 years
+and be translated to calendar format by application software.
+The RTC provides a time-of-day alarm that can be programmed to any future value between 1 second and 12 days.
+When configured for long intervals, the time-of-day alarm can be used as a power-saving timer, allowing the device to
+remain in an extremely low-power mode, but still awaken periodically to perform assigned tasks. A second independent
+32-bit 1/4096 subsecond alarm can be programmed with a tick resolution of 244μs. Both can be configured as recurring
+alarms. When enabled, either alarm can cause an interrupt or wake the device from most low-power modes.
+The time base is generated by a 32.768kHz crystal or an external clock source that must meet the electrical/timing
+requirements in the Electrical Characteristics table.
+The RTC calibration feature provides the ability for user software to compensate for minor variations in the RTC oscillator,
+crystal, temperature, and board layout. Enabling the SQWOUT alternate function outputs a timing signal derived from the
+RTC. External hardware can measure the frequency and adjust the RTC frequency in increments of ±127ppm with 1ppm
+resolution. Under most circumstances, the oscillator does not require any calibration.
+Programmable Timers
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  39
+
+===== PAGE 40 =====
+32-Bit Timer/Counter/PWM (TMR, LPTMR)
+General-purpose, 32-bit timers provide timing, capture/compare, or generation of pulse-width modulated (PWM) signals
+with minimal software interaction.
+The timer provides the following features:
+●32-bit up/down autoreload
+●Programmable prescaler
+●PWM output generation
+●Capture, compare, and capture/compare capability
+●External pin multiplexed with GPIO for timer input, clock gating, or capture
+●Timer output pin
+●TMR0–TMR3 can be configured as 2 × 16-bit general-purpose timers
+●Timer interrupt
+The MAX78000 provides six 32-bit timers (TMR0, TMR1, TMR2, TMR3, LPTMR0, and LPTMR1). LPTMR0 and LPTMR1
+are capable of operation in the SLEEP, LOW POWER, and MICRO POWER modes.
+I/O functionality is supported for all of the timers. Note that the function of a port can be multiplexed with other functions
+on the GPIO pins, so it might not be possible to use all of the ports depending on the device configuration. See Table 3
+for individual timer features.
+Table 3. Timer Configuration Options
+INSTANCE
+REGISTER
+ACCESS
+NAME
+SINGLE
+32 BIT
+DUAL
+16
+BIT
+SINGLE
+16 BIT
+POWER
+MODE
+CLOCK SOURCE
+PCLK
+ISO
+IBRO
+INRO
+ERTCO
+LPTMR0_CLK
+LPTMR1_CLK
+TMR0
+TMR0
+Yes
+Yes
+No
+ACTIVE,
+SLEEP,
+LOW
+POWER
+Yes
+Yes
+Yes
+No
+Yes
+No
+No
+TMR1
+TMR1
+Yes
+Yes
+No
+ACTIVE,
+SLEEP,
+LOW
+POWER
+Yes
+Yes
+Yes
+No
+Yes
+No
+No
+TMR2
+TMR2
+Yes
+Yes
+No
+ACTIVE,
+SLEEP,
+LOW
+POWER
+Yes
+Yes
+Yes
+No
+Yes
+No
+No
+TMR3
+TMR3
+Yes
+Yes
+No
+ACTIVE,
+SLEEP,
+LOW
+POWER
+Yes
+Yes
+Yes
+No
+Yes
+No
+No
+LPTMR0
+TMR4
+No
+No
+Yes
+ACTIVE,
+SLEEP,
+LOW
+POWER,
+MICRO
+POWER
+No
+No
+Yes
+Yes
+Yes
+Yes
+No
+LPTMR1
+TMR5
+No
+No
+Yes
+ACTIVE,
+SLEEP,
+LOW
+POWER,
+MICRO
+POWER
+No
+No
+Yes
+Yes
+Yes
+No
+Yes
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  40
+
+===== PAGE 41 =====
+Watchdog Timer (WDT)
+Microcontrollers are often used in harsh environments where electrical noise and electromagnetic interference (EMI) are
+abundant. Without proper safeguards, these hazards can disturb device operation and corrupt program execution. One
+of the most effective countermeasures is the windowed watchdog timer (WDT), which detects runaway code or system
+unresponsiveness.
+The WDT is a 32-bit, free-running counter with a configurable prescaler. When enabled, the WDT must be periodically
+reset by the application software. Failure to reset the WDT within the user-configurable timeout period indicates that the
+application software is not operating correctly and results in a WDT timeout. A WDT timeout can trigger an interrupt,
+system reset, or both. Either response forces the instruction pointer to a known good location before resuming instruction
+execution. The windowed timeout period feature provides more detailed monitoring of system operation, requiring the
+WDT to be reset within a specific window of time. See Table 4 for individual timer features.
+The MAX78000 provides two instances of the watchdog timer—WDT0 and LPWDT0.
+Table 4. Watchdog Timer Configuration Options
+INSTANCE NAME
+REGISTER ACCESS NAME
+POWER MODE
+CLOCK SOURCE
+PCLK
+IBRO
+INRO
+ERTCO
+WDT0
+WDT0
+ACTIVE,
+SLEEP,
+LOW POWER
+Yes
+Yes
+No
+No
+LPWDT0
+WDT1
+ACTIVE,
+SLEEP,
+LOW POWER,
+MICRO POWER
+No
+Yes
+Yes
+Yes
+Pulse Train Engine (PT)
+Multiple, independent pulse train generators can provide either a square-wave or a repeating pattern from 2 to 32 bits
+in length. Any single pulse train generator or any desired group of pulse train generators can be synchronized at the bit
+level, allowing for multibit patterns. Each pulse train generator is independently configurable.
+The pulse train generators provide the following features:
+●Independently enabled
+●Safe enable and disable for pulse trains without bit banding
+●Multiple pin configurations allow for flexible layout
+●Pulse trains can be started/synchronized independently or as a group
+●Frequency of each enabled pulse train generator is also set separately, based on a divide down (such as divide by 2,
+divide by 4, and divide by 8) of the input pulse train module clock
+●Input pulse train module clock can be optionally configured to be independent from the system AHB clock
+●Multiple repetition options
+•
+Single shot (nonrepeating pattern of 2 to 32 bits)
+•
+Pattern repeats user-configurable number of times or indefinitely
+•
+Termination of one pulse train loop count can restart one or more other pulse trains
+The pulse train engine feature is an alternate function associated with a GPIO pin. In most cases, enabling the pulse train
+engine function supersedes the GPIO function.
+The MAX78000 provides up to four instances of the pulse train engine peripheral (PT[3:0]).
+Serial Peripherals
+I2C Interface (I2C)
+The I2C interface is a bidirectional, two-wire serial bus that provides a medium-speed communications network. It can
+operate as a one-to-one, one-to-many, or many-to-many communications medium. These engines support standard-
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  41
+
+===== PAGE 42 =====
+mode, fast-mode, fast-mode plus, and high-speed mode I2C speeds. It provides the following features:
+●Master or slave mode operation
+•
+Supports up to four different slave addresses in slave mode
+●Supports standard 7-bit addressing or 10-bit addressing
+●RESTART condition
+●Interactive receive mode
+●Tx FIFO preloading
+●Support for clock stretching to allow slower slave devices to operate on higher speed busses
+●Multiple transfer rates
+•
+Standard mode: 100kbps
+•
+Fast mode: 400kbps
+•
+Fast mode plus: 1000kbps
+•
+High-speed mode: 3.4Mbps
+●Internal filter to reject noise spikes
+●Receiver FIFO depth of 8 bytes
+●Transmitter FIFO depth of 8 bytes
+The MAX78000 provides three instances of the I2C peripheral—I2C0, I2C1, and I2C2.
+I2S Interface (I2S)
+The I2S interface is a bidirectional, four-wire serial bus that provides serial communications for codecs and audio
+amplifiers compliant with the I2S Bus Specification, June 5, 1996. It provides the following features:
+●Master and slave mode operation
+●Support for 4 channels
+●8, 16, 24, and 32 bit frames
+●Receive and transmit DMA support
+●Wakeup on FIFO status (full/empty/threshold)
+●Pulse density modulation support for receive channel
+●Word select polarity control
+●First bit position selection
+●Interrupts generated for FIFO status
+●Receiver FIFO depth of 32 bytes
+●Transmitter FIFO depth of 32 bytes
+The MAX78000 provides one instance of the I2S peripheral (I2S0).
+Serial Peripheral Interface (SPI)
+SPI is a highly configurable, flexible, and efficient synchronous interface among multiple SPI devices on a single bus. The
+bus uses a single clock signal and multiple data signals, and one or more slave select lines to address only the intended
+target device. The SPI operates independently and requires minimal processor overhead.
+The provided SPI peripherals can operate in either slave or master mode and provide the following features:
+●SPI modes 0, 1, 2, or 3 for single-bit communication
+●3- or 4-wire mode for single-bit slave device communication
+●Full-duplex operation in single-bit, 4-wire mode
+●Dual and quad data modes supported
+●Multiple slave selects on some instances
+●Multimaster mode fault detection
+●Programmable interface timing
+●Programmable SCK frequency and duty cycle
+●32-byte transmit and receive FIFOs
+●Slave select assertion and deassertion timing with respect to leading/trailing SCK edge
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  42
+
+===== PAGE 43 =====
+The MAX78000 provides two instances of the SPI peripheral—SPI0 and SPI1. See Table 5 for configuration options.
+Table 5. SPI Configuration Options
+INSTANCE
+DATA
+SLAVE
+SELECT LINES
+MAXIMUM FREQUENCY
+MASTER MODE (MHz)
+MAXIMUM FREQUENCY
+SLAVE MODE (MHz)
+81 CTBGA
+SPI0
+3-wire, 4-wire, dual, or
+quad data support
+3
+50
+50
+SPI1
+3-wire, 4-wire, dual, or
+quad data support
+1
+25
+50
+UART (UART, LPUART)
+The universal asynchronous receiver-transmitter (UART, LPUART) interface supports full-duplex asynchronous
+communication with optional hardware flow control (HFC) modes to prevent data overruns. If HFC mode is enabled on a
+given port, the system uses two extra pins to implement the industry-standard request to send (RTS) and clear to send
+(CTS) flow control signaling. Each instance is individually programmable.
+●2-wire interface or 4-wire interface with flow control
+●8-byte send/receive FIFO
+●Full-duplex operation for asynchronous data transfers
+●Interrupts available for frame error, parity error, CTS, Rx FIFO overrun, and FIFO full/partially full conditions
+●Automatic parity and frame error detection
+●Independent baud-rate generator
+●Programmable 9th-bit parity support
+●Multidrop support
+●Start/stop bit support
+●Hardware flow control using RTS/CTS
+●12.5Mbps for UART maximum bit rate
+●1.85Mbps for LPUART maximum bit rate
+●Two DMA channels can be connected (read and write FIFOs)
+●Programmable word size (5 bits to 8 bits)
+The MAX78000 provides four instances of the UART peripheral—UART0, UART1, UART2, and LPUART0. LPUART0 is
+capable of operation in the SLEEP, LOW POWER, and MICRO POWER modes. See Table 6 for configuration options.
+Table 6. UART Configuration Options
+INSTANCE NAME
+REGISTER ACCESS NAME
+HARDWARE FLOW CONTROL
+POWER MODE
+CLOCK SOURCE
+PCLK
+IBRO
+ERTCO
+UART0
+UART0
+Yes
+ACTIVE,
+SLEEP,
+LOW POWER
+Yes
+Yes
+No
+UART1
+UART1
+No
+ACTIVE,
+SLEEP,
+LOW POWER
+Yes
+Yes
+No
+UART2
+UART2
+No
+ACTIVE,
+SLEEP,
+LOW POWER
+Yes
+Yes
+No
+LPUART0
+UART3
+No
+ACTIVE,
+SLEEP,
+LOW POWER,
+MICRO POWER
+No
+Yes
+Yes
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  43
+
+===== PAGE 44 =====
+1-Wire Master (OWM)
+Maxim's 1-Wire bus consists of one signal that carries data and also supplies power to the slave devices and a ground
+return. The bus master communicates serially with one or more slave devices through the bidirectional, multidrop 1-Wire
+bus. The single-contact serial interface is ideal for communication networks requiring minimal interconnection.
+The provided 1-Wire master supports the following features:
+●Single contact for control and operation
+●Unique factory identifier for any 1-Wire device
+●Multiple device capability on a single line
+The OWM supports both standard (15.6kbps) and overdrive (110kbps) speeds.
+Standard DMA Controller
+The standard DMA controller allows automatic one-way data transfer between two entities. These entities can be
+either memories or peripherals. The transfers are done without using CPU resources. The following transfer modes are
+supported:
+●4-channel
+●Peripheral to data memory
+●Data memory to peripheral
+●Data memory to data memory
+●Event support
+All DMA transactions consist of an AHB burst read into the DMA FIFO followed immediately by an AHB burst write from
+the FIFO.
+The MAX78000 provides one instance of the standard DMA controller.
+Security
+AES
+The dedicated hardware-based AES engine supports the following algorithms:
+●AES-128
+●AES-192
+●AES-256
+The AES keys are automatically generated by the engine and stored in dedicated flash to protect against tampering. Key
+generation and storage is transparent to the user.
+True Random Number Generator (TRNG) Non-Deterministic Random Bit Generator (NDRBG)
+The device provides a non-deterministic entropy source that can be used to generate cryptographic seeds or strong
+encryption keys as part of an overall framework for a secure customer application.
+Software can use random numbers to trigger asynchronous events that add complexity to program execution to thwart
+replay attacks or key search methodologies.
+The TRNG can support the system-level validation of many security standards. Maxim Integrated will work directly with
+the customer’s validation laboratory to provide the laboratory with any required information. Contact Maxim Integrated for
+details of compliance with specific standards.
+CRC Module
+A cyclic redundancy check (CRC) hardware module provides fast calculations and data integrity checks by application
+software. It supports a user-defined programmable polynomial up to 32-bits. Direct memory access copies data into
+the CRC module so that CRC calculations on large blocks of memory are performed with minimal CPU intervention.
+Examples of common polynomials are depicted in Table 7.
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  44
+
+===== PAGE 45 =====
+Table 7. Common CRC Polynomials
+ALGORITHM
+POLYNOMIAL EXPRESSION
+ORDER
+POLYNOMIAL
+CHECK
+CRC-32-ETHERNET
+x32+ x26+ x23+ x22+ x16 + x12+ x11+ x10+ x8+ x7+ x5+ x4+
+x2+ x1+ x0
+0xEDB8
+8320
+LSB
+0xDEBB
+20E3
+CRC-CCITT
+x16+ x12 + x5 + x0
+0x0000
+8408
+LSB
+0x0000
+F0B8
+CRC-16
+x16+ x15 + x2 + x0
+0x0000
+A001
+LSB
+0x0000
+B001
+USB DATA
+x16+ x15 + x2+ x0
+0x8005
+0000
+LSB
+0x800D
+0000
+PARITY
+x1+ x0
+0x0000
+0001
+MSB
+—
+Bootloader
+The bootloader allows loading and verification of program memory through a serial interface. Features include:
+●Bootloader interface through UART
+●Program loading of Motorola® SREC format files
+●Permanent lock state prevents altering or erasing program memory
+●Access to the USN for device or customer application identification
+●Disable SWD interface to block debug access port functionality
+Secure Boot
+The secure boot feature ensures software integrity by automatically comparing program memory against a stored HMAC
+SHA-256 hash value after every reset. Programs that fail the integrity check indicate corrupted or modified program
+memory and are prevented from executing any instructions.
+Devices with the secure boot feature also provide an optional challenge/response to authenticate before executing
+bootloader commands.
+Debug and Development Interface (SWD, JTAG)
+The serial wire debug interface is used for code loading and ICE debug activities for the CM4. JTAG interface is provided
+for the RV32. All devices in mass production have the debugging/development interface enabled.
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  45
+
+===== PAGE 46 =====
+Applications Information
+Bypass Capacitors
+The proper use of bypass capacitors reduces noise generated by the IC into the ground plane. The Pin Descriptions table
+indicates which pins should be connected to bypass capacitors, and the appropriate ground plane.
+It is recommended that one instance of a bypass capacitor should be connected to each pin/ball of the IC package. For
+example, if the Pin Descriptions table shows four device pins associated with voltage supply A, a separate capacitor
+should be connected to each pin for a total of four capacitors.
+Capacitors should be placed as close as possible to their corresponding device pins. Pin descriptions which indicate
+recommendations for more than one value of capacitor per pin should place them in parallel with the lowest value
+capacitor first, closest to the pin.
+Ordering Information
+PART
+FLASH (KB)
+SYSTEM RAM (KB)
+BOOTLOADER
+SECURE BOOTLOADER
+PIN-PACKAGE
+MAX78000EXG+
+512
+128 + ECC 8
+Yes
+No
+81 CTBGA
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+www.maximintegrated.com
+Maxim Integrated  |  46
+
+===== PAGE 47 =====
+Revision History
+REVISION
+NUMBER
+REVISION
+DATE
+DESCRIPTION
+PAGES
+CHANGED
+0
+8/20
+Release for intro
+—
+1
+5/21
+Updated datasheet title, Figure 4, Figure 7, Bootloader section, and Secure Boot
+section
+All
+For pricing, delivery, and ordering information, please visit Maxim Integrated’s online storefront at https://www.maximintegrated.com/en/storefront/storefront.html.
+Maxim Integrated cannot assume responsibility for use of any circuitry other than circuitry entirely embodied in a Maxim Integrated product. No circuit patent
+licenses are implied. Maxim Integrated reserves the right to change the circuitry and specifications without notice at any time. The parametric values (min and max
+limits) shown in the Electrical Characteristics table are guaranteed. Other parametric values quoted in this data sheet are provided for guidance.
+MAX78000
+Artificial Intelligence Microcontroller with Ultra-Low-
+Power Convolutional Neural Network Accelerator
+Maxim Integrated and the Maxim Integrated logo are trademarks of Maxim Integrated Products, Inc.
+© 2021 Maxim Integrated Products, Inc.

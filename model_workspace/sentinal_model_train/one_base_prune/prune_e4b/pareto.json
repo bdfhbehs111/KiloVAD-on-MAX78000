@@ -1,0 +1,100 @@
+{
+  "objectives": [
+    "cycles",
+    "auc_val"
+  ],
+  "baseline": {
+    "channels": [
+      64,
+      96,
+      96,
+      64,
+      32,
+      16,
+      16
+    ],
+    "bytes": 79392,
+    "cycles_proc": 118272,
+    "val_fpr": 0.01262674574325617,
+    "test_fpr": 0.010951859435264987,
+    "auc_test": 0.9958235374603431
+  },
+  "front": [
+    {
+      "trial": 7,
+      "cycles_proc": 38016,
+      "weight_bytes": 10784,
+      "macs": 1030176,
+      "proc_passes": 7,
+      "auc_val": 0.994739,
+      "auc_test": 0.995565,
+      "fpr_val": 0.021619,
+      "fpr_test": 0.012857,
+      "tpr_test": 0.938934,
+      "ckpt": "trial_0007.pth.tar",
+      "conv1": 32,
+      "conv2": 24,
+      "conv3": 32,
+      "conv4": 16,
+      "conv5": 8,
+      "conv6": 16
+    },
+    {
+      "trial": 37,
+      "cycles_proc": 39616,
+      "weight_bytes": 12096,
+      "macs": 1190944,
+      "proc_passes": 7,
+      "auc_val": 0.995313,
+      "auc_test": 0.995823,
+      "fpr_val": 0.017601,
+      "fpr_test": 0.011809,
+      "tpr_test": 0.944134,
+      "ckpt": "trial_0037.pth.tar",
+      "conv1": 32,
+      "conv2": 36,
+      "conv3": 24,
+      "conv4": 16,
+      "conv5": 12,
+      "conv6": 16
+    },
+    {
+      "trial": 22,
+      "cycles_proc": 40768,
+      "weight_bytes": 15064,
+      "macs": 1185560,
+      "proc_passes": 7,
+      "auc_val": 0.996138,
+      "auc_test": 0.996212,
+      "fpr_val": 0.016166,
+      "fpr_test": 0.010142,
+      "tpr_test": 0.94943,
+      "ckpt": "trial_0022.pth.tar",
+      "conv1": 32,
+      "conv2": 24,
+      "conv3": 40,
+      "conv4": 36,
+      "conv5": 12,
+      "conv6": 12
+    },
+    {
+      "trial": 11,
+      "cycles_proc": 111168,
+      "weight_bytes": 68704,
+      "macs": 5261344,
+      "proc_passes": 9,
+      "auc_val": 0.996416,
+      "auc_test": 0.996085,
+      "fpr_val": 0.012244,
+      "fpr_test": 0.01038,
+      "tpr_test": 0.948476,
+      "ckpt": "trial_0011.pth.tar",
+      "conv1": 60,
+      "conv2": 88,
+      "conv3": 96,
+      "conv4": 56,
+      "conv5": 20,
+      "conv6": 16
+    }
+  ]
+}

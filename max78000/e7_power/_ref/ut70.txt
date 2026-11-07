@@ -1,0 +1,1001 @@
+
+===== PAGE 1 =====
+User Manual
+High Performance USB Tester
+UT70 USB Tester User Manual
+Revision history
+Version
+Date
+Modify
+V1.00
+2023/09/18
+First release
+User
+Manual
+
+===== PAGE 2 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+1
+UT70 USB Tester User Manual
+Catalogue
+Notes..............................................................................................................................1
+1，Characteristic......................................................................................................1
+2，Quick Start..........................................................................................................3
+2.1 data preparation............................................................................................................ 3
+2.2 Appearance description................................................................................................ 4
+2.3 KEY function.................................................................................................................... 4
+2.4 Function Description.................................................................................................... 4
+2.4.1 Main interface.................................................................................................... 4
+2.4.2 Fast charging protocol testing interface................................................8
+2.4.3 Tool interface.................................................................................................. 11
+2.4.4 Setting interface............................................................................................ 14
+3，ATK-UT70 Instructions......................................................................................17
+3.1 UT70 USB test driver installed..............................................................................17
+3.2 Install the running environment of the upper computer software............. 18
+3.3 ATK-UT70 Function description................................................................................ 19
+3.2 ATK-UT70 Firmware upgrade........................................................................................ 20
+3.3 Firmware update precautions.................................................................................... 21
+4，FAQ..........................................................................................................................22
+4.1 Solve different problems first..............................................................................22
+4.2 CC cable E-Marker cable cannot be detected......................................................22
+4.3 The Dash cable cannot be detected........................................................................22
+4.4 Precautions for monitoring the power or protocol used by third-party devices
+(such as mobile phones).................................................................................................... 22
+4.5 The fast charge protocol detects and triggers exceptions..........................23
+4.6 Support description of the fast charge protocol............................................23
+4.7 D+/D- Displays the situation description..........................................................23
+4.8 HID port on the button side.................................................................................... 24
+5，Services................................................................................................................24
+
+===== PAGE 3 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+1
+UT70 USB Tester User Manual
+Thank you for purchasing this product. We recommend that you spend some time
+reading this user manual in order that you fully understand all the operational features
+it offers.
+Notes
+1, When using the fast charge trigger function (AUTO or MANUAL ), please do not connect to
+any other devices (such as computer, mobile phone, tablet, etc.), otherwise the high voltage may
+damage your device, and our company will not be responsible!!!
+Note: except usb hid interface on the side of the button, other interfaces are all connected
+together. If any interface has high voltage, all interfaces will output high voltage. At this time, if
+electrical equipment is connected, it is likely to burn out!!!
+2, USB-A port and Type-C power input port, the input voltage cannot exceed 28V!
+3, The input voltage of USB HID interface cannot exceed 5.5V!
+4, When working at high power, the UT70 tester will have a certain heating phenomenon, it is ok.
+5, The key is a side key. Please do not press it hard to avoid damaging the key.
+6, Unauthorized disassembly of the machine will not be guaranteed.
+7, It is normal for some fast charging protocols to induce the equipment to power down / restart .
+8, After the power bank mode is turned on, the fake load may cause intermittent changes in the
+monitoring voltage/current and the machine is slightly hot, which is a normal phenomenon.
+9, When the load current of some fast charging adapters / power bank is low (< 50mA), the
+external power supply may be stopped. At this time, the power bank mode of UT70 can be used to
+provide fake load and maintain power supply.
+1，Characteristic
+UT70 USB tester is a high-performance USB tester. The product mainly has the following
+characteristics:
+
+Rich interfaces, including 2 USB-A, 2 Type-C and 2 Micro-USB ports.
+
+Accurate measurement, using high-precision alloy sampling resistance and 16 bit
+high-precision ADC measurement chip.
+
+Full power, supporting 3.6 ~ 28V input voltage and maximum 7A current.
+
+Rich functions,supports various fast charging protocols, waveform display, etc.
+
+Rich display, using 0.96-inch 160 * 80 IPS screen, the display content is richer.
+
+Small size, private mold, integrated molding, exquisite and beautiful, easy to carry.
+
+===== PAGE 4 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+2
+UT70 USB Tester User Manual
+Detailed specification parameters of UT70 USB tester are shown in Table 1.1:
+Items
+Description
+Basic parameters
+Product model: UT70
+Screen size: 0.96 inch IPS screen
+LCD resolution: 160 * 80
+Product size: 67.5mm * 24.5mm * 10.5mm
+Net weight: 15g
+Interface Characteristics
+USB-A IN（Public seat）：7A1
+USB-A OUT（FEMALE）：7A1
+TYPE C IN/OUT：6.5A
+Micro USB IN：2A
+Micro USB HID：only communication
+Measurement system
+ADC resolution: 16bit
+Sampling resistance: high precision alloy resistance
+Measurement speed: 1kHz (max) 2
+Voltage range: 0~28V
+Current range: 0~7A
+Fast charging protocol
+BC1.2 detection
+QC2.0,QC3.0 detection and trigger
+PD2.0, PD3.0, PD3.1 detection and trigger
+Huawei FCP and SCP detection and trigger
+Samsung AFC detection and trigger
+MTK PE detection
+VOOC detection
+VIVO VFCP detection and trigger
+APPLE 2.4A detection
+Tool
+Wire resistance measurement
+E-marker cable chip reading
+Dash cable chip reading
+Data record
+Record points:10200points
+Recording speed (local): 0.1Sa/S, 0.5 Sa/S, 1 Sa/S, 5 Sa/S
+Recording speed (computer): 4 Sa/S, 200 Sa/S, 500Sa/S, 1000Sa/S
+Record start threshold is settable(local)
+Recording mode: manual mode, automatic mode
+Computer software
+Using HID drive free design, plug and play
+Rich functions and can realize all functions of the tester
+Excellent interaction experience, more convenient to use
+Real time curve drawing (voltage, current, power, etc.)
+Programmable maximum acquisition speed 1000 Sa/S3
+Support online data recording and storage (unlimited points)
+Support offline data reading and curve drawing
+Support firmware upgrade
+Support log function
+Support multi language settings
+
+===== PAGE 5 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+3
+UT70 USB Tester User Manual
+Other functions
+Support screen display direction set
+Support for power bank mode
+Note 1: 7A can work for a short time, and the cable must support 7A.
+Note 2: this speed can be achieved only when the computer is connected and use computer to records.
+Note 3: the maximum recording speed of 1000 Sa/S can be achieved when use computer to records.
+Table 1.1 UT70 specification
+The performance of UT70 USB tester are shown in Table 1.2:
+Items
+Range
+Resolution
+Precision
+Monitoring voltage
+0 ~ 28V1
+0.0001V
+±(1.0‰+2)
+Monitoring current
+±7A
+0.0001A
+±(1.0‰+3)
+Monitoring power
+0 ~ 196W
+0.0001W
+±(1.0‰+2)
+D+/D- voltage
+0 ~ 3.3V
+0.001V
+±(1.0%+2)
+Capacity
+0 ~ 9999.9Ah
+0.0001Ah
+Electric quantity
+0 ~ 9999.9Wh
+0.0001Wh
+Time
+99 H 59 M 59 S
+1S
+Wire resistance
+0 ~ 999.9Ω
+0.001Ω
+Note 1: When the measurement is less than 3.6, connect the HID interface for power supply and please do
+not input more than 28V to the USB tester, otherwise the equipment may be burned.
+Table 1.2 UT70 performance
+2，Quick Start
+2.1 data preparation
+Before using the UT70 USB tester, in addition to familiarizing yourself with the
+human-computer interaction of the tester through the next two sections, there are some necessary
+preparations to be made.
+(1)
+Used in conjunction with PC to download good UT70 USB tester data package,
+there is a configuration software, for a link below: http://www.openedv.com/docs/t
+ool/USB/index.html
+(2)
+The configuration software needs to run on the Windows operating system and n
+eeds to run the.NET 4.0 environment, which is usually integrated with newer ver
+sions of Windows (older versions such as Windows XP do not). NET 4.0 is avai
+lable in the link, please install the environment and try to use the configuration
+software, otherwise the configuration software may not work.
+(3)
+For the first time, please read the following document.
+
+===== PAGE 6 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+4
+UT70 USB Tester User Manual
+2.2 Appearance description
+Figure 2.1 UT70 Appearance
+USB-A IN Port
+: Traditional USB input interface, maximum 7A
+USB-A OUT Port
+: Traditional USB output interface, maximum 7A
+Type-C IN Port
+: Type-C input interface, maximum 6.5A
+Type-C OUT Port
+: Type-C output interface, maximum 6.5A
+Micro-USB IN Port: Micro-USB input interface, maximum 2A
+Micro-USB HID
+: Communication interface between device and computer (USB HID)
+2.3 KEY function
+◀KEY: Click: left / up; Long press: decreasing
+■KEY: Click: confirm / select; Double-click / long press: return.
+▶KEY: Click: right / down; Long press: increasing
+The human-machine interaction of the UT70 USB tester is achieved through buttons.
+Left/right buttons can slide through the interface or select from top, bottom, left, and right. Short
+press the middle button to achieve different functions on different interfaces, and long press to
+return to the previous menu level.
+2.4 Function Description
+2.4.1 Main interface
+The UT70 USB tester has four main interfaces, and when the main interface can switch states,
+these four main interfaces can be switched by sliding the left/right buttons.
+
+===== PAGE 7 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+5
+UT70 USB Tester User Manual
+1.
+Basic measurement interface
+The basic measurement interface is used to display the most basic measurement parameters,
+including voltage, current, power, operation time, electric quantity and other information.
+Figure 2.2 Basic measurement interface
+Interface introduction:
+①The type of fast charging protocol currently monitored, if none, it will be displayed as -- NA--1
+②The current monitored fast charging voltage, if none, is displayed as - NA--
+③Measure and display the current USB D+voltage value.
+④Measure and display the current USB D-voltage value.
+⑤The false load conduction icon flashes once for every conduction of the internal false load
+when the power bank mode is turned on2.
+⑥Current direction flag, forward current (in to out): →, reverse current (out to in): ←.
+⑦Monitoring voltage, real-time monitoring voltage value, unit: volt (V).
+⑧Monitoring current, real-time monitoring current value, unit: ampere (A).
+⑨Monitoring power, real-time monitoring power value, unit: watt (W).
+Note 1: When using protocol monitoring, you need to enable protocol monitoring on the setting interface to
+monitor the fast charge protocol type, especially when using two C2C lines, you must first enable protocol
+monitoring in the setting. Due to the variety of fast charging categories, some fast charging protocols have similar
+characteristics, so the monitored fast charging protocols may have a certain probability of misjudgment or
+identification, and the overall accuracy of judgment is about: PD > QC2 > QC3 > BC1.2 > APPLE 2.4A >
+VOOC > FCP > SCP > AFC > VFCP. It is worth noting that if two CC lines are used, at this time, the HID
+interface should be connected to power on first to keep the power supply, choose to turn on the monitoring (keep
+monitoring) to complete the initialization, and then access two C lines and electrical equipment. At the same time,
+the two CC lines can not be inserted blind, that is, C1 to C1 surface, not C1C2, if you can not establish
+communication, first change any plug on the tester to a surface and try again.
+Note 2: The power bank mode only works in the basic measurement interface.
+
+===== PAGE 8 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+6
+UT70 USB Tester User Manual
+Operating instructions:
+Short press: ◀Key to switch to the previous main interface.
+Short press the ■key to switch the upload frequency.
+Short press: ▶Key to switch to the next main interface.
+2.
+Waveform display interface
+The waveform display interface is used to display the waveform of the current monitored
+voltage, current, USB D+/D -, etc. Default: voltage + current waveform, as shown in the following
+figure.
+Figure 2.3 Waveform display interface
+Interface introduction:
+①
+Voltage waveform: The maximum voltage value range displayed in the current waveform
+diagram is 5.4V, and the current vertical scale can be calculated as 5.4/4≈1.35V/div (cell), and the
+voltage represented by the display position of the current waveform is further estimated to be
+3.72*1.35≈5.00V.
+②Current waveform. The maximum current value that can be displayed in the current waveform
+diagram is 5.4A, and the current vertical scale can be calculated as 5.5/4≈1.35A/div (cell). It is
+further estimated that the current represented by the display position of the current waveform is
+0.70*1.35≈0.95A.
+③Represents the display rate of the current waveform, which refreshes the display by 50 points
+in 1 second.
+④The time scale is currently 320mS/div (grid).
+⑤Waveform type: The color waveform is the voltage waveform.
+⑥Waveform type: The color waveform is the current waveform.
+Operating instructions:
+Short press: ◀Key to switch to the previous main interface.
+Short press the ■Key to switch between the types of waveforms.
+Short press: ▶Key to switch to the next main interface.
+
+===== PAGE 9 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+7
+UT70 USB Tester User Manual
+3.
+Data recording interface
+The data recording interface is used to record the Ah/Wh flowing from the power supply to
+the device offline. It supports a maximum of 4 groups of data records (10200 points/group, the
+default is recorded once every 1 second, the interval can be set). Click the middle key to select the
+record group first, and then click again to start recording.
+Figure 2.4 Data Recording Interface
+The electric quantity mAh in the above figure represents the cumulative value of hourly
+current (mA). If discharged at a current of 1000mA for 1 hour, it is equal to 1000mAh, and
+1000mAh is also equal to 1Ah.
+Energy mWh represents the accumulated value of hourly voltage (V) multiplied by current
+(mA). For example, when a 10V output is applied and the load is 1000mA, it is equal to 10W. This
+means that after 1 hour of discharge, 10000mWh is obtained, which is converted into Wh and
+converted into 10Wh. If converted into household electricity meter units, it is equivalent to 0.01
+kWh, and 1 kWh is equivalent to 1000Wh.
+Therefore, this interface can be used to evaluate the battery capacity of mobile phones, tablets,
+and charging banks. If the statistics show that a charge consumes 17.251Wh(17251.00mWh), and
+the operating voltage of the internal lithium battery pack of the mobile phone tablet is 3.7V, the
+general conversion efficiency can be estimated to be 90% when charging the mobile phone tablet.
+Then the battery capacity in the mobile phone tablet is about 27.251Wh/3.7V * 0.9 = 4.196Ah.
+After the offline data recording starts, you need to import the offline data recording time
+period curve to the upper computer. Note Only the recorded voltage and current curve data is
+uploaded for offline data. Wh waveform curve data is not uploaded or (the uploaded data is
+incorrect). The offline data is saved in CSV file through the host computer, and a correct total
+value is recorded in the last column of Wh.
+Operating instructions：
+Short press: ◀key, switch to the previous main interface when the group switch status is
+not selected, and switch the group number when the group switch status is selected.
+Short press: ■key , enter the data recording group selection status. At this time, the group
+number will turn white and a flashing prompt will appear. After selecting, press again to start
+recording.
+Long press: ■key , exit the data recording group status.
+Short press: ▶key, switch to the previous main interface when the group switch status is
+not selected, and switch the group number when the group switch status is selected.
+
+===== PAGE 10 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+8
+UT70 USB Tester User Manual
+4.
+Application Function Interface
+The application function interface is used to select different functions, achieve protocol
+detection, tool detection, settings, etc., as shown in the following figure.
+Figure 2.5 Function Application Interface
+Operating instructions:
+Short press: ◀Key to switch to the previous main interface (when not selected).
+Short press: ■key to enter the function application selection.
+Long press: ■key to exit the function application selection.
+Short press: ▶Key to switch to the next main interface (when not selected).
+2.4.2 Fast charging protocol testing interface
+1.
+Automatic detection interface
+In the "Application function" interface, click the icon of "Pro" to enter the automatic
+detection and trigger selection interface. When entering the interface for the first time, it will
+remind you to unplug all external devices. After clicking "OK", select "Auto detect " option to
+start automatic detection, as shown in the following figure.
+Figure 2.6 Entering the Automatic Detection Interface
+After the detection is completed, the fast charging protocol and detailed parameters supported
+by the power supply equipment can be viewed through left/right button switching on the automatic
+detection completion interface, as shown in the following figure.
+
+===== PAGE 11 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+9
+UT70 USB Tester User Manual
+Figure 2.7 Automatic detection completion interface
+Interface Introduction:
+①The name of the detected fast charging protocol.
+②
+The detection results of the corresponding protocol may vary depending on the protocol
+description.
+Operating instructions:
+When automatic detection is in progress:
+Long press: ■key to forcibly exit the ongoing automatic detection and return to the previous
+level.
+After automatic detection is completed:
+Short press: ◀Key to switch to the previous protocol result.
+Short press: ▶Key to switch to the next protocol result.
+Long press:■key to exit the automatic detection completion interface and return to the previous
+level.
+Attention: When automatically detecting the fast charging protocol, various high
+voltages will be triggered. Please do not connect any electrical equipment to prevent high
+voltage from damaging the equipment or causing a fire. Otherwise, we are not responsible
+for equipment damage and other situations! At the same time, when testing some fast
+charging protocols, it is normal to have a power outage and a black screen that lights up
+again. Normal use is sufficient.
+2.
+Manual triggering interface
+The manual triggering interface is used to manually select the fast charging protocol and the
+corresponding triggering voltage. After the protocol is successfully triggered, the voltage of each
+protocol and the supported voltage can be manually triggered and adjusted by pressing the button.
+This article takes PD protocol triggering as an example. In the [Application Function]
+
+===== PAGE 12 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+10
+UT70 USB Tester User Manual
+interface, click the Select Application Function [Pro] icon to enter the automatic detection and
+trigger selection interface. The first time you enter, you will be prompted to unplug all external
+devices. After clicking [OK], select the [PD] option to start PD protocol triggering, as shown in
+the following figure.
+Figure 2.8 PD Protocol Manual Trigger Interface
+If the protocol can be successfully triggered, enter the adjustable voltage interface of the
+protocol, as shown in the following figure.
+Figure 2.9 PD Protocol Manual Trigger Voltage Adjustment Interface
+Interface Introduction:
+①The type of protocol currently triggered.
+②The parameter range information of the current protocol.
+③The optional voltage range for the current protocol, where PD3.1 protocol has fixed range and
+PPS step voltage regulation range.
+④The current voltage displays the current monitored voltage value in real time. If the trigger
+voltage of the protocol is selected and the middle confirmation button is pressed, it becomes closer
+here, indicating that the tested device supports this fast charging method.
+⑤Current current, real-time display of current monitored current value.
+Operating instructions:
+When triggering:
+Long press: ■key to forcibly exit the ongoing automatic detection and return to the previous
+level.
+
+===== PAGE 13 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+11
+UT70 USB Tester User Manual
+After successful triggering, voltage selection：
+Short press: ◀Key, cycle up to switch the desired voltage/step voltage reduction.
+Short press: ▶Key, cycle down to switch the desired voltage/step voltage increase.
+Long press: ■Key, exit the current page voltage selection and return to the previous level.
+Attention: When manually triggering different fast charging protocols, various high
+voltages will be triggered. Please do not connect any electrical equipment to prevent high
+voltage from damaging the equipment or causing a fire. Otherwise, we are not responsible
+for equipment damage and other situations! At the same time, when manually triggering
+some fast charging protocols, it is normal to have a power outage and a black screen that
+lights up again. Normal use is sufficient.
+2.4.3 Tool interface
+1.
+E-Marker Identification interface
+The E-Marker identifies the chip information used to read the E-Marker cable and displays it
+on the screen. Connect the C cable connector to the female port of the C port of the tester, and then
+operate the [Application Function] main interface—>[Tool] icon options—>[E-Marker] option to
+enter the E-Marker cable identification interface. After successful identification, it is shown in the
+following figure.
+Figure 2.11 E-Markey Identification Interface
+Interface Introduction:
+①The type of cable currently detected is E-Marker.
+②The power specifications and voltage and current carrying capacity of the current type of
+cable.
+③The transmission speed of the current type of cable.
+④Approximate length of the current cable.
+⑤The current voltage displays the current monitored voltage value in real-time.
+⑥Current current, real-time display of the current monitored value.
+Operating instructions:
+When conducting cable identification:
+
+===== PAGE 14 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+12
+UT70 USB Tester User Manual
+Long press: ■key to forcibly exit the identification cable.
+After successful cable identification:
+Short press : ■key to restart cable identification.
+When testing E-marker cables, it is important to note that it is recommended not to use the
+Type-C port for power supply (it is recommended to use Micro USB power supply or USB A port
+power supply instead), otherwise it may cause abnormal testing.
+2.
+Dash Cable Identification Interface
+Dash cable recognition is used to read the chip information of VOOC cables and display it on
+the screen. Connect the A-end connector of the VOOC cable to the A female port of the tester, and
+then operate the [Application Functions] main interface—>[Tool] icon options—>[Dash] option to
+enter the Dash cable identification interface. After successful identification, the Dash cable
+information is shown in the following figure.
+Figure 2.12 Dash recognition interface
+Interface Introduction:
+①The type of cable currently detected is Dash.
+②Information about the current type of cable.
+③The current voltage displays the current monitored voltage value in real-time.
+④Current current, real-time display of the current monitored value.
+Operating instructions:
+When conducting cable identification:
+Long press: ■key to forcibly exit identifying the cable.
+3.
+Line resistance measurement interface
+The line resistance measurement interface is used to measure the internal resistance (i.e., line
+resistance) of the power supply line. To measure the pressure difference method, you need to bring
+
+===== PAGE 15 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+13
+UT70 USB Tester User Manual
+a constant current load device that can provide more than 500mA of current and a power supply
+device for auxiliary measurement. The line resistance measured by this method is an estimate and
+is for reference only
+This test requires at least: 1 cable under test, 1 load of more than 500mA (preferably constant
+current load), 1 power supply device (support output current of more than 500mA).
+Operate [Application function] main interface [Tool] icon option [Line res] option in turn to
+start the wire resistance measurement, as shown in the following picture:
+Figure 2.13 Start of line resistance measurement
+The measurements were performed as follows:
+1. Connect the UT70 to the power supply device using the cable to be tested (do not connect the
+UT70 to any load, and the current is displayed as 0).
+2, when the second step of the screen blinks, the >500mA load is connected to the UT70.
+3. Wait for the measurement result. The internal resistance of the current cable will be displayed
+on the screen.
+Operating instructions:
+After entering the line resistance measurement interface:
+①. Line resistance measurement function identification。
+②. Step 1 Prompt message (Please remove all loads)。
+③. Step 2 Prompt message (Add a load whose current is greater than 500mA. Prepare the
+load yourself.)
+④. Cable internal resistance measurement results (differential pressure measurement)。
+⑤. Current voltage, real-time display of the current monitoring voltage value。
+⑥. Current, real-time display of the current value of the current monitoring。
+
+===== PAGE 16 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+14
+UT70 USB Tester User Manual
+2.4.4 Setting interface
+Operate the [Application Functions] main interface in sequence —>[Set] icon option to enter
+the settings interface, as shown in the following figure.
+Figure 2.15 Setting interface
+1.
+Data Record Setting Interface
+In the [Settings] interface above, select the [Data Record] option and briefly press to enter the
+data record settings interface. The settings for data records are shown in the table below.
+Function items
+Interpretation
+Operation mode
+Adjustable range
+Set up groups
+Which group of rules are currently set
+for
+Middle key short press
+->Left and right key
+adjustment
+Group numbers 1-4
+Save every
+Set the interval for offline data
+recording for this group
+Middle key short press
+->Left and right key
+adjustment
+Interval 50mS-120S
+Start Rule
+Set the start rule for offline data records
+in this group
+Middle key short press
+->Left and right key
+adjustment
+Manual/threshold
+start
+End Rule
+Set the start rule for offline data records
+in this group
+Middle key short press
+->Left and right key
+adjustment
+Manual/Threshold
+End
+Data List
+View information for all group data
+record points
+Middle key short press
+Delete all data
+Delete information for all group records
+Operation mode
+Table 2.3.4.1 Data Record Setting Options
+After setting the data recording rules for this group, you can return to the [data recording
+interface] on the main interface to start offline recording.
+2.
+Auxiliary function setting interface
+In the [Settings] interface above, select the [Auxiliary Function] option and briefly press to
+enter the auxiliary function settings interface. The auxiliary function settings are shown in the
+table below.
+
+===== PAGE 17 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+15
+UT70 USB Tester User Manual
+Function items
+Interpretation
+Operation mode
+Adjustable range
+Power Bank
+mode
+Start this mode, conduct false loads at
+intervals, simulate device power
+consumption, and prevent power loss
+due to low current of the power bank
+(only intermittently start false loads
+when the voltage is 5V on the basic
+measurement interface)
+Middle key short press to
+turn on
+Load
+conduction
+interval
+How many seconds does the dummy
+load conduct in the power bank mode
+(dummy load current: 300mA)
+Middle key short press
+->Left and right key
+adjustment
+1-10S
+Table 2.3.4.2 Auxiliary Function Setting Options
+3.
+Language setting interface
+In the [Settings] interface above, select the [Language Settings] option and briefly press to
+enter the language settings interface. The language settings are shown in the table below.
+Function items
+Interpretation
+Operation mode
+Adjustable range
+Language
+settings
+Set the language displayed on the
+interface
+Middle key short press
+->Left and right key
+adjustment
+Simplified
+Chinese
+Table 2.3.4.3 Language Setting Options
+4.
+Display direction setting interface
+In the [Settings] interface above, select the [Display Direction] option and briefly press to
+enter the display direction setting interface. The setting items for the display direction are shown
+in the table below.
+functionality
+Interpretation
+Operation mode
+Adjustable range
+Display
+direction
+Set the display direction of the interface
+Middle key short press
+->Left and right key
+adjustment
+Forward display
+Reverse Display
+Table 2.3.4.4 Display Direction Options
+5.
+Backlight setting interface
+In the [Settings] interface above, select the [Display Direction] option and briefly press to
+enter the display direction setting interface. The setting items for the display direction are shown
+in the table below.
+Function items
+Interpretation
+Operation mode
+Adjustable range
+Automatic
+Set the automatic adjustment of
+Middle key short press
+OFF/1-15
+
+===== PAGE 18 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+16
+UT70 USB Tester User Manual
+brightness
+backlight after how long it takes
+->Left and right key
+adjustment
+minutes
+brightness
+Set the default brightness for backlight
+display
+Middle key short press
+->Left and right key
+adjustment
+3%-100%
+Table 2.3.4.5 Backlight Setting Options
+6.
+Protocol monitoring setting interface
+In the [Settings] interface above, select the [Protocol Monitoring] option and briefly press to
+enter the protocol monitoring settings interface. The settings for protocol monitoring are shown in
+the table below
+Function items
+Interpretation
+Operation mode
+Adjustable range
+Enable
+monitoring
+Start protocol monitoring and display it
+on the basic interface
+Middle key short press
+Table 2.3.4.6 Protocol Monitoring Options
+Note: When using protocol monitoring, you need to enable protocol monitoring on the setting interface to
+monitor the fast charge protocol type, especially when using two C2C lines, you must first enable protocol
+monitoring in the setting. Due to the variety of fast charging categories, some fast charging protocols have similar
+characteristics, so the monitored fast charging protocols may have a certain probability of misjudgment or
+identification, and the overall accuracy of judgment is about: PD > QC2 > QC3 > BC1.2 > APPLE 2.4A >
+VOOC > FCP > SCP > AFC > VFCP. It is worth noting that if two CC lines are used, at this time, the HID
+interface should be connected to power on first to keep the power supply, choose to turn on the monitoring (keep
+monitoring) to complete the initialization, and then access two C lines and electrical equipment. At the same time,
+the two CC lines can not be inserted blind, that is, C1 to C1 surface, not C1C2, if you can not establish
+communication, first change any plug on the tester to a surface and try again.
+7.
+System Information Interface
+In the [Settings] interface above, select the [Protocol Monitoring] option and briefly press to
+enter the protocol monitoring settings interface. The settings for protocol monitoring are shown in
+the table below.
+Function items
+Interpretation
+Operation mode
+Adjustable range
+system
+information
+Display the current manufacturer and
+software and hardware version
+Middle key short press
+Table 2.3.4.7 System Information Options
+8.
+Factory Restore Interface
+In the [Settings] interface above, select the [Protocol Monitoring] option and briefly press to
+enter the protocol monitoring settings interface. The settings for protocol monitoring are shown in
+
+===== PAGE 19 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+17
+UT70 USB Tester User Manual
+the table below.
+Function items
+Interpretation
+Operation mode
+Adjustable range
+Factory
+Restore
+Restore factory settings, clear all data
+Middle key short press
+Table 2.3.4.8 Factory Restore Options
+3，ATK-UT70 Instructions
+3.1 UT70 USB test driver installed
+When the UT70 USB tester is connected to the computer through the Micro USB cable for
+the first time, the computer will automatically install the driver for it. Please wait until the driver is
+installed before it can be used with the upper computer. Automatic installation of the driver is
+shown in the following figure.
+The driver is integrated into the computer operating system and no additional supply is
+required. After the driver is installed, a USB input device (HID-compliant device) will appear in
+the device Manager of the computer in the man-machine connection device field, and the
+hardware ID information page is "VID_19F5&PID_6666", as shown in the following figure.
+
+===== PAGE 20 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+18
+UT70 USB Tester User Manual
+3.2 Install the running environment of the upper
+computer software
+If the user's computer does not have it installed. NET4.0 running environment, you can use
+the downloaded data pack inside. To install the running environment, go to the UT70 USB Tester
+Data Pack/Configuration software/Software Running environment dotNetFx40_Full_x86_x64.exe.
+If it has already been installed, click the environment installation package to install it, and the
+following message will be displayed indicating that the computer has been installed and there is no
+need to reinstall it.
+
+===== PAGE 21 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+19
+UT70 USB Tester User Manual
+3.3 ATK-UT70 Function description
+Figure 3.2.1 ATK-UT70 main interface
+Interface introduction:
+1
+Device information: display the model and version of UT70 (USB tester).
+2
+Equipment / Host computer function control
+1, Reconnect / Disconnect: controls and displays the current connection status.
+2, Language: set software language.
+3, Update: upgrade UT70 firmware.
+4,Clear logs: clear port logs and protocol logs。
+5, Frequency, setting the frequency of data upload.
+3
+Port logs: auxiliary information printed during the operation of the UT70.
+④Waveform display: you can select the type of waveform displayed, zoom and drag to view, and
+press and hold the right button to display the detailed value of waveform. In addition, the button in
+the upper right corner can pause / resume the waveform display.
+⑤Function Control bar, you can select protocol trigger or check, alarm setting, voltage data
+statistics, current data statistics and so on.
+⑥In the protocol trigger control bar, the upper computer triggers various voltage and automatic
+detection buttons: highlighted indicates that the corresponding protocol is detected or triggered.
+⑦Different control bar log output information, for example, the fast charge function is related to
+the transmission of fast charge operations.
+⑧Voltage and current display: The lower computer only uploads voltage and current, while
+power and other data are calculated and displayed by the upper computer.
+⑨Device UI and Data Record
+1, Set UI: display / control the function interface of UT70.
+2, Auto save: save the voltage and current data obtained by the computer as CSV data table1.
+3, Restart: clear the waveform data, redisplay and record.
+4, Offline data: obtain the offline recording data information of USB tester, and each group of
+
+===== PAGE 22 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+20
+UT70 USB Tester User Manual
+offline data obtained can be displayed through waveform.
+5, Save data: save all currently received voltage, current and other data.
+6, Load data; read previously saved data(.csv) and display it by waveform.
+Note 1: If Auto Save is selected, the higher the frequency of uploading, the larger the CSV file will be generated on
+the disk within the same time period. At this time, the maximum recording time for the file is only half an hour.
+3.2 ATK-UT70 Firmware upgrade
+The firmware update of ATK-UT70 software supports two upgrade modes: local mode and
+net mode.
+Local mode: users need to obtain the latest firmware from the positive atom themselves, and
+then upgrade according to the operations shown in the image below.
+Net mode: the software automatically obtains the latest firmware from the server and prompts
+the firmware version without downloading the latest firmware by yourself. Other operations are
+the same as local mode.
+The net mode upgrade process is shown in the figure below :
+Figure 3.2.1 ATK-UT70 Firmware upgrade
+Operating instructions:
+First press the right button of the tester to power on the tester to enter the upgrade mode, and wait
+for the host computer to recognize successfully, as shown in the following figure:
+
+===== PAGE 23 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+21
+UT70 USB Tester User Manual
+Then operate the host computer in the following steps:
+①Click on the "Update" option on the upper computer, and an upgrade window will pop up.
+Select "Net mode",
+②Then Click on the "Start Upgrade" option in the upper computer upgrade window, and the
+tester itself will jump to the upgrade mode to display the upgrade interface. At the same time, wait
+for the upper computer to recognize that the lower computer is in upgrade mode.
+③After identifying the changes, the firmware will automatically update when it is correct.
+Note: If the remote online upgrade fails or cannot be successfully upgraded for some reason, you can contact our
+company or obtain the local firmware, and then upgrade the firmware in local mode, select "Open file" to select the
+upgraded firmware, and finally click "Start Upgrade" to perform the local upgrade.
+3.3 Firmware update precautions
+If there is an update failure that prevents normal use, you can first press and hold the tester
+▶After pressing the key, then connect to the Micro USB HID port and power it on again. After
+the upper computer recognizes it again, try the above operation again to upgrade the firmware.
+
+===== PAGE 24 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+22
+UT70 USB Tester User Manual
+4，FAQ
+4.1 Solve different problems first
+If the user UT70 has a problem, he can give priority to updating the upper computer and
+updating the firmware of the tester to see if the problem disappears. If these problems persist, you
+can ask us after sales for help and support.
+4.2 CC cable E-Marker cable cannot be detected
+1)
+During the test, one end of the C line is inserted into the mother base of the C port of the
+tester, and the other end can not connect anything to the test. If you connect the charging
+head at the other end, the test will conflict and may lead to no detection；
+2)
+Not all CC lines on the market have E-Marker chips, some do not, CC lines without core,
+overcurrent ability is weak. If you suspect that our inspection is inaccurate, you can set up a
+third-party tool to check and compare if conditions permit, or you can send the line or send
+the line purchase link to us to buy back for comparison and confirmation.
+4.3 The Dash cable cannot be detected
+1)
+Dash cable is currently exclusive to OPPO
+A-port cable, and it is possible that not all OPPO
+data cables on the market are wired, and if there is no OPPO data cable corresponding to the
+wire core, it can not be detected. If you suspect that our inspection is inaccurate, you can use
+a third-party tool to check and compare if possible, or you can send the line or send the line
+purchase link to us to buy back for comparison and confirmation.
+2)
+When testing, the data cable is connected to the tester's A port base, and the other end can not
+connect anything to the test. If you access the charging head at the other end, the test may
+conflict, resulting in no detection.
+4.4 Precautions for monitoring the power or protocol
+used by third-party devices (such as mobile phones)
+1)
+To first access the HID online power to maintain power supply (some mobile phones and
+other electrical equipment and the fast charge head in the negotiation of the fast charge
+agreement may restart the fast charge head without voltage output, so it is necessary to access
+the HID power supply to keep the tester working), the device to open the monitoring,
+re-power to choose to maintain monitoring, after the monitoring initialization is completed,
+
+===== PAGE 25 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+23
+UT70 USB Tester User Manual
+and then access the line and equipment。
+2)
+If you access two C lines to monitor, you can't blind plug, C1 to C1 surface, not C1C2,
+because there is only one line in the C line for communication, C_IN is C1 communication,
+C_OUT side should also be connected to C1 communication. If communication cannot be
+established (trigger fast charge), first change any C-line plug on the tester to another side and
+try again.
+3)
+Fast charging protocol monitoring is likely to be inaccurate or inaccurate, because there are
+many types of fast charging protocols and they are similar, we can only constantly increase
+the accuracy of fast charging protocol monitoring according to actual tests.
+4.5 The fast charge protocol detects and triggers
+exceptions
+1)
+If some fast charge heads keep restarting when detecting and triggering, and cannot complete
+the detection or triggering normally, you can connect the HID wire to keep the power supply
+to complete the triggering/detection.
+2)
+Because there are a lot of fast charge heads on the market, we may not test all of them, if it is
+suspected that the tester did not detect this head has the protocol we determined to support in
+the baby description, if there are conditions, you can find a third-party tool to detect and
+compare, or you can send the head or send the purchase link to buy the head for us to
+compare and confirm, if there are later we test.
+4.6 Support description of the fast charge protocol
+1)
+We only support a certain version of the fast charge protocol of some manufacturers, such as
+OPPO in addition to VOOC, there are SVOOC, we currently only support VOOC detection,
+trigger retention later support, the maximum voltage and fast charge of this fast charge
+protocol will be less than SVOOC.
+2)
+In the later stage, what we can support after research, we will also try to increase some
+private fast charge agreements of different manufacturers as much as possible.
+4.7 D+/D- Displays the situation description
+1)
+Common computer USB A port or some charging head, generally there is no fast charge
+function, and the BC1.2 protocol is generally used by default for external power supply, and
+the D+/D- voltage will be about 0V at the beginning of access, this is not the tester is broken
+or not allowed. If these ports use other protocols for external output, the D+/D- voltage will
+change.
+
+===== PAGE 26 =====
+High Performance USB Tester
+User Manual
+www.alientek.com
+24
+UT70 USB Tester User Manual
+4.8 HID port on the button side
+1)
+The HID on the key side has no measurement function, and is only used to connect the
+computer and identify the upper computer. If only this port is connected, the voltage and
+current will be infinitely close to 0, and D+/D- will be similarly close to 0.
+5，Services
+1. After – sales Service：
+UT70 has a one-year free warranty service in the case of non-artificial damage.
+Please contact the dealer for warranty service.
+2. Website
+Download
+: www.alientek.com/download
+Company
+: www.alientek.com
+Aliexpress
+: www.aliexpress.com/store/1102909571
+3. Contact US
+E-mail
+: fae-smt@alientek.com

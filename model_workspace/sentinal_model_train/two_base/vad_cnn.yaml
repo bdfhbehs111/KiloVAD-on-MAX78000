@@ -1,0 +1,100 @@
+---
+# two_base / vad_cnn -- 剪枝 + 自蒸馏之后的模型（32/24/32/16/8/16, 10,784 B int8）
+#
+# 与 one_base_withqat/sen1_cnn.yaml 的差别只在 processors 的两个掩码 + 注释里的 shape。
+# op / kernel / pad / activate / pool / out_offset 全部沿用 sen1，一个字节没改。
+#
+# ai8xize 会对两个掩码分别做硬校验（izer/backend/max7800x.py:918-943）：
+#     in_expand        = ceil(in  / 64)
+#     in_expand_thresh = ceil(in / in_expand)      # 需要多少个 proc 处理一遍输入
+#     processors       的 popcount 必须 == in_expand_thresh
+#     out_expand        = ceil(out / 64)
+#     out_expand_thresh = ceil(out / out_expand)
+#     output_processors 的 popcount 必须 == out_expand_thresh
+#
+# sen1 的 yaml 只给了 processors 一个掩码（那时 out 都 >= 64，两边恰好同值）。
+# 剪枝后 out < 64，两边不再相等，必须分开写。例：
+#   conv1 in=128 -> in_expand=2,  thresh=64 ; out=32 -> out_expand=1, thresh=32
+#   只写 64 位：报 "32 output channels ... has 64 bits instead of 32"
+#   只写 32 位：报 "128 input channels using 2 passes ... has 32 bits instead of 64"
+
+arch: kilovad_max
+dataset: sentinel
+
+layers:
+  # Layer 0  conv1: (128,128) -> (32,128)   kernel 1, pad 0, 无池化
+  - name: conv1_Conv_8
+    data_format: HWC
+    processors: 0xffffffffffffffff           # in 128 -> 2 passes x 64
+    output_processors: 0x00000000ffffffff    # out 32 -> 1 pass  x 32
+    out_offset: 0x4000
+    op: Conv1d
+    kernel_size: 1
+    pad: 0
+    activate: Relu
+
+  # Layer 1  conv2: (32,128) -> (24,64)     kernel 3, pad 1, max_pool 2/2
+  - name: conv2_Conv_6
+    processors: 0x00000000ffffffff           # in 32 -> 1 pass x 32
+    output_processors: 0x0000000000ffffff    # out 24 -> 1 pass x 24
+    out_offset: 0x0000
+    op: Conv1d
+    kernel_size: 3
+    pad: 1
+    activate: Relu
+    max_pool: 2
+    pool_stride: 2
+
+  # Layer 2  conv3: (24,64) -> (32,32)      kernel 3, pad 1, max_pool 2/2
+  - name: conv3_Conv_6
+    processors: 0x0000000000ffffff           # in 24 -> 1 pass x 24
+    output_processors: 0x00000000ffffffff    # out 32 -> 1 pass x 32
+    out_offset: 0x4000
+    op: Conv1d
+    kernel_size: 3
+    pad: 1
+    activate: Relu
+    max_pool: 2
+    pool_stride: 2
+
+  # Layer 3  conv4: (32,32) -> (16,32)      kernel 3, pad 1, 无池化
+  - name: conv4_Conv_6
+    processors: 0x00000000ffffffff           # in 32 -> 1 pass x 32
+    output_processors: 0x000000000000ffff    # out 16 -> 1 pass x 16
+    out_offset: 0x0000
+    op: Conv1d
+    kernel_size: 3
+    pad: 1
+    activate: Relu
+
+  # Layer 4  conv5: (16,32) -> (8,16)       kernel 3, pad 1, max_pool 2/2
+  - name: conv5_Conv_6
+    processors: 0x000000000000ffff           # in 16 -> 1 pass x 16
+    output_processors: 0x00000000000000ff    # out 8  -> 1 pass x 8
+    out_offset: 0x4000
+    op: Conv1d
+    kernel_size: 3
+    pad: 1
+    activate: Relu
+    max_pool: 2
+    pool_stride: 2
+
+  # Layer 5  conv6: (8,16) -> (16,1)        kernel 1, pad 0, max_pool 16/16
+  - name: conv6_Conv_6
+    processors: 0x00000000000000ff           # in 8  -> 1 pass x 8
+    output_processors: 0x000000000000ffff    # out 16 -> 1 pass x 16
+    out_offset: 0x0000
+    op: Conv1d
+    kernel_size: 1
+    pad: 0
+    activate: Relu
+    max_pool: 16
+    pool_stride: 16
+
+  # Layer 6  fc: (16,1) -> (2,)
+  - name: fc_MatMul_3
+    processors: 0x000000000000ffff           # in 16 -> 1 pass x 16
+    output_processors: 0x0000000000000003    # out 2  -> 1 pass x 2
+    out_offset: 0x4000
+    op: Linear
+    activate: None

@@ -1,0 +1,91 @@
+---
+# YAML template -- requires manual editing, particularly with regard to out_offset and processors
+# Generated for MAX78000 with input format HWC
+
+arch: kilovad_max
+dataset: sentinel
+
+layers:
+  # Layer 0
+  - name: conv1_Conv_8  # conv1_Conv_8 fused with conv1.activate
+    # input shape: (128, 128)
+    data_format: HWC
+    processors: 0xffffffffffffffff
+    out_offset: 0x4000
+    op: Conv1d
+    kernel_size: 1
+    pad: 0
+    activate: Relu
+    # output shape: (64, 128)
+
+  # Layer 1
+  - name: conv2_Conv_6  # conv2.pool and conv2_Conv_6 fused with conv2.activate
+    # input shape: (64, 128)
+    processors: 0xffffffffffffffff
+    out_offset: 0x0000
+    op: Conv1d
+    kernel_size: 3
+    pad: 1
+    activate: Relu
+    max_pool: 2
+    pool_stride: 2
+    # output shape: (96, 64)
+
+  # Layer 2
+  - name: conv3_Conv_6  # conv3.pool and conv3_Conv_6 fused with conv3.activate
+    # input shape: (96, 64)
+    processors: 0x0000ffffffffffff
+    out_offset: 0x4000
+    op: Conv1d
+    kernel_size: 3
+    pad: 1
+    activate: Relu
+    max_pool: 2
+    pool_stride: 2
+    # output shape: (96, 32)
+
+  # Layer 3
+  - name: conv4_Conv_6  # conv4_Conv_6 fused with conv4.activate
+    # input shape: (96, 32)
+    processors: 0x0000ffffffffffff
+    out_offset: 0x0000
+    op: Conv1d
+    kernel_size: 3
+    pad: 1
+    activate: Relu
+    # output shape: (64, 32)
+
+  # Layer 4
+  - name: conv5_Conv_6  # conv5.pool and conv5_Conv_6 fused with conv5.activate
+    # input shape: (64, 32)
+    processors: 0xffffffffffffffff
+    out_offset: 0x4000
+    op: Conv1d
+    kernel_size: 3
+    pad: 1
+    activate: Relu
+    max_pool: 2
+    pool_stride: 2
+    # output shape: (32, 16)
+
+  # Layer 5
+  - name: conv6_Conv_6  # conv6.pool and conv6_Conv_6 fused with conv6.activate
+    # input shape: (32, 16)
+    processors: 0x00000000ffffffff
+    out_offset: 0x0000
+    op: Conv1d
+    kernel_size: 1
+    pad: 0
+    activate: Relu
+    max_pool: 16
+    pool_stride: 16
+    # output shape: (16, 1)
+
+  # Layer 6
+  - name: fc_MatMul_3
+    # input shape: (16, 1)
+    processors: 0x0000ffff00000000
+    out_offset: 0x4000
+    op: Linear
+    activate: None
+    # output shape: (2,)

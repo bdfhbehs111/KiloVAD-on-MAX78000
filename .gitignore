@@ -1,24 +1,58 @@
 # ============================================================================
-#  sys_agent_max78000 —— Git 忽略规则
+#  project-egde_cnn_vad —— Git 忽略规则
 #
-#  原则：只忽略「能由命令重新生成的中间产物」；一切交付物都必须进仓库。
+#  原则
+#  ----
+#  1. 代码 / 配置 / 文档 / 结果表  → **必须入库**
+#  2. 数据集、批量样本、原始采集    → **禁止入库**（GB 级，可重新生成）
+#  3. 能由命令重新编译的中间产物    → 忽略
 #
-#  ⚠ 以下文件是**交付物，不能忽略**（将来加规则时注意别误伤）：
-#      *.pth.tar      各阶段模型权重（PyTorch / ai8x / 量化）
-#      *_weights.h    ai8xize 生成的量化权重 C 数组
-#      *.launch       ai8xize 生成的调试配置
-#      *.npy          ai8xize 的 sample-input
-#      .cproject .project .settings/ .vscode/    IDE 工程配置
+#  ⚠ 本仓库含 29 GB 数据集 + 65 MB 功耗原始 CSV + 433 MB 上游克隆，
+#    误提交一次就再也洗不掉（git 历史不可压缩）。改动下面任何规则前先看清体积。
+#
+#  当前入库体积预算：约 20 MB（不含 .git）
 # ============================================================================
 
-# ── 构建输出 ────────────────────────────────────────────────────────────────
-# 不带前导斜杠的模式匹配**任意层级**的同名目录，所以这一条同时覆盖
-#   本目录的 build/（CMake）、04_app/build/（MSDK 原地构建）、
-#   01_models/**/max78000/*/build/、02_rtos/**/build/
+
+# ── 1. 数据集：原始音频 + 处理后 int8（合计 29 GB，禁止入库）─────────────────
+model_workspace/sentinal_dataset/negative/
+model_workspace/sentinal_dataset/positive/
+model_workspace/sentinal_dataset/_survey/
+
+# 处理后的 int8 数据集（9.9 GB）：只保留「构建参数」这一份文档性文件，
+# 它记录了 WIN / SR / HOP / 归一化口径，不重新生成也能看懂数据是怎么来的。
+model_workspace/sentinal_dataset/dataset_processed/*
+!model_workspace/sentinal_dataset/dataset_processed/build_info.json
+
+
+# ── 2. 上游第三方克隆（433 MB，自带 .git，一条 clone 命令即可恢复）───────────
+model_workspace/sentinal_model_train/ai8x-training/
+
+
+# ── 3. 增益探针批量样本（87 MB，可由 gain_probe*.py 重新生成）─────────────────
+#    只保留量化后的部署权重 q_SCALE.pth.tar（ai8xize 的直接输入）。
+model_workspace/sentinal_model_train/one_base_withqat/_gin/*
+!model_workspace/sentinal_model_train/one_base_withqat/_gin/*.pth.tar
+
+
+# ── 4. 功耗原始数据（65 MB）──────────────────────────────────────────────────
+#    E7_REPORT.md / analyze.py / serial_1h.log 全部保留，只丢逐点 CSV。
+#    采集命令见 README 第 7.5 节，可重新跑出来。
+energy_test/*.csv
+
+
+# ── 5. 器件手册 PDF（4 MB）──────────────────────────────────────────────────
+#    同目录下的 *.txt 是文本抽取版（可 grep、README 索引指向它们），予以保留。
+max78000/e7_power/_ref/*.pdf
+
+
+# ── 6. 临时抓取 / 调试目录（与 _ref 重复）──────────────────────────────────────
+_tmp_max20303/
+
+
+# ── 7. 构建输出（可由 make / cmake 重新生成）──────────────────────────────────
 build/
 /build-vs/
-
-# 目标文件与链接中间产物（万一散落到 build/ 之外）
 *.o
 *.d
 *.a
@@ -28,20 +62,31 @@ build/
 *.hex
 *.su
 
-# ── 构建系统 / 脚本的临时件 ────────────────────────────────────────────────
+
+# ── 8. 构建系统临时件 ───────────────────────────────────────────────────────
 *.ninja
 *.ninja_log
 *.ninja_lock
 *.check_cache
-*.log
 *_log.txt
 
-# ── Python ─────────────────────────────────────────────────────────────────
+
+# ── 9. 日志：默认忽略，但保留「结果证据」级日志 ───────────────────────────────
+#    README 第 6.3 节的索引直接指向这些 .log，丢了就等于结论没有出处。
+*.log
+!model_workspace/sentinal_model_train/one_base_prune/*.log
+!model_workspace/sentinal_model_train/one_base_distill/*.log
+!model_workspace/sentinal_model_train/two_base/*.log
+!energy_test/*.log
+
+
+# ── 10. Python ─────────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 
-# ── 编辑器 / 操作系统垃圾 ──────────────────────────────────────────────────
+
+# ── 11. 编辑器 / 操作系统垃圾 ────────────────────────────────────────────────
 .vscode/ipch/
 .cache/
 *.swp

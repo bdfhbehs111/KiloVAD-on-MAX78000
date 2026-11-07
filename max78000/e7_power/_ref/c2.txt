@@ -1,0 +1,1212 @@
+
+===== PAGE 1 =====
+User Manual
+High-performance USB tester
+C2 USB Tester User Manual
+Ver
+Date
+Change log
+V1.0
+2026/02/09
+First ver
+V1.4
+2026/03/03
+Add BLE fuction
+V1.5
+2026/04/09
+1. Add anti-guessing instructions to the chapter of protocol detection
+of deception
+2. Explain the source of the voltage for the data recording of the
+battery cell
+3.Text descriptions of different colors on the pop-up page of the
+protocol gear selection menu
+V1.6
+2026/04/27
+1.The return key is described in the firmware upgrade for adding the
+DFU function.
+User
+Manual
+
+===== PAGE 2 =====
+High performance USB Tester
+User Manual
+www.alientek.com
+1
+C2 USB Tester User Manual
+Catalogue
+Important Notes (Mandatory Reading)..................................................................1
+1，Characteristic......................................................................................................1
+2，Quick Start..........................................................................................................4
+2.1 Preparation...................................................................................................................... 4
+2.2 Appearance Description................................................................................................ 5
+2.3 Button Functions............................................................................................................ 5
+2.4 Function Description.................................................................................................... 6
+2.4.1
+Main interface.................................................................................................. 6
+2.4.2 Basic Measurement Interface..........................................................................6
+2.4.3 Ripple Measurement Interface........................................................................8
+2.4.4 Data Logging Interface.................................................................................... 9
+2.4.5 Fast Charging Protocol Test Interface....................................................10
+2.4.6 Tool Interface.................................................................................................. 15
+2.4.7 Settings Interface.......................................................................................... 18
+3，PC Software User Guide..................................................................................23
+3.1
+Automatic Driver Installation for C2 Tester on PC......................................23
+3.2
+PC Software Installation........................................................................................ 24
+3.3 PC Software Function Description..........................................................................25
+3.3.1 PC Software Waveform Scaling Rules..........................................................27
+3.3.2
+Observing Power Supply Voltage Ripple via PC Software Waveform28
+3.3.3
+Multi-instance Support for PC Software................................................29
+3.4 Firmware Update via PC Software............................................................................29
+3.5 Firmware Update Notes................................................................................................ 31
+4，Instructions for Using BLE Function........................................................32
+5，Services................................................................................................................34
+
+===== PAGE 3 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+1
+C2 USB Tester User Manual
+Thank you for purchasing this product. To help you fully understand the product features and
+operation methods, we recommend reading this manual carefully before use.
+Important Notes (Mandatory Reading)
+1，When using the fast charge trigger function (AUTO or MANUAL ), please do not connect to
+any other devices (such as computer, mobile phone, etc.), otherwise the high voltage may
+damage your device, and our company will not be responsible!!!
+Note: Except for the Type C PC interface on the side opposite the keys, all other
+interfaces are approximately connected in parallel. If any interface has high voltage, all
+interfaces will output high voltage. At this time, if there are any electrical devices
+connected, they may be burned out!!! Do not connect them randomly!!!
+2，The input voltage of the Type-C power input/output measurement port shall not exceed 36V
+(C2 Lite & C2) / 48V (C2 Pro).
+3，The input voltage of the USB Type-C interface connected to the PC shall not exceed 5.5V.
+4，The C2 tester will generate a certain amount of heat during high-power measurement, which
+is a normal phenomenon.
+5，The key is a side key.Please do not press it hard to avoid damaging the key.
+6，After enabling the power bank mode, the dummy load may cause intermittent changes in the
+monitored voltage/current, which is a normal phenomenon.
+7，Some fast charging adapters/power banks may stop supplying power when the load current is
+low (approximately <100mA). In this case, you can use the C2's power bank mode to provide
+a dummy load to maintain power supply.
+8，If the tester is only connected to a C-port charger at the front stage and no electrical device
+with C-line pull-down at the rear stage, it will not power on. To power on in this way,
+long-press the right button. If long-pressing fails to power on when the female port is used as
+the front stage, flip the CC line and try long-pressing the right button again to power on.
+1，Characteristic
+The C2 Multi-Functional USB Tester is a high-performance USB tester newly launched by
+Guangzhou Starwing Electronic Technology Co., Ltd. (ALIENTEK). The main features of this
+product are as follows:
+
+2 straight-through TYPE C USB3.0 male and female measurement ports, more
+user-friendly for fast charging measurement.
+
+High measurement accuracy, equipped with high-precision alloy sampling resistors and
+16/20-bit ADC chips, with a maximum sampling rate of 1KSPS.
+
+High power capacity, with high-conductivity copper interface ports, supporting an input
+
+===== PAGE 4 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+2
+C2 USB Tester User Manual
+voltage of 3.6 ~ 36V/48V and a maximum current of 7A1
+
+Rich functions, supporting detection and triggering of various fast charging protocols
+such as PD/QC/SCP/UFCS, as well as ripple measurement, line resistance measurement,
+data logging, PC-side PD packet capture, wire core identification, Apple charger SN
+reading, etc.
+
+Exquisite display, with a 1.54-inch 240*240 high-definition IPS large screen for richer
+display content.
+
+Support for 3D gravity direction sensing.
+
+Compact size, CNC integrated shell, exquisite and beautiful, easy to carry.
+
+Powerful PC software, supporting cross-platform use. The subsequent Bluetooth version
+supports mobile phone Bluetooth APP.
+Note 1 & 2: C2/C2 Lite adopt 16-bit ADC with a maximum voltage of 36V. C2 Pro adopts 20-bit
+ADC, with a maximum short-term peak current of 10A (less than 60 seconds) and a
+maximum voltage of 48V.
+Detailed Specification Parameters of C2 Multi-Functional USB Tester：
+Item
+illustrate
+Basic Parameters
+Model：C2
+Screen Size：1.54-inch IPS HD large screen
+LCD Resolution：240*240
+Product Size：37.5mm*35mm*9.2mm
+Net Weight：17.5g
+Interface Features
+TYPE C IN/OUT：7A，supports USB3.0
+TYPE C USB PC：Only for communication with PC, no measurement
+function
+Measurement System
+ADC Resolution：16bit/20bit 1
+Sampling Resistor：High-precision alloy resistor
+Measurement Speed：1Khz（Max）2
+Voltage Range：0 ~ 36V
+Current Range：0 ~ 7A
+Fast Charging Protocols
+BC1.2 detection
+QC2.0, QC3.0 detection and triggering
+QC4+, QC5.0 detection
+PD2.0, PD3.0, PD3.1, PD3.2 detection and triggering
+Huawei FCP, SCP detection and triggering
+Samsung AFC detection and triggering
+MTK PE detection
+VOOC, SVOOC detection
+VIVO VFCP detection and triggering
+APPLE 2.4A detection
+UFCS Universal Fast Charging detection and triggering
+
+===== PAGE 5 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+3
+C2 USB Tester User Manual
+Xiaomi proprietary PD detection and triggering
+Tools
+Line resistance measurement.
+E-Marker cable reding.
+Apple charger SN code reading.
+Ripple
+Supports a maximum sampling rate of 2M for measuring charger ripple
+and evaluating charger performance.
+Data Record
+Logging Points: 10,000 points, supporting a maximum of 2 groups of
+data logging.
+Logging Speed (Local): 0.1Sa/S, 0.5Sa/S, 1Sa/S, 5Sa/S, etc.
+Logging Speed (PC-side): 2Sa/S, 200Sa/S, 500Sa/S, 1000Sa/S, etc .
+Logging Start /Stop Threshold: Configurable (Local).
+Logging Mode: Manual, Threshold Auto.
+PC Software
+WinUSB driver-free design (Windows 7 and above), plug and play
+Rich functions, enabling full function control and measurement of the
+tester.
+Excellent interactive experience, easy to use
+Real-time curve drawing (Voltage, Current, Power, Energy, Resistance,
+D+/D-, C1/C2)
+Programmable maximum acquisition speed of 1000 times/second3
+Supports PC-side PD packet capture with millions of PD packets
+supported, comparable to professional PD packet capture devices
+Supports online data logging and storage (unlimited points)
+Supports offline data reading and curve drawing
+Supports firmware upgrade
+Supports log function
+Supports multi-platform: Windows, MAC, Ubuntu
+Other Functions
+Supports 360° gravity sensing to set screen display direction for
+different usage scenarios
+Supports power bank mode
+Screen dimming sleep
+Bluetooth function(not include lite ver)
+Note 1：C2 Lite/C2 std are 16-bit, C2 Pro is 20-bit.
+Note 2：This speed can only be achieved in PC online mode with data acquisition and logging
+by the PC software。
+Note 3：The maximum 1KSa/S logging speed can be achieved in PC online logging mode。
+Table 1.1
+Detailed specifications of C2
+Hardware Measurement Parameter Indicators of C2 Multi-Functional USB Tester：
+Function
+C2 Lite
+C2 Std
+C2 Pro
+Precision
+ADC
+0 - 36V1
+0 - 36V1
+0 - 48V1
+±(1.0‰+2)
+Monitored Voltage
+0 - 36V1
+0 - 36V1
+0 - 48V1
+±(1.0‰+2)
+
+===== PAGE 6 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+4
+C2 USB Tester User Manual
+Monitored Current
+0 - 7A
+0 - 7A
+0 - 7A(peak 10A)2
+±(1.0‰+3)
+Monitored Power
+0 - 240W
+0 - 240W
+0 - 240W
+±(1.0‰+2)
+D+/D- Voltage
+0 - 3.3V
+0 - 3.3V
+0 - 3.3V
+±(1.0%+2)
+C1/C2 Voltage
+0 - 2.8V
+0 - 2.8V
+0 - 2.8V
+±(1.0%+2)
+Temp Monitoring
+/
+/
+Optional
+±(5%+2)
+Capacity
+0-9999.9Ah
+0-9999.9Ah
+0-9999.9Ah
+Energy
+0-9999.9Wh
+0-9999.9Wh
+0-9999.9Wh
+Statistical Time
+99h 59m 59s
+99h 59m 59s
+99h 59m 59s
+Line Resistance
+0-999.9Ω
+0-999.9Ω
+0-999.9Ω
+Bluetooth
+/
+Supported
+Supported
+PD Packet Capture
+/
+Supported
+Supported
+3D sensing
+Supported
+Supported
+Supported
+AppleCharger check
+Supported
+Supported
+Supported
+Note 1: When measuring voltage below 3.6V, power the tester via the PC USB interface and ensure no
+over-range input to avoid device damage.
+Note 2: Peak 10A less than 60 seconds.
+Table 1.2
+technical index
+2，Quick Start
+2.1 Preparation
+Before using the C2 multi-functional USB tester, in addition to familiarizing yourself
+with the human-machine interaction method of the tester through the following two section
+s, some necessary preparations are also required:
+(1)
+When using it simultaneously with the host computer, you need to download the
+C2 multi-functional USB tester data package. It contains configuration software.
+The download link is as follows.：http://www.openedv.com/docs/tool/USB/C2.html
+(2)
+Read the subsequent content carefully for first-time use.
+
+===== PAGE 7 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+5
+C2 USB Tester User Manual
+2.2 Appearance Description
+Figure 2.0
+C2 Multifunctional USB Tester Appearance Diagram
+Type C IN
+Interface：TYPE C
+USB3.0 input interface, maximum 7A current input.
+Type C OUT Interface：TYPE C
+USB3.0 output interface, maximum 7A current output
+PC USB Interface：Communication interface between the device and PC (Winusb
+communication)
+2.3 Button Functions
+◀Button，Short press：left/up navigation.
+Long press：continuous decrease
+■Button，Short press：confirm/select.
+Long press：Different
+▶Button，Short press：right/down navigation.
+Long press：continuous increase
+Button，Short press：return to previous level.
+Long press：Different
+The human-computer interaction of the C2 Multi-Functional USB Tester is realized via
+buttons. ◀The Left Button / ▶The right Button can switch interfaces or select options. ■The
+middle button is for confirmation with different functions in different interfaces；
+the return
+button can return to the upper menu with a short press.
+Note: The
+key serves as the DFU key during firmware upgrade. The ▶key also functions
+as the incoming call key when only the CC line is connected and the device is turned on by an
+incoming call.
+
+===== PAGE 8 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+6
+C2 USB Tester User Manual
+2.4 Function Description
+2.4.1
+Main interface
+After the tester is powered on, it will default to the main interface. The main interface
+consists of 6 functional options: basic measurement, ripple measurement, data recording, protocol,
+tools, and settings.As shown in Figure 2.2：
+Figure 2.1
+Main interface
+Short press：
+◀button，Switch function icons.
+Short press：
+■button，Enter the selected function.
+Short press：
+▶button，Switch function icons.
+2.4.2 Basic Measurement Interface
+The basic measurement interface displays the most basic measurement parameters, including
+voltage, current, power, etc. (see Figure 2.2).
+
+===== PAGE 9 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+7
+C2 USB Tester User Manual
+Figure 2.2 Basic Measurement Interface
+Interface Overview：
+①，Fast charging protocol type and total power monitored (displayed as Protocols if none) 2
+②，Total gear/Current requested gear index of the fast charging power supply voltage monitored
+(displayed as --NA-- if none)
+③，Type and voltage/current information of the current requested gear (displayed as --NA-- if
+none)
+④，Current direction indicator: Forward (input to output) →. Reverse (output to input) ←.
+⑤，Measured USB D+/D- voltage value (Unit: V)
+⑥，Measured USB C1/C2 voltage value (Unit: V)
+⑦，Real-time monitored voltage (Unit: V)
+⑧，Real-time monitored current (Unit: A)
+⑨，Real-time monitored power (Unit: W)
+⑩，Dummy load enable icon, BLE icon etc
+Note 1：
+Due to the variety of fast charging protocols and similar characteristics of some protocols, there may be
+a certain probability of misjudgment or non-identification of the monitored fast charging protocol. The overall
+judgment accuracy is approximately: PD > QC2 > QC3 > BC1.2 > APPLE 2.4A > VOOC > FCP > SCP > AFC >
+VFCP > UFCS.
+Operation Instructions：
+
+===== PAGE 10 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+8
+C2 USB Tester User Manual
+Short press：
+◀button，Switch screen direction when gravity sensing is disabled
+Long press：
+◀button，Lock/unlock screen direction. When the lock icon is displayed, the
+screen direction cannot be switched manually or by gravity sensing.
+Short press：
+■button,View PD PDO quick message if PD power supply packets are
+available.The green-selected part in the PD PDO quick message
+represents the currently used gear.
+Short press：
+▶button，Switch upload frequency
+Short press：
+button，Return to previous level
+2.4.3 Ripple Measurement Interface
+The waveform display interface shows the ripple magnitude corresponding to the voltage
+gear of the current device, and the ripple frequency (to be implemented) (see Figure 2.3).
+Figure 2.3
+Ripple Measurement Interface
+Interface Overview：
+1 ，Real-time voltage ripple value under the current sampling rate
+2 ，Average voltage ripple value under the current sampling rate
+3 ，Maximum voltage ripple value under the current sampling rate
+4 ，Sampling rate for the current monitored voltage ripple
+⑤，Time scale (e.g. 17uS/div)
+⑥, Ripple cycle frequency of the monitored voltage under the current sampling rate (to be
+implemented)
+
+===== PAGE 11 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+9
+C2 USB Tester User Manual
+Operation Instructions：
+Short press：◀button，Switch ADC sampling rate
+Short press：■button，Pause waveform display
+Short press：▶button，Switch ADC sampling rate
+Short press：
+button，Return to previous level
+2.4.4 Data Logging Interface
+The data logging interface is used for offline logging of the electric quantity/energy flowing
+from the power supply to the device, supporting a maximum of 2 groups of data logging (see
+Figure 2.4).
+Figure 2.4
+Data Logging Interface
+Interface Overview：
+1 ，Current logging group
+2 ，Start/Pause/Full stop icon
+3 ，Maximum current and power logged in the current group
+4 ，Real-time monitored voltage, current and power
+5 ，Logging time of the current group
+6 ，Energy (Wh) logged in the current group
+7 ，Capacity (Ah) logged in the current group
+8 ，Logging point progress bar (turns fully red when full)
+9 ，Start and pause conditions of the logging group
+
+===== PAGE 12 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+10
+C2 USB Tester User Manual
+The tester counts data every 50ms in data logging mode. A faster counting interval can be
+achieved via the PC software.。
+The offline data logging time-segment curve can only be viewed by importing data to the PC
+software after logging starts. Note that only the logged voltage and current curve data will be
+uploaded for offline data, and the Wh/AH waveform curve data will not be uploaded (the PC
+software displays a final value straight line curve). Save the offline data as a CSV file via the PC
+software and manually record the corresponding Wh of the offline data logging group before
+deleting the group.
+Battery capacity mAh refers to the cumulative current (mA) per hour. For example,
+discharging at 1000mA for 1 hour equals 1000mAh (1Ah).
+Energy mWh refers to the cumulative value of voltage (V) multiplied by current (mA) per
+hour. For example, 10V output with a 1000mA load equals 10W, and discharging for 1 hour yields
+10000mWh (10Wh), which is equivalent to 0.01 kWh (1 kWh = 1000Wh) in household electricity
+meter units.
+This interface can be used to evaluate the battery capacity of mobile phones, tablets and
+power banks. For example, if 17.251Wh (17251.00mWh) is consumed for a single charge, the
+internal lithium battery pack of the mobile phone/tablet operates at 3.7V, and the charging
+conversion efficiency is approximately 90%. The battery capacity of the mobile phone/tablet is
+roughly 17.251Wh / 3.7V * 0.9 = 4.196Ah.
+Note: The nominal working voltage of the battery cell should be based on the actual marking
+on the label. Some may not be 3.7V.
+Operation Instructions：
+Short press：◀button : Switch data logging group directly before logging starts; Pop
+up a prompt for group switching after logging starts.
+Short press：■button，Start/stop data logging
+Short press：▶button，Switch data logging group directly before logging starts; Pop
+up a prompt for group switching after logging starts.
+Short press：
+button，Return to previous level.
+2.4.5 Fast Charging Protocol Test Interface
+1.
+Automatic Detection Interface
+On the main interface, select the [Protocol] icon to enter the automatic detection and trigger
+
+===== PAGE 13 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+11
+C2 USB Tester User Manual
+selection interface, then select [Auto detect all protocols]. A prompt will pop up to warn of high
+voltage during detection; disconnect all external loads, select whether to use Emarker type
+simulation, and click [YES] to start automatic detection (see Figure 2.6).
+Please note: Before the
+detection, go to Settings -> Auxfun Settings to check if the cap switch is enabled. If it is not,
+please turn it on to prevent the meter from blacking out during the detection and causing the
+trigger to fail.
+Figure 2.6
+Automatic Detection Interface
+After detection is completed, view the fast charging protocols and detailed parameters
+supported by the power supply device by switching the detected protocols with the left/right
+buttons and clicking confirm on the automatic detection completion interface (see Figure 2.7).
+
+===== PAGE 14 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+12
+C2 USB Tester User Manual
+Figure 2.7
+Auto-detect coordination details interface
+In the pop-up window shown above, the yellow areas represent some private gears, such as
+the private high-power PPS gear of Xiaomi PD. The green-selected areas indicate the currently
+used gear, which is generally meaningful in protocol monitoring.
+Operation Instructions：
+During automatic detection：
+Short press：
+button，Return to previous level
+Long press：
+button，Return to main interface.
+After automatic detection：
+Short press：◀button，Switch to the previous protocol result
+Short press：▶button，Switch to the next protocol result
+Short press：■button，View details of the selected protocol result
+Warning: High voltages will be induced during automatic fast charging protocol
+detection. Do not connect any electrical devices to prevent device damage or fire
+hazards. Our company shall not be liable for any device damage caused by
+non-compliance. If the tester powers off and fails to complete detection for some
+fast charging protocols, connect the USB PC port to maintain power supply for
+completion.For safety purposes, the machine implements some simple anti-fraud
+measures. When the words "Remove load" turn red, it indicates that fraud detection
+cannot be performed.
+
+===== PAGE 15 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+13
+C2 USB Tester User Manual
+2.
+Manual Trigger Interface
+The manual trigger interface is used to manually select fast charging protocols and
+corresponding trigger voltages. After successful protocol triggering, the voltage can be adjusted
+manually by triggering different gears of each protocol via buttons..
+Take PD protocol triggering as an example: On the main interface, select the [Protocol] icon
+to enter the automatic detection and trigger selection interface, then select [PD]. A prompt will pop
+up to warn of high voltage during triggering; disconnect all external loads, select whether to use
+Emarker type simulation, and click [YES] to start manual triggering (see Figure 2.8). Please note:
+Before the Trig PD, go to Settings -> Auxfun Settings to check if the cap switch is enabled. If it is
+not, please turn it on to prevent the meter from blacking out during the detection and causing the
+trigger to fail.
+Figure 2.8
+PD Manual Trigger Interface
+If the protocol is triggered successfully, the adjustable gear detail interface of the protocol
+will be displayed (see Figure 2.9).
+
+===== PAGE 16 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+14
+C2 USB Tester User Manual
+Figure 2.9
+PD Manual Trigger Interface
+Interface Overview：
+①，Currently triggered protocol type and parameter range information.
+②，Real-time monitored voltage, current and power
+③，PPS step voltage regulation gear step value of the current protocol (0.1V)
+④，PPS step voltage regulation range of the current protocol (3.3 to 21.0V)，
+⑤，Gear voltage and current information of the current protocol (including fixed gears and PPS
+gears).If a gear of the protocol is selected with the ◀buttons/ ▶buttons and confirmed
+with the middle ■button,the real-time voltage value will be close to the gear value,
+indicating that the tested device supports this fast charging mode.
+Operation Instructions：
+During triggering：
+Short press
+button，Return to previous level
+Long press：
+button，Return to main interface
+After successful triggering (Voltage selection)：
+Short press：◀button，Cycle up to switch the desired voltage
+Short press：▶button，Cycle down to switch the desired voltage
+Short press：■button，Trigger the currently selected gear
+Warning: High voltages will be induced during manual fast charging protocol
+triggering. Do not connect any electrical devices to prevent device damage or fire
+hazards. Our company shall not be liable for any device damage caused by
+
+===== PAGE 17 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+15
+C2 USB Tester User Manual
+non-compliance. If the tester powers off and fails to complete triggering for some
+fast charging protocols, connect the USB PC port to maintain power supply for
+completion.When the words "Remove load" turn red, it indicates that fraud detection
+cannot be performed.
+2.4.6 Tool Interface
+1.
+Apple Charger Identification Interface
+Apple charger identification is used to read charger information (mainly SN code) and
+display it on the screen. The SN code can be entered on the official Apple website for authenticity
+verification.Operation: Main Interface →[Tools] →[Apple Power] to enter the Apple charger
+identification interface (see Figure 2.10 for successful identification).
+Figure 2.10
+Apple Charger Identification Interface
+Interface Overview：
+
+===== PAGE 18 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+16
+C2 USB Tester User Manual
+①，Maximum possible charging power specification of the current Apple charger
+②，VID and ID of the current Apple charger manufacturer
+③，SN code of the current Apple charger (for authenticity verification on Apple's official website)
+④，Hardware and firmware versions of the current Apple charger
+Operation Instructions：
+While identifying the Apple charger：
+Short press：
+button，Return to previous level
+After successful identification:：
+Short press：
+button，Return to previous level
+2.
+E-Marker Identification Interface
+E-Marker identification is used to read the chip information of E-Marker cables and display it
+on the screen.Operation: Connect the C-cable connector to the female C-port of the tester, then go
+to Main Interface →[Tools] →[E-Marker] to enter the E-Marker cable identification interface
+(see Figure 2.11 for successful identification).
+Figure 2.11
+E-Marker Identification Interface
+
+===== PAGE 19 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+17
+C2 USB Tester User Manual
+Interface Overview：
+①，Transmission speed of the current cable type
+②，VID of the current cable manufacturer
+③，Approximate length of the current cable
+④，Detected cable type (E-Marker)
+⑤，Power specification of the current cable type
+Operation Instructions：
+During cable identification：
+Short press：
+button，Return to previous level
+After successful cable identification：
+Short press：■button，Pop up cable information box
+Short press：
+button，Return to previous level
+Note for E-marker cable detection: Avoid powering the tester via the Type-C
+measurement port (recommend using the PC USB Type-C port instead) to prevent abnormal
+detection. If detection fails on one side, flip the cable and try again.
+3.
+Line Resistance Measurement Interface
+The line resistance measurement interface is used to measure the internal resistance (line
+resistance) of the power supply cable by the voltage difference method. A self-prepared power
+supply device (without line compensation function, most fast charging heads have line
+compensation, so a regular charger is recommended) is required for auxiliary measurement. This
+method only provides an estimated line resistance value for reference.
+Preparation: At least 1 tested cable, 1 power supply device (supporting output above 500mA).
+Operation: Main Interface →[Tools] →[Cable Res] to enter the measurement interface (see
+Figure 2.12)：
+
+===== PAGE 20 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+18
+C2 USB Tester User Manual
+Figure 2.12
+Line Resistance Measurement Interface
+After entering the interface, start the test according to the following steps:
+1，Connect the C2 to the power supply device with the tested cable
+2，Press the ■button to start measurement (an animation prompts ongoing
+measurement)
+3，Wait for the measurement result; the internal resistance of the current cable will be
+displayed on the screen after successful measurement
+Operation Instructions：
+After entering the interface：
+Short press：
+button，Return to previous level
+Short press：■button，Start line resistance measurement
+After measurement：
+Short press：
+button，Return to previous level
+Short press：■button，Restart measurement
+2.4.7 Settings Interface
+Operation: Main Interface →[Settings] to enter the settings interface (see Figure 2.13).
+
+===== PAGE 21 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+19
+C2 USB Tester User Manual
+Figure 2.13 Settings Interface
+1.
+Data Logging Settings Interface
+Select [Data Logging] on the Settings interface and short press to enter the settings interface.
+The settings are as follows:
+Function Item
+Definition
+Operation Method
+Adjustable Range
+Save Interval
+Set the interval for offline data logging
+of the group
+Short press the middle button
+→adjust with left/right
+buttons
+50mS - 120S
+Start Rule
+Set the start rule for offline data logging
+of the group
+Short press the middle button
+→adjust with left/right
+buttons
+Manual /
+Threshold Start
+Stop Rule
+Set the stop rule for offline data logging
+of the group
+Short press the middle button
+→adjust with left/right
+Manual /
+Threshold Stop
+
+===== PAGE 22 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+20
+C2 USB Tester User Manual
+buttons
+Data List
+View logging point information of all
+groups
+Short press the middle button
+Delete All Data
+Delete logging information of all groups
+Short press the middle button
+Table
+2.4.4.1
+Data Recording Setting Options
+After setting the data logging rules for the group, you can return to the data logging interface
+on the main interface to start offline logging.
+2.
+Auxiliary Function Settings Interface
+Select [Auxiliary Functions] on the Settings interface and short press to enter the settings
+interface. The settings are as follows:
+。
+Function Item
+Definition
+Operation Method
+Adjustable Range
+Power Bank
+Mode
+Enable this mode to turn on the dummy
+load at intervals, simulate device power
+consumption, and prevent power bank
+power-off at low current (recommended
+to enable only in the basic measurement
+interface with 5V voltage)
+Short press the middle
+button to enable
+Load On
+Interval
+Interval (in seconds) for turning on the
+dummy load in power bank mode
+(dummy load current: 300-550mA). The
+tester will consume current
+intermittently after enabling, resulting in
+heat generation during long-term
+operation
+Short press the middle button
+→adjust with left/right
+buttons
+1S-10S
+Capacitor
+Switch
+Control the on/off of the super capacitor
+(only available for hardware versions
+1.5 and above)
+Short press the middle button
+to enable
+Table
+2.4.4.2 Auxiliary Function Setting Options
+3.
+Language Settings Interface
+Select [Language Settings] on the Settings interface and short press to enter the settings
+interface. The settings are as follows:
+Function Item
+Definition
+Operation Method
+Adjustable Range
+
+===== PAGE 23 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+21
+C2 USB Tester User Manual
+Language
+Settings
+Set the display language of the interface
+Adjust with left/right buttons
+→short press the middle
+button to confirm
+简体中文
+English
+Table
+2.4.4.3 Language Setting Options
+4.
+Screen Settings Interface
+Select [Screen Settings] on the Settings interface and short press to enter the settings interface.
+The settings are as follows:
+Function Item
+Definition
+Operation Method
+Adjustable Range
+Backlight
+Brightness
+Set the default backlight brightness
+Short press the middle button
+→adjust with left/right
+buttons
+3%-100%
+Screen
+Dimming
+Time Set the time for the screen to dim
+automatically
+Short press the middle button
+→adjust with left/right
+buttons
+0 to 30 minutes (0
+= disabled)
+3D Gravity
+Sensing
+The screen automatically rotates
+according to gravity sensing when
+enabled. Manual screen direction
+switching via the ◀button in the basic
+measurement interface is available when
+disabled
+Short press the middle button
+to enable
+Table
+2.4.4.4
+Screen Settings Options
+5.
+Theme Settings Interface
+Select [Theme Settings] on the Settings interface and short press to enter the settings
+interface. The settings are as follows:
+Function Item
+Definition
+Operation Method
+Theme Color
+Switch the selected theme color
+Adjust with left/right buttons
+→short press the middle
+button to confirm
+Table 2.4.4.5
+Theme Color Settings Options
+
+===== PAGE 24 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+22
+C2 USB Tester User Manual
+6.
+Boot Interface Settings
+Select [Boot Interface] on the Settings interface and short press to enter the settings interface.
+The settings are as follows:
+Function Item
+Definition
+Operation Method
+Main Interface,
+Basic
+Measurement,
+Ripple
+Measurement,
+Logging,
+Protocol
+Set the default interface after power-on
+Adjust with left/right buttons
+→short press the middle
+button to confirm
+Table 2.4.4.6
+Boot InterfaceSettings Options
+7.
+Other Settings Interface
+Select [Others] on the Settings interface and short press to enter the settings interface. The
+settings are as follows:。
+Function Item
+Definition
+Operation Method
+Bluetooth
+Switch
+Enable Bluetooth function for
+connection with mobile phone
+Bluetooth APP (for Bluetooth-supported
+versions)
+Short press the middle button
+LOGO
+Interface
+Display the boot LOGO first when
+enabled
+Short press the middle button
+Virtual
+E-Marker
+Enable the tester to simulate an
+E-Marker cable when enabled
+Short press the middle button
+Restore
+Factory
+Settings
+Restore all default parameters (all data
+logging groups will be deleted)
+Short press the middle button
+User Manual
+Pop up a QR code for scanning the
+electronic manual
+Short press the middle button
+Table
+2.4.4.6
+other setting
+8.
+About Interface
+Select [About] on the Settings interface and short press to enter the system information
+interface. The settings are as follows:
+
+===== PAGE 25 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+23
+C2 USB Tester User Manual
+Function Item
+Definition
+Operation Method
+About
+Display the current manufacturer,
+hardware and firmware versions, etc
+Short press the middle
+button
+Table
+2.4.4.7 about sys
+3，PC Software User Guide
+3.1
+Automatic Driver Installation for C2 Tester on PC
+Connect the C2 Multi-Functional USB Tester to the PC via a Type-C cable for the fi
+rst time; the PC will automatically install the driver (for Windows 7 and above). Wait for
+the driver installation to complete before using the PC software with the tester.
+
+===== PAGE 26 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+24
+C2 USB Tester User Manual
+Figure 3.1
+USB driver
+The driver is integrated in the PC operating system and no additional driver is required. After
+successful installation, an ATK C2 USB Device will appear in the Universal Serial Bus devices
+section of the Device Manager, with the hardware ID: VID_2E88&PID_C2C2.
+Figure 3.2
+C2 USB device
+3.2
+PC Software Installation
+The ATK-C PC software is a powerful software tool specially designed for the C2 tester by
+the ALIENTEK team.Supported Operating Systems：
+⚫Windows：Windows 7 and above
+⚫Linux：Ubuntu 20.04 and above
+⚫Mac：OS 10.14 and above
+ATK-C Software of PC Configuration Requirements：
+
+===== PAGE 27 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+25
+C2 USB Tester User Manual
+⚫CPU：Minimum 3.0GHz dual-core, recommended 4.0GHz and above
+⚫Memory：2G and above
+⚫GPU：No requirement
+⚫Hard Disk：300M and above available space
+⚫USB：USB2.0 and above
+Note: Software performance may be affected if the PC configuration is lower than the above
+requirements！
+Select the corresponding installation package according to the PC operating system,
+double-click the installation file in the downloaded C2 data package (path: C2 Multi-Functional
+USB Tester Data Package/Configuration Software), and follow the prompts to complete the
+installation.
+3.3 PC Software Function Description
+
+===== PAGE 28 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+26
+C2 USB Tester User Manual
+Figure 3.3 for the main interface of the PC software.
+Interface Overview：
+1 ，Device/PC Software Function Control: Displays the model and version of the tester (slave
+device)。
+1：Connect/Disconnect control – displays the connection status between the PC software
+and the USB tester
+2：Language setting – sets the display language of the PC software
+3：Firmware update – updates the firmware version and functions of the tester
+②，Voltage/Current Display: The tester uploads voltage, current, D+/D- and other data for
+calculation and display
+③，Quick Waveform Drag Window: For positioning waveforms easily
+④，Main Waveform Display Window: Selectable waveform types, support scaling and dragging
+for viewing; hover the mouse to view detailed waveform values. The top-right button can
+pause/resume waveform display and set the data acquisition rate
+⑤，Function Control Bar: Controls protocol trigger/detection, alarm settings, and offline data
+reading of the tester.
+1：Protocol trigger and detection selection. Highlighted during automatic detection with log
+display; highlighted gear information for successfully triggered protocols during manual
+trigger.
+
+===== PAGE 29 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+27
+C2 USB Tester User Manual
+2：Alarm settings – set upper/lower limits for voltage, current and power to trigger
+on-screen alarms and log prompts.
+3：Offline data – retrieve offline logging data of the USB tester and display each group of
+offline data in waveform
+⑥，Waveform Window Settings Bar: Supports automatic waveform saving, secondary waveform
+display, waveform color setting, etc.
+1：Auto-save – save the voltage/current data acquired by the PC software as CSV or
+SQLite database files
+2：Restart – clear waveforms and historical voltage/current data, restart display and logging
+3：Offline data – retrieve offline logging data of the USB tester and display each group in
+waveform.
+4：Save data – save all currently received voltage/current data as CSV or SQLite database
+files.
+5：Load data – read previously saved online/offline data files (CSV/SQLite) for waveform
+display.
+⑦，PC Software Log Information: For operation reference and interface switching via control
+settings.
+⑧，Data Recorder & Protocol Analyzer Switch Bar: Switch between data logging and protocol
+analysis; the PC software supports PD packet capture when protocol analysis is selected
+10，Protocol Analyzer PD Packet Capture Display: Supports millions or even tens of millions of
+PD packets, with expandable PD packet details.
+3.3.1 PC Software Waveform Scaling Rules
+Hover the mouse over the waveform display area: Scroll the wheel to scale the waveform
+left/right. Hover the mouse near the vertical axis: Scroll the wheel to scale the waveform up/down，
+As shown in the figure below：
+
+===== PAGE 30 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+28
+C2 USB Tester User Manual
+3.3.2
+Observing Power Supply Voltage Ripple via PC Software Waveform
+If you need to observe quality parameters such as power supply voltage ripple, you can select
+only the voltage waveform curve for display on the host computer and leave the others unchecked.
+At the same time, set the sampling frequency to the maximum of 1000 Hz. In this way, the
+peak-to-peak voltage Vp-p calculated from the voltage data by the host computer can be used to
+assist in analyzing the power supply voltage ripple, as shown in the figure below.：
+
+===== PAGE 31 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+29
+C2 USB Tester User Manual
+3.3.3
+Multi-instance Support for PC Software
+Similar to app cloning on mobile phones, the PC software supports multi-instance operation –
+the number of connected C2 USB testers equals the number of opened PC software instances.
+3.4 Firmware Update via PC Software
+The C2 PC software supports two firmware upgrade methods: Local Mode and Remote
+Mode.
+Local Mode: Users need to obtain the latest firmware from ALIENTEK and follow the
+on-screen instructions to upgrade。
+Remote Mode: The software automatically retrieves the latest firmware from the server and
+prompts the firmware version (no manual download required). The operation steps are the same as
+Local Mode.
+The remote mode upgrade process is shown in the figure below:
+
+===== PAGE 32 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+30
+C2 USB Tester User Manual
+Operation Instructions：
+One-click upgrade is available via the PC software. If one-click upgrade fails，Press and hold
+the
+Return button (DFU button)of the tester while powering on to enter the upgrade mode, Wait
+for the PC software to identify the tester (the tester displays UPGRADE VerX.X Ready)，shown in
+the figure below：
+
+===== PAGE 33 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+31
+C2 USB Tester User Manual
+Then operate the host computer sequentially according to the following steps:
+1 Click [Firmware Update] in the PC software, pop up the upgrade window and select [Remote]
+②Click [Start Upgrade] in the upgrade window; the tester will switch to the upgrade mode and
+display the upgrade interface, then wait for the PC software to identify the tester in upgrade
+mode
+③The firmware will update automatically after successful identification (if the firmware is valid)
+Note: If remote online upgrade fails or is not feasible for any reason, contact our company to obtain the local
+firmware, select [Local] in the upgrade window, click [Open File] to select the firmware file, and finally click
+[Start Upgrade] for local upgrade.
+3.5 Firmware Update Notes
+If an update fails, causing the device to malfunction or display a black screen, first hold down
+the tester esc button(DFU Button) and power it on, then connect it to the PC USB port and power
+it on again. After the host computer recognizes it, try the above steps again to perform the
+firmware upgrade.
+
+===== PAGE 34 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+32
+C2 USB Tester User Manual
+4，Instructions for Using BLE Function
+When using it for the first time, obtain the mobile Bluetooth APP installation program
+from the data package or download it from the app store (for IOS version) and install it. After
+installing the mobile APP:
+①First, operate the C2 USB tester to enter the settings
+Other Settings option. Then, turn
+on the Bluetooth switch of the device itself. The Bluetooth name of the device is BLE03 or
+C2_XXX.
+②Turn on the Bluetooth function of the mobile phone, open the atk-xtool APP. The APP
+can support up to 4 devices (slight lag may occur when multiple devices are connected).
+Click on any one of the squares to enter. The mobile APP will automatically scan the nearby
+Bluetooth devices and select the device with the default Bluetooth name (BLE03 or those
+starting with C2_XXX) of the tester. After successful connection, a preview measurement
+value square will appear, and clicking on it will enter the full-function interface of the mobile
+APP. The button functions at the bottom of the mobile APP interface are not clear? Click "?"
+and view the icon explanations.
+At the same time, after Bluetooth connection on the C2 device, the Bluetooth icon will light
+up in the status bar of the basic measurement interface on the screen.
+③The interface of the mobile phone Bluetooth APP currently supports the following
+functions:
+1. Support waveform curve selection, waveform start/stop, waveform cursor measurement,
+full-screen zoom display, etc.
+2. Display the fast charging protocol obtained by monitoring.
+3. Online statistics of capacity in Ah and Wh.
+4. Alarm settings, used to trigger alarms when certain conditions are met.
+5. Automatic stop settings, used to automatically stop Ah/Wh, time, etc. when certain
+conditions are met.
+6. Support modifying the C2 Bluetooth name in the APP, with a maximum of 12 characters of
+English name.
+7. Save waveform curves and load saved waveform curves, etc.
+8. View the system version information of the C2 USB tester device.
+
+===== PAGE 35 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+33
+C2 USB Tester User Manual
+①Turn on the BlE
+②Connect the dev and enter
+③Mobile App interface
+
+===== PAGE 36 =====
+High performance USB Tester
+用户手册
+www.alientek.com
+34
+C2 USB Tester User Manual
+5，Services
+1. After – sales Service：
+C2 has a one-year free warranty service in the case of non-artificial damage.
+Please contact the dealer for warranty service.
+2. Website
+Download
+: www.alientek.com/download
+Company
+: www.alientek.com
+Aliexpress
+: www.aliexpress.com/store/1102909571
+3. Contact US
+E-mail
+: fae-smt@alientek.com

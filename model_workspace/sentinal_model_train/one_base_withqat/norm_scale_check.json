@@ -1,0 +1,10 @@
+{
+  "n_samples": 600,
+  "orig_max_ddof1": 11.169575691223145,
+  "orig_p99_ddof1": 10.38009094238281,
+  "suggest_k": 11.459701204279419,
+  "sat_frac_x8": 0.0,
+  "sat_frac_x16": 6.937662760416667e-05,
+  "int8_diff_pop_vs_unbiased_pct": 2.219960530598958,
+  "zero_band_pct": 0.002604166666666667
+}
