@@ -87,7 +87,9 @@ __pycache__/
 
 
 # ── 11. 编辑器 / 操作系统垃圾 ────────────────────────────────────────────────
-.vscode/ipch/
+#    .vscode/ 是每台机器各自的 IDE 状态（含 D:/MaximSDK 绝对路径），不入库。
+#    MSDK 原厂 Demo 与 ai8xize 模板自带的 .vscode 会随模板重新生成，也不必入库。
+.vscode/
 .cache/
 *.swp
 *.swo
